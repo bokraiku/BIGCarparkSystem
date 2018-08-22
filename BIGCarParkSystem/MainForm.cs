@@ -115,7 +115,7 @@ namespace BIGCarParkSystem
             c_panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
             left_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             right_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
-            form_panel.BackColor = Color.FromArgb(100, 200, 200, 200);
+            form_panel.BackColor = Color.FromArgb(200, 200, 200, 200);
         }
 
         private void scancard_btn_Click(object sender, EventArgs e)
