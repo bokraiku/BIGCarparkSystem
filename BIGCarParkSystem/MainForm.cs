@@ -14,14 +14,18 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using RDNIDWRAPPER;
-using BIGCarParkSystem.Resources;
+using BIGCarParkSystem.Class;
 
 
 namespace BIGCarParkSystem
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
+        // Init Class
         FunctionClass fn = new FunctionClass();
+
+        CompanyClass com = new CompanyClass();
+        ObjectiveClass objClass = new ObjectiveClass();
         Camera display_cam = new Camera();
         RDNIDWRAPPER.RDNID mRDNIDWRAPPER = new RDNIDWRAPPER.RDNID();
 
@@ -29,13 +33,26 @@ namespace BIGCarParkSystem
         int Camera1;
         int Camera2;
         string CardReader;
+
+        public static int CompanySelectedID = 0;
+        public static int CarTypeSelectedID = 0;
+        public static int ObjectiveSelectedID = 0;
+        public static int ContactId = 0;
+
+        public string displayImage1 = "";
+        public string displayImgae2 = "";
+
+        FileStream fs;
+
+        BinaryReader br;
         public MainForm()
         {
             InitializeComponent();
-            
+
 
             // trans panel
-            
+            metroStyleManager1.Style = MetroColorStyle.Blue;
+
 
         }
 
@@ -43,7 +60,7 @@ namespace BIGCarParkSystem
         {
             FormBorderStyle = FormBorderStyle.None;
             //WindowState = FormWindowState.Maximized;
-            TopMost = true;
+            //TopMost = true;
             this.GetCameraInfo();
             display_cam.OnFrameArrived += new FrameArrivedEventHandler(myCam_OnFrameArrived);
 
@@ -76,6 +93,13 @@ namespace BIGCarParkSystem
 
             // List Card reader
             this.ListCardReader();
+
+
+            // get autocomplete
+            this.AutoCompleteCompanyTB();
+
+
+            fullname_tb.Focus();
 
 
 
@@ -115,7 +139,7 @@ namespace BIGCarParkSystem
             c_panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
             left_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             right_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
-            form_panel.BackColor = Color.FromArgb(200, 200, 200, 200);
+            form_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
         }
 
         private void scancard_btn_Click(object sender, EventArgs e)
@@ -283,12 +307,363 @@ namespace BIGCarParkSystem
         }
 
         private void capture_btn_Click(object sender, EventArgs e)
-        {
-            string file = Application.StartupPath + @"\" + "Image" + fn.getRanFile();
+        {   string name = "Image" + fn.getRanFile();
+            string file = Application.StartupPath + @"\" + name;
 
             display_cam.Capture(file);
+            this.displayImage1 = name + ".jpg";
             camera1_display_pb.Image = Image.FromFile(file + ".jpg");
         }
+
+        private void AutoCompleteCompanyTB()
+        {
+            // Company
+            company_tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            company_tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            DataTable compamyDT = com.getAllCompany();
+
+            foreach(DataRow c in compamyDT.Rows)
+            {
+                coll.Add(c["com_name"].ToString());
+                //MessageBox.Show(c["com_name"].ToString());
+            }
+            compamyDT.Clear();
+            company_tb.AutoCompleteCustomSource = coll;
+
+
+            // Contact
+            contact_tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            contact_tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection con_coll = new AutoCompleteStringCollection();
+            DataTable ContactDT = objClass.getAllContact();
+            foreach (DataRow c in ContactDT.Rows)
+            {
+                con_coll.Add(c["contact_name"].ToString());
+               
+            }
+            contact_tb.AutoCompleteCustomSource = con_coll;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CompanySelectForm cf = new CompanySelectForm();
+            cf.FormClosing += new FormClosingEventHandler(Cf_FormClosing);
+            cf.ShowDialog();
+            cartype_select_btn.PerformClick();
+
+            //cf.FormClosed += new FormClosedEventHandler(Cf_FormClosed);
+
+        }
+
+        private void Cf_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(MainForm.CompanySelectedID != 0)
+            {
+                CompanyClass cp = new CompanyClass();
+                DataTable dt = cp.GetCompanyByID(MainForm.CompanySelectedID);
+                if (dt.Rows.Count > 0)
+                {
+                    string CompanyName = dt.Rows[0]["com_name"].ToString();
+                    company_tb.Text = CompanyName;
+                    //cartype_select_btn.PerformClick();
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "ไม่พบบริษัทที่เลือก กรุณาลองใหม่อีกครั้ง");
+                }
+            }
+           
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F5)
+            {
+                select_company_btn.PerformClick();
+            }
+            if (e.KeyCode == Keys.F6)
+            {
+                cartype_select_btn.PerformClick();
+            }
+            if (e.KeyCode == Keys.F7)
+            {
+                objective_select_btn.PerformClick();
+            }
+            if (e.KeyCode == Keys.F8)
+            {
+                contact_select_bt.PerformClick();
+            }
+        }
+
+        private void cartype_select_btn_Click(object sender, EventArgs e)
+        {
+            CarSelectForm cf = new CarSelectForm();
+            cf.FormClosing += new FormClosingEventHandler(CT_FormClosing);
+            cf.ShowDialog();
+            objective_select_btn.PerformClick();
+        }
+
+        private void CT_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MainForm.CarTypeSelectedID != 0)
+            {
+                CartypeClass cp = new CartypeClass();
+                DataTable dt = cp.getCartypeById(MainForm.CarTypeSelectedID);
+                if (dt.Rows.Count > 0)
+                {
+                    string CartypeName = dt.Rows[0]["cartype_name"].ToString();
+                    cartype_tb.Text = CartypeName;
+                    
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "ไม่พบประเภทรถที่คุณเลือก");
+                }
+            }
+
+        }
+
+        private void objective_select_btn_Click(object sender, EventArgs e)
+        {
+            ObjectiveForm cf = new ObjectiveForm();
+            cf.FormClosing += new FormClosingEventHandler(Of_FormClosing);
+            cf.ShowDialog();
+            contact_tb.Focus();
+
+           
+        }
+        private void Of_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MainForm.ObjectiveSelectedID != 0)
+            {
+                ObjectiveClass cp = new ObjectiveClass();
+                DataTable dt = cp.getObjectiveById(MainForm.ObjectiveSelectedID);
+                if (dt.Rows.Count > 0)
+                {
+                    string ObjectiveName = dt.Rows[0]["obt_name"].ToString();
+                    objective_tb.Text = ObjectiveName;
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "ไม่พบวัตถุประสงค์ กรุณาลองใหม่อีกครั้ง");
+                }
+            }
+
+        }
+
+        private void contact_select_bt_Click(object sender, EventArgs e)
+        {
+            ContactSelectForm cf = new ContactSelectForm();
+            cf.FormClosing += new FormClosingEventHandler(CF_FormClosing);
+            cf.ShowDialog();
+            comment_tb.Focus();
+        }
+        private void CF_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MainForm.ContactId != 0)
+            {
+                ObjectiveClass cp = new ObjectiveClass();
+                DataTable dt = cp.getContactByID(MainForm.ContactId);
+                if (dt.Rows.Count > 0)
+                {
+                    string contactName = dt.Rows[0]["contact_name"].ToString();
+                    contact_tb.Text = contactName;
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "ไม่พบวัตถุประสงค์ กรุณาลองใหม่อีกครั้ง");
+                }
+            }
+
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            String fullname     = fullname_tb.Text.Trim();
+            String idcard       = idcard_tb.Text.Trim();
+            String tel          = tel_tb.Text.Trim();
+            String carId        = carid_tb.Text.Trim();
+            String Company      = company_tb.Text.Trim();
+            String CarType      = cartype_tb.Text.Trim();
+            String Objective    = objective_tb.Text.Trim();
+            String Comment      = comment_tb.Text.Trim();
+            String ContactName  = contact_tb.Text.Trim();
+
+            String CompanyId = "";
+            String CartypeId = "";
+            String ObjectiveId = "";
+            String ContactId = "";
+            if (fullname.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this,"กรุณาระบุชื่อ-สกุล","เกิดข้อผิดพลาด",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                fullname_tb.Focus();
+                return;
+            }
+            if (idcard.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณาระบุรหัสบัตรประชาชน", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                idcard_tb.Focus();
+                return;
+            }
+            if (fn.checkIdCard(idcard) == false )
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณากรอกรหัสบัตรประชาชนให้ถูกต้อง" , "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                idcard_tb.Focus();
+                return;
+            }
+
+
+            if (tel.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณาระบุเบอร์โทร", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tel_tb.Focus();
+                return;
+            }
+
+            if (fn.checkTel(tel) == false)
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณากรอกเบอร์โทรให้ถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tel_tb.Focus();
+                return;
+            }
+
+            if (carId.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณากรอกทะเบียนรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                carid_tb.Focus();
+                return;
+            }
+
+            if (Company.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณากรอกบริษัท", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                company_tb.Focus();
+                return;
+            }
+
+            if (CarType.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณากรอกประเภทรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cartype_tb.Focus();
+                return;
+            }
+
+            if (Objective.Equals(String.Empty))
+            {
+                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                MessageBox.Show(this, "กรุณากรอกวัตถุประสงค์", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                objective_tb.Focus();
+                return;
+            }
+            CompanyClass com = new CompanyClass();
+            DataTable dt = com.GetCompanyByName(Company);
+            if(dt.Rows.Count < 1)
+            {
+                CompanyId = com.InsertCompany(Company);
+                if(CompanyId.Equals(String.Empty))
+                {
+                    MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลบริษัทได้ กรุณาจรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    company_tb.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                CompanyId = dt.Rows[0]["com_id"].ToString();
+            }
+            dt.Clear();
+            CartypeClass cc = new CartypeClass();
+            dt = cc.getCarTypeByName(CarType);
+
+            if (dt.Rows.Count < 1)
+            {
+                MessageBox.Show(this, "ประเภทรถไม่มีในระบบกรุณาตรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                CartypeId = dt.Rows[0]["cartype_id"].ToString();
+            }
+            dt.Clear();
+            ObjectiveClass oc = new ObjectiveClass();
+            dt = oc.getObjectiveByName(Objective);
+            if (dt.Rows.Count < 1)
+            {
+                MessageBox.Show(this, "วัตถุประสงค์ที่เลือกไม่มีในระบบ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                ObjectiveId = dt.Rows[0]["obt_id"].ToString();
+            }
+
+
+
+            if (!ContactName.Equals(String.Empty))
+            {
+                dt.Clear();
+                dt = objClass.getContactByName(ContactName);
+                if(dt.Rows.Count < 1)
+                {
+                    ContactId = objClass.InsertContact(ContactName);
+                    if (ContactId.Equals(String.Empty))
+                    {
+                        MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลผู้มาติดต่อได้ กรุณาจรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        contact_tb.Focus();
+                        return;
+                    }
+                }
+                else
+                {
+                    ContactId = dt.Rows[0]["contact_id"].ToString();
+                }
+            }
+            else
+            {
+                ContactId = MainForm.ContactId.ToString();
+            }
+            if(this.displayImage1 == "")
+            {
+                MessageBox.Show(this, "กรุณาถ่ายรูปผู้มาติดต่อ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            VisitorClass vc = new VisitorClass();
+            String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard,tel, Comment, ContactId,this.displayImage1);
+
+            if(visit_id == "")
+            {
+                MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบความถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+
+        }
+
+        private void cartype_tb_Click(object sender, EventArgs e)
+        {
+            cartype_select_btn.PerformClick();
+        }
+
+        private void objective_tb_Click(object sender, EventArgs e)
+        {
+            objective_select_btn.PerformClick();
+        }
+
+
     }
 
 

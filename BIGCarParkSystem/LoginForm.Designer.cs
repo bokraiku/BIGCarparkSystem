@@ -28,22 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.username_tbx = new MetroFramework.Controls.MetroTextBox();
+            this.login_panel_bg = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.password_tbx = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.login_btn = new MetroFramework.Controls.MetroButton();
+            this.username_tbx = new MetroFramework.Controls.MetroTextBox();
+            this.login_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.login_panel_bg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.login_panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // metroLabel1
+            // login_panel_bg
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.Location = new System.Drawing.Point(23, 88);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(89, 25);
-            this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Username";
+            this.login_panel_bg.BackColor = System.Drawing.SystemColors.Control;
+            this.login_panel_bg.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.blue_background;
+            this.login_panel_bg.Controls.Add(this.login_panel);
+            this.login_panel_bg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.login_panel_bg.Location = new System.Drawing.Point(20, 30);
+            this.login_panel_bg.Name = "login_panel_bg";
+            this.login_panel_bg.Size = new System.Drawing.Size(620, 359);
+            this.login_panel_bg.TabIndex = 5;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::BIGCarParkSystem.Properties.Resources.logo_big;
+            this.pictureBox1.Location = new System.Drawing.Point(31, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(172, 192);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // password_tbx
+            // 
+            // 
+            // 
+            // 
+            this.password_tbx.CustomButton.Image = null;
+            this.password_tbx.CustomButton.Location = new System.Drawing.Point(167, 1);
+            this.password_tbx.CustomButton.Name = "";
+            this.password_tbx.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.password_tbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.password_tbx.CustomButton.TabIndex = 1;
+            this.password_tbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.password_tbx.CustomButton.UseSelectable = true;
+            this.password_tbx.CustomButton.Visible = false;
+            this.password_tbx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.password_tbx.Lines = new string[0];
+            this.password_tbx.Location = new System.Drawing.Point(350, 71);
+            this.password_tbx.MaxLength = 20;
+            this.password_tbx.Name = "password_tbx";
+            this.password_tbx.PasswordChar = '*';
+            this.password_tbx.PromptText = "Password ..";
+            this.password_tbx.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.password_tbx.SelectedText = "";
+            this.password_tbx.SelectionLength = 0;
+            this.password_tbx.SelectionStart = 0;
+            this.password_tbx.ShortcutsEnabled = true;
+            this.password_tbx.Size = new System.Drawing.Size(189, 23);
+            this.password_tbx.Style = MetroFramework.MetroColorStyle.Black;
+            this.password_tbx.TabIndex = 3;
+            this.password_tbx.UseSelectable = true;
+            this.password_tbx.WaterMark = "Password ..";
+            this.password_tbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.password_tbx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // username_tbx
             // 
@@ -62,7 +114,7 @@
             this.username_tbx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.username_tbx.IconRight = true;
             this.username_tbx.Lines = new string[0];
-            this.username_tbx.Location = new System.Drawing.Point(130, 88);
+            this.username_tbx.Location = new System.Drawing.Point(350, 23);
             this.username_tbx.MaxLength = 20;
             this.username_tbx.Name = "username_tbx";
             this.username_tbx.PasswordChar = '\0';
@@ -79,93 +131,87 @@
             this.username_tbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.username_tbx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // password_tbx
+            // login_panel
             // 
+            this.login_panel.Controls.Add(this.button1);
+            this.login_panel.Controls.Add(this.label2);
+            this.login_panel.Controls.Add(this.label1);
+            this.login_panel.Controls.Add(this.pictureBox1);
+            this.login_panel.Controls.Add(this.username_tbx);
+            this.login_panel.Controls.Add(this.password_tbx);
+            this.login_panel.Location = new System.Drawing.Point(12, 34);
+            this.login_panel.Name = "login_panel";
+            this.login_panel.Size = new System.Drawing.Size(589, 265);
+            this.login_panel.TabIndex = 6;
             // 
+            // label1
             // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(232, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 23);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Username";
             // 
-            this.password_tbx.CustomButton.Image = null;
-            this.password_tbx.CustomButton.Location = new System.Drawing.Point(167, 1);
-            this.password_tbx.CustomButton.Name = "";
-            this.password_tbx.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.password_tbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.password_tbx.CustomButton.TabIndex = 1;
-            this.password_tbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.password_tbx.CustomButton.UseSelectable = true;
-            this.password_tbx.CustomButton.Visible = false;
-            this.password_tbx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.password_tbx.Lines = new string[0];
-            this.password_tbx.Location = new System.Drawing.Point(130, 136);
-            this.password_tbx.MaxLength = 20;
-            this.password_tbx.Name = "password_tbx";
-            this.password_tbx.PasswordChar = '*';
-            this.password_tbx.PromptText = "Password ..";
-            this.password_tbx.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.password_tbx.SelectedText = "";
-            this.password_tbx.SelectionLength = 0;
-            this.password_tbx.SelectionStart = 0;
-            this.password_tbx.ShortcutsEnabled = true;
-            this.password_tbx.Size = new System.Drawing.Size(189, 23);
-            this.password_tbx.Style = MetroFramework.MetroColorStyle.Black;
-            this.password_tbx.TabIndex = 3;
-            this.password_tbx.UseSelectable = true;
-            this.password_tbx.WaterMark = "Password ..";
-            this.password_tbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.password_tbx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // label2
             // 
-            // metroLabel2
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(232, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 23);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Password";
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(23, 134);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(82, 25);
-            this.metroLabel2.TabIndex = 2;
-            this.metroLabel2.Text = "Password";
+            // button1
             // 
-            // login_btn
-            // 
-            this.login_btn.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.login_btn.ForeColor = System.Drawing.Color.White;
-            this.login_btn.Highlight = true;
-            this.login_btn.Location = new System.Drawing.Point(23, 210);
-            this.login_btn.Name = "login_btn";
-            this.login_btn.Size = new System.Drawing.Size(89, 40);
-            this.login_btn.Style = MetroFramework.MetroColorStyle.Blue;
-            this.login_btn.TabIndex = 4;
-            this.login_btn.Text = "Login";
-            this.login_btn.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.login_btn.UseSelectable = true;
-            this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(236, 141);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 40);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 348);
-            this.Controls.Add(this.login_btn);
-            this.Controls.Add(this.password_tbx);
-            this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.username_tbx);
-            this.Controls.Add(this.metroLabel1);
+            this.ClientSize = new System.Drawing.Size(660, 409);
+            this.Controls.Add(this.login_panel_bg);
+            this.DisplayHeader = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
             this.Name = "LoginForm";
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;
             this.Text = "LoginForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.login_panel_bg.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.login_panel.ResumeLayout(false);
+            this.login_panel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox username_tbx;
         private MetroFramework.Controls.MetroTextBox password_tbx;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroButton login_btn;
+        private System.Windows.Forms.Panel login_panel_bg;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel login_panel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

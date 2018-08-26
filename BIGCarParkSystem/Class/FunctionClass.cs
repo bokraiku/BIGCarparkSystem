@@ -6,18 +6,34 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 
-namespace BIGCarParkSystem.Resources
+namespace BIGCarParkSystem.Class
 {
     class FunctionClass
     {
 
-        private string userPattern = "/^(a-zA-Z0-9)$/";
+        private string userPattern = @"^[a-zA-Z0-9]$";
+        private string idcardPatterrn = @"^[0-9]{10,20}$";
+        private string telPatterrn = @"^[0-9\- ]{8,12}$";
         public bool checkUsername(string username)
         {
 
             Regex ex = new Regex(userPattern);
             return ex.IsMatch(username) ? true : false;
         }
+        public bool checkIdCard(string idcard)
+        {
+
+            Regex ex = new Regex(idcardPatterrn);
+            return ex.IsMatch(idcard) ? true : false;
+        }
+
+        public bool checkTel(string tel)
+        {
+
+            Regex ex = new Regex(telPatterrn);
+            return ex.IsMatch(tel) ? true : false;
+        }
+
 
 
 

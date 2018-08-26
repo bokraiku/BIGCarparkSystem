@@ -44,3 +44,7 @@ C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGC
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.csproj.CopyComplete
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.exe
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.pdb
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.CompanySelectForm.resources
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.CarSelectForm.resources
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.ObjectiveForm.resources
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.ContactSelectForm.resources

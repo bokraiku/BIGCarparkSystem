@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 
-namespace BIGCarParkSystem.Resources
+namespace BIGCarParkSystem.Class
 {
 
     class MysqlDB
@@ -35,7 +35,7 @@ namespace BIGCarParkSystem.Resources
             password    = VariableDB.PassWord;
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";SslMode=none";
+            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";SslMode=none;Connection Timeout=50;CharSet=utf8;Pooling=false";
 
             connection = new MySqlConnection(connectionString);
         }

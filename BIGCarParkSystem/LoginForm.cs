@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MetroFramework;
 using System.Windows.Forms;
-using BIGCarParkSystem.Resources;
+using BIGCarParkSystem.Class;
 
 
 namespace BIGCarParkSystem
@@ -38,6 +38,7 @@ namespace BIGCarParkSystem
                 MetroMessageBox.Show(this,"Cannot Connect DB");
                 return;
             }
+            login_panel_bg.BackColor = Color.FromArgb(200, 255, 255, 255);
 
 
 
@@ -45,33 +46,38 @@ namespace BIGCarParkSystem
 
         private void login_btn_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             string Username = username_tbx.Text;
             string Password = fn.MD5Hash(password_tbx.Text);
-            if(this.isTest == 1)
+            if (this.isTest == 1)
             {
                 Username = "admin";
                 Password = fn.MD5Hash("142536");
             }
 
-            if(Username == null || Password == null)
+            if (Username == null || Password == null)
             {
                 MetroMessageBox.Show(this, "กรูณากรอกข้อมูลให้ครบ!");
                 return;
             }
-            
+
             DataTable dt = member.getUserLogin(Username, Password);
 
-            if(dt.Rows.Count < 1)
+            if (dt.Rows.Count < 1)
             {
-                MetroMessageBox.Show(this,"Username หรือ Password ไม่ถูกต้อง !!");
+                MetroMessageBox.Show(this, "Username หรือ Password ไม่ถูกต้อง !!");
                 return;
             }
 
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
-                UserInfo.UserId     = dt.Rows[0]["id"].ToString();
-                UserInfo.Username   = dt.Rows[0]["username"].ToString();
-                UserInfo.UserRole   = dt.Rows[0]["role_id"].ToString();
+                UserInfo.UserId = dt.Rows[0]["id"].ToString();
+                UserInfo.Username = dt.Rows[0]["username"].ToString();
+                UserInfo.UserRole = dt.Rows[0]["role_id"].ToString();
                 UserInfo.LoginTime = fn.getDateNow();
                 this.Hide();
                 MainForm mf = new MainForm();
