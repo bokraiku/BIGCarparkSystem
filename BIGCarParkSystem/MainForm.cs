@@ -46,6 +46,8 @@ namespace BIGCarParkSystem
 
         public bool isVisitOutFound = false;
 
+        public string OutVisitID = "";
+
         FileStream fs;
 
         BinaryReader br;
@@ -146,7 +148,11 @@ namespace BIGCarParkSystem
             c_panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
             left_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             right_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
+            his_backdrop_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
+            backdrop_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             form_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
+            out_head_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
+            show_outform_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
         }
 
         private void scancard_btn_Click(object sender, EventArgs e)
@@ -412,6 +418,10 @@ namespace BIGCarParkSystem
             {
                 contact_select_bt.PerformClick();
             }
+            if (e.KeyCode == Keys.F9)
+            {
+                out_save_btn.PerformClick();
+            }
         }
 
         private void cartype_select_btn_Click(object sender, EventArgs e)
@@ -498,172 +508,179 @@ namespace BIGCarParkSystem
 
         private void save_btn_Click(object sender, EventArgs e)
         {
-            String fullname     = fullname_tb.Text.Trim();
-            String idcard       = idcard_tb.Text.Trim();
-            String tel          = tel_tb.Text.Trim();
-            String carId        = carid_tb.Text.Trim();
-            String Company      = company_tb.Text.Trim();
-            String CarType      = cartype_tb.Text.Trim();
-            String Objective    = objective_tb.Text.Trim();
-            String Comment      = comment_tb.Text.Trim();
-            String ContactName  = contact_tb.Text.Trim();
+            DialogResult dialogResult = MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "ยืนยันการบันทึก", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                String fullname = fullname_tb.Text.Trim();
+                String idcard = idcard_tb.Text.Trim();
+                String tel = tel_tb.Text.Trim();
+                String carId = carid_tb.Text.Trim();
+                String Company = company_tb.Text.Trim();
+                String CarType = cartype_tb.Text.Trim();
+                String Objective = objective_tb.Text.Trim();
+                String Comment = comment_tb.Text.Trim();
+                String ContactName = contact_tb.Text.Trim();
 
-            String CompanyId = "";
-            String CartypeId = "";
-            String ObjectiveId = "";
-            String ContactId = "";
-            if (fullname.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this,"กรุณาระบุชื่อ-สกุล","เกิดข้อผิดพลาด",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                fullname_tb.Focus();
-                return;
-            }
-            if (idcard.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณาระบุรหัสบัตรประชาชน", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                idcard_tb.Focus();
-                return;
-            }
-            if (fn.checkIdCard(idcard) == false )
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณากรอกรหัสบัตรประชาชนให้ถูกต้อง" , "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                idcard_tb.Focus();
-                return;
-            }
-
-
-            if (tel.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณาระบุเบอร์โทร", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tel_tb.Focus();
-                return;
-            }
-
-            if (fn.checkTel(tel) == false)
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณากรอกเบอร์โทรให้ถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tel_tb.Focus();
-                return;
-            }
-
-            if (carId.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณากรอกทะเบียนรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                carid_tb.Focus();
-                return;
-            }
-
-            if (Company.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณากรอกบริษัท", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                company_tb.Focus();
-                return;
-            }
-
-            if (CarType.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณากรอกประเภทรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cartype_tb.Focus();
-                return;
-            }
-
-            if (Objective.Equals(String.Empty))
-            {
-                //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                MessageBox.Show(this, "กรุณากรอกวัตถุประสงค์", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                objective_tb.Focus();
-                return;
-            }
-            CompanyClass com = new CompanyClass();
-            DataTable dt = com.GetCompanyByName(Company);
-            if(dt.Rows.Count < 1)
-            {
-                CompanyId = com.InsertCompany(Company);
-                if(CompanyId.Equals(String.Empty))
+                String CompanyId = "";
+                String CartypeId = "";
+                String ObjectiveId = "";
+                String ContactId = "";
+                if (fullname.Equals(String.Empty))
                 {
-                    MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลบริษัทได้ กรุณาจรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณาระบุชื่อ-สกุล", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    fullname_tb.Focus();
+                    return;
+                }
+                if (idcard.Equals(String.Empty))
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณาระบุรหัสบัตรประชาชน", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    idcard_tb.Focus();
+                    return;
+                }
+                if (fn.checkIdCard(idcard) == false)
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณากรอกรหัสบัตรประชาชนให้ถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    idcard_tb.Focus();
+                    return;
+                }
+
+
+                if (tel.Equals(String.Empty))
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณาระบุเบอร์โทร", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tel_tb.Focus();
+                    return;
+                }
+
+                if (fn.checkTel(tel) == false)
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณากรอกเบอร์โทรให้ถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tel_tb.Focus();
+                    return;
+                }
+
+                if (carId.Equals(String.Empty))
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณากรอกทะเบียนรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    carid_tb.Focus();
+                    return;
+                }
+
+                if (Company.Equals(String.Empty))
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณากรอกบริษัท", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     company_tb.Focus();
                     return;
                 }
-            }
-            else
-            {
-                CompanyId = dt.Rows[0]["com_id"].ToString();
-            }
-            dt.Clear();
-            CartypeClass cc = new CartypeClass();
-            dt = cc.getCarTypeByName(CarType);
 
-            if (dt.Rows.Count < 1)
-            {
-                MessageBox.Show(this, "ประเภทรถไม่มีในระบบกรุณาตรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                CartypeId = dt.Rows[0]["cartype_id"].ToString();
-            }
-            dt.Clear();
-            ObjectiveClass oc = new ObjectiveClass();
-            dt = oc.getObjectiveByName(Objective);
-            if (dt.Rows.Count < 1)
-            {
-                MessageBox.Show(this, "วัตถุประสงค์ที่เลือกไม่มีในระบบ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                ObjectiveId = dt.Rows[0]["obt_id"].ToString();
-            }
-
-
-
-            if (!ContactName.Equals(String.Empty))
-            {
-                dt.Clear();
-                dt = objClass.getContactByName(ContactName);
-                if(dt.Rows.Count < 1)
+                if (CarType.Equals(String.Empty))
                 {
-                    ContactId = objClass.InsertContact(ContactName);
-                    if (ContactId.Equals(String.Empty))
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณากรอกประเภทรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cartype_tb.Focus();
+                    return;
+                }
+
+                if (Objective.Equals(String.Empty))
+                {
+                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                    MessageBox.Show(this, "กรุณากรอกวัตถุประสงค์", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    objective_tb.Focus();
+                    return;
+                }
+                CompanyClass com = new CompanyClass();
+                DataTable dt = com.GetCompanyByName(Company);
+                if (dt.Rows.Count < 1)
+                {
+                    CompanyId = com.InsertCompany(Company);
+                    if (CompanyId.Equals(String.Empty))
                     {
-                        MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลผู้มาติดต่อได้ กรุณาจรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        contact_tb.Focus();
+                        MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลบริษัทได้ กรุณาจรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        company_tb.Focus();
                         return;
                     }
                 }
                 else
                 {
-                    ContactId = dt.Rows[0]["contact_id"].ToString();
+                    CompanyId = dt.Rows[0]["com_id"].ToString();
                 }
-            }
-            else
-            {
-                ContactId = MainForm.ContactId.ToString();
-            }
-            if(this.displayImage1 == "")
-            {
-                MessageBox.Show(this, "กรุณาถ่ายรูปผู้มาติดต่อ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            VisitorClass vc = new VisitorClass();
-            String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard,tel, Comment, ContactId,this.displayImage1,this.idcard_image);
+                dt.Clear();
+                CartypeClass cc = new CartypeClass();
+                dt = cc.getCarTypeByName(CarType);
 
-            if(visit_id == "")
-            {
-                MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบความถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dt.Rows.Count < 1)
+                {
+                    MessageBox.Show(this, "ประเภทรถไม่มีในระบบกรุณาตรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    CartypeId = dt.Rows[0]["cartype_id"].ToString();
+                }
+                dt.Clear();
+                ObjectiveClass oc = new ObjectiveClass();
+                dt = oc.getObjectiveByName(Objective);
+                if (dt.Rows.Count < 1)
+                {
+                    MessageBox.Show(this, "วัตถุประสงค์ที่เลือกไม่มีในระบบ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    ObjectiveId = dt.Rows[0]["obt_id"].ToString();
+                }
+
+
+
+                if (!ContactName.Equals(String.Empty))
+                {
+                    dt.Clear();
+                    dt = objClass.getContactByName(ContactName);
+                    if (dt.Rows.Count < 1)
+                    {
+                        ContactId = objClass.InsertContact(ContactName);
+                        if (ContactId.Equals(String.Empty))
+                        {
+                            MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลผู้มาติดต่อได้ กรุณาจรวจสอบอีกครั้ง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            contact_tb.Focus();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        ContactId = dt.Rows[0]["contact_id"].ToString();
+                    }
+                }
+                else
+                {
+                    ContactId = MainForm.ContactId.ToString();
+                }
+                if (this.displayImage1 == "")
+                {
+                    MessageBox.Show(this, "กรุณาถ่ายรูปผู้มาติดต่อ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                VisitorClass vc = new VisitorClass();
+                String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard, tel, Comment, ContactId, this.displayImage1, this.idcard_image);
+
+                if (visit_id == "")
+                {
+                    MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบความถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearDataInControl(panel2);
+                    idcard_pb.Image = null;
+                    camera1_display_pb.Image = null;
+                }
             }
 
 
@@ -716,6 +733,7 @@ namespace BIGCarParkSystem
 
                 this.isVisitOutFound = true;
                 show_outform_panel.Visible = true;
+                this.OutVisitID = visitorDT.Rows[0]["visit_id"].ToString();
                 out_indate_tb.Text = fn.ConvertDate(visitorDT.Rows[0]["visit_datetime_in"].ToString());
                 out_fullname_tb.Text = visitorDT.Rows[0]["visit_name"].ToString();
                 out_idcard_tb.Text   = visitorDT.Rows[0]["id_card"].ToString();
@@ -726,6 +744,19 @@ namespace BIGCarParkSystem
                 out_objective_tb.Text = visitorDT.Rows[0]["obt_name"].ToString();
                 out_contact_tb.Text = visitorDT.Rows[0]["contact_name"].ToString();
                 out_comment_tb.Text = visitorDT.Rows[0]["comment"].ToString();
+
+                if(visitorDT.Rows[0]["image_1"].ToString() != "")
+                {
+                    out_image1_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString());
+                }
+                if (visitorDT.Rows[0]["image_2"].ToString() != "")
+                {
+                    out_image2_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_2"].ToString());
+                }
+                if (visitorDT.Rows[0]["idcard_image"].ToString() != "")
+                {
+                    out_idcardpic_pb.Image = Image.FromFile(VariableDB.PathIdCardImage + visitorDT.Rows[0]["idcard_image"].ToString());
+                }
             }
         }
 
@@ -734,7 +765,73 @@ namespace BIGCarParkSystem
 
         }
 
+        private void out_input_tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                scan_barcode_btn.PerformClick();
+            }
+        }
 
+        private void out_save_btn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "ยืนยันการบันทึก", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes && this.OutVisitID != "")
+            {
+                //do something
+
+
+                DataTable vDT = vc.getVisitByID(this.OutVisitID);
+                if (vDT.Rows.Count < 1)
+                {
+                    MessageBox.Show(this, "ไม่พบข้อมูลที่ต้องการบันทึก กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int rowCount = vc.UpdateVisitInfo(this.OutVisitID);
+
+                if (rowCount == 0)
+                {
+                    MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                   
+                    this.isVisitOutFound = false;
+                    //show_outform_panel.Visible = false;
+                    MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "ข้อความ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearDataInControl(show_outform_panel);
+                    out_image1_pb.Image = null;
+                    out_image2_pb.Image = null;
+                    out_idcardpic_pb.Image = null;
+                    out_input_tb.Text = string.Empty;
+                    out_input_tb.Focus();
+
+                }
+            }
+
+        }
+        private void ClearDataInControl(Panel panel)
+        {
+            foreach (Control c in panel.Controls)
+            {
+                var box = c as MetroFramework.Controls.MetroTextBox;
+                //MessageBox.Show(box.Name);
+                if (box != null)
+                {
+                   
+                    box.Text = string.Empty;
+                }
+                var boxSystem = c as TextBox;
+                if (boxSystem != null)
+                {
+
+                    boxSystem.Text = string.Empty;
+                }
+
+            }
+        }
     }
 
 

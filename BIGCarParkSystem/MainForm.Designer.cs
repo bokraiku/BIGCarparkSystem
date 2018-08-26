@@ -75,7 +75,24 @@
             this.InTab = new MetroFramework.Controls.MetroTabPage();
             this.OutTab = new MetroFramework.Controls.MetroTabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.backdrop_panel = new System.Windows.Forms.Panel();
+            this.out_head_panel = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.out_save_btn = new System.Windows.Forms.Button();
+            this.out_input_gb = new System.Windows.Forms.GroupBox();
+            this.scan_barcode_btn = new System.Windows.Forms.Button();
+            this.out_input_tb = new MetroFramework.Controls.MetroTextBox();
             this.show_outform_panel = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.out_image2_pb = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.out_image1_pb = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.out_idcardpic_pb = new System.Windows.Forms.PictureBox();
+            this.out_indate_tb = new MetroFramework.Controls.MetroTextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.out_comment_tb = new MetroFramework.Controls.MetroTextBox();
             this.out_carid_tb = new MetroFramework.Controls.MetroTextBox();
             this.out_tel_tb = new MetroFramework.Controls.MetroTextBox();
@@ -94,14 +111,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.out_head_panel = new System.Windows.Forms.Panel();
-            this.out_input_gb = new System.Windows.Forms.GroupBox();
-            this.scan_barcode_btn = new System.Windows.Forms.Button();
-            this.out_input_tb = new MetroFramework.Controls.MetroTextBox();
             this.HistoryTab = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.out_indate_tb = new MetroFramework.Controls.MetroTextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.his_backdrop_panel = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.his_search_box = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.camera2_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).BeginInit();
@@ -122,10 +139,25 @@
             this.InTab.SuspendLayout();
             this.OutTab.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.show_outform_panel.SuspendLayout();
+            this.backdrop_panel.SuspendLayout();
             this.out_head_panel.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.out_input_gb.SuspendLayout();
+            this.show_outform_panel.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.out_image2_pb)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.out_idcardpic_pb)).BeginInit();
+            this.HistoryTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.his_backdrop_panel.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // camera2_display_pb
@@ -832,7 +864,7 @@
             this.main_tabcontrol.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.main_tabcontrol.Location = new System.Drawing.Point(21, 30);
             this.main_tabcontrol.Name = "main_tabcontrol";
-            this.main_tabcontrol.SelectedIndex = 1;
+            this.main_tabcontrol.SelectedIndex = 2;
             this.main_tabcontrol.Size = new System.Drawing.Size(1558, 850);
             this.main_tabcontrol.TabIndex = 2;
             this.main_tabcontrol.UseSelectable = true;
@@ -856,6 +888,8 @@
             // 
             // OutTab
             // 
+            this.OutTab.BackColor = System.Drawing.Color.Transparent;
+            this.OutTab.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.bg_01;
             this.OutTab.Controls.Add(this.panel3);
             this.OutTab.HorizontalScrollbarBarColor = true;
             this.OutTab.HorizontalScrollbarHighlightOnWheel = false;
@@ -872,15 +906,131 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.show_outform_panel);
-            this.panel3.Controls.Add(this.out_head_panel);
+            this.panel3.Controls.Add(this.backdrop_panel);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1545, 796);
             this.panel3.TabIndex = 2;
             // 
+            // backdrop_panel
+            // 
+            this.backdrop_panel.Controls.Add(this.out_head_panel);
+            this.backdrop_panel.Controls.Add(this.show_outform_panel);
+            this.backdrop_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backdrop_panel.Location = new System.Drawing.Point(0, 0);
+            this.backdrop_panel.Name = "backdrop_panel";
+            this.backdrop_panel.Size = new System.Drawing.Size(1545, 796);
+            this.backdrop_panel.TabIndex = 35;
+            // 
+            // out_head_panel
+            // 
+            this.out_head_panel.BackColor = System.Drawing.SystemColors.Control;
+            this.out_head_panel.Controls.Add(this.groupBox4);
+            this.out_head_panel.Controls.Add(this.out_input_gb);
+            this.out_head_panel.Location = new System.Drawing.Point(3, 3);
+            this.out_head_panel.Name = "out_head_panel";
+            this.out_head_panel.Size = new System.Drawing.Size(1539, 136);
+            this.out_head_panel.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.out_save_btn);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(612, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(189, 130);
+            this.groupBox4.TabIndex = 10;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "บันทึกข้อมูลออก";
+            // 
+            // out_save_btn
+            // 
+            this.out_save_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.out_save_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.out_save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.out_save_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_save_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.out_save_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_35;
+            this.out_save_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.out_save_btn.Location = new System.Drawing.Point(42, 40);
+            this.out_save_btn.Name = "out_save_btn";
+            this.out_save_btn.Size = new System.Drawing.Size(135, 40);
+            this.out_save_btn.TabIndex = 9;
+            this.out_save_btn.Text = "บันทึก(F9)";
+            this.out_save_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.out_save_btn.UseVisualStyleBackColor = false;
+            this.out_save_btn.Click += new System.EventHandler(this.out_save_btn_Click);
+            // 
+            // out_input_gb
+            // 
+            this.out_input_gb.Controls.Add(this.scan_barcode_btn);
+            this.out_input_gb.Controls.Add(this.out_input_tb);
+            this.out_input_gb.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_input_gb.Location = new System.Drawing.Point(3, 3);
+            this.out_input_gb.Name = "out_input_gb";
+            this.out_input_gb.Size = new System.Drawing.Size(552, 130);
+            this.out_input_gb.TabIndex = 0;
+            this.out_input_gb.TabStop = false;
+            this.out_input_gb.Text = "ป้อนข้อมูลออก";
+            // 
+            // scan_barcode_btn
+            // 
+            this.scan_barcode_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.scan_barcode_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.scan_barcode_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.scan_barcode_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scan_barcode_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.scan_barcode_btn.Image = global::BIGCarParkSystem.Properties.Resources.barcode;
+            this.scan_barcode_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.scan_barcode_btn.Location = new System.Drawing.Point(413, 40);
+            this.scan_barcode_btn.Name = "scan_barcode_btn";
+            this.scan_barcode_btn.Size = new System.Drawing.Size(110, 40);
+            this.scan_barcode_btn.TabIndex = 8;
+            this.scan_barcode_btn.Text = "Scan";
+            this.scan_barcode_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.scan_barcode_btn.UseVisualStyleBackColor = false;
+            this.scan_barcode_btn.Click += new System.EventHandler(this.scan_barcode_btn_Click);
+            // 
+            // out_input_tb
+            // 
+            // 
+            // 
+            // 
+            this.out_input_tb.CustomButton.Image = null;
+            this.out_input_tb.CustomButton.Location = new System.Drawing.Point(355, 1);
+            this.out_input_tb.CustomButton.Name = "";
+            this.out_input_tb.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.out_input_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.out_input_tb.CustomButton.TabIndex = 1;
+            this.out_input_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.out_input_tb.CustomButton.UseSelectable = true;
+            this.out_input_tb.CustomButton.Visible = false;
+            this.out_input_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.out_input_tb.Lines = new string[0];
+            this.out_input_tb.Location = new System.Drawing.Point(17, 43);
+            this.out_input_tb.MaxLength = 32767;
+            this.out_input_tb.Name = "out_input_tb";
+            this.out_input_tb.PasswordChar = '\0';
+            this.out_input_tb.PromptText = "ใส่บาร์โค้ด หรือ เลขบัตรประชาชน";
+            this.out_input_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.out_input_tb.SelectedText = "";
+            this.out_input_tb.SelectionLength = 0;
+            this.out_input_tb.SelectionStart = 0;
+            this.out_input_tb.ShortcutsEnabled = true;
+            this.out_input_tb.Size = new System.Drawing.Size(389, 35);
+            this.out_input_tb.TabIndex = 0;
+            this.out_input_tb.UseSelectable = true;
+            this.out_input_tb.WaterMark = "ใส่บาร์โค้ด หรือ เลขบัตรประชาชน";
+            this.out_input_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.out_input_tb.WaterMarkFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_input_tb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.out_input_tb_KeyDown);
+            // 
             // show_outform_panel
             // 
+            this.show_outform_panel.BackColor = System.Drawing.SystemColors.Control;
+            this.show_outform_panel.Controls.Add(this.groupBox3);
+            this.show_outform_panel.Controls.Add(this.groupBox2);
+            this.show_outform_panel.Controls.Add(this.groupBox1);
             this.show_outform_panel.Controls.Add(this.out_indate_tb);
             this.show_outform_panel.Controls.Add(this.label19);
             this.show_outform_panel.Controls.Add(this.out_comment_tb);
@@ -905,6 +1055,127 @@
             this.show_outform_panel.Name = "show_outform_panel";
             this.show_outform_panel.Size = new System.Drawing.Size(1536, 648);
             this.show_outform_panel.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.panel5);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(609, 341);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(382, 300);
+            this.groupBox3.TabIndex = 40;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "กล้องตัวที่ 2";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.out_image2_pb);
+            this.panel5.Location = new System.Drawing.Point(26, 25);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(330, 250);
+            this.panel5.TabIndex = 36;
+            // 
+            // out_image2_pb
+            // 
+            this.out_image2_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.out_image2_pb.Location = new System.Drawing.Point(3, 6);
+            this.out_image2_pb.Name = "out_image2_pb";
+            this.out_image2_pb.Size = new System.Drawing.Size(320, 240);
+            this.out_image2_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.out_image2_pb.TabIndex = 2;
+            this.out_image2_pb.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panel4);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(609, 14);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(382, 300);
+            this.groupBox2.TabIndex = 39;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "กล้องตัวที่ 1";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.out_image1_pb);
+            this.panel4.Location = new System.Drawing.Point(26, 25);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(330, 250);
+            this.panel4.TabIndex = 35;
+            // 
+            // out_image1_pb
+            // 
+            this.out_image1_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.out_image1_pb.Location = new System.Drawing.Point(3, 6);
+            this.out_image1_pb.Name = "out_image1_pb";
+            this.out_image1_pb.Size = new System.Drawing.Size(320, 240);
+            this.out_image1_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.out_image1_pb.TabIndex = 2;
+            this.out_image1_pb.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.out_idcardpic_pb);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1019, 16);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(195, 223);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "รูปบัตรประชาชน";
+            // 
+            // out_idcardpic_pb
+            // 
+            this.out_idcardpic_pb.Location = new System.Drawing.Point(26, 27);
+            this.out_idcardpic_pb.Name = "out_idcardpic_pb";
+            this.out_idcardpic_pb.Size = new System.Drawing.Size(143, 172);
+            this.out_idcardpic_pb.TabIndex = 37;
+            this.out_idcardpic_pb.TabStop = false;
+            // 
+            // out_indate_tb
+            // 
+            // 
+            // 
+            // 
+            this.out_indate_tb.CustomButton.Image = null;
+            this.out_indate_tb.CustomButton.Location = new System.Drawing.Point(251, 2);
+            this.out_indate_tb.CustomButton.Name = "";
+            this.out_indate_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.out_indate_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.out_indate_tb.CustomButton.TabIndex = 1;
+            this.out_indate_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.out_indate_tb.CustomButton.UseSelectable = true;
+            this.out_indate_tb.CustomButton.Visible = false;
+            this.out_indate_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.out_indate_tb.Lines = new string[0];
+            this.out_indate_tb.Location = new System.Drawing.Point(218, 49);
+            this.out_indate_tb.MaxLength = 32767;
+            this.out_indate_tb.Multiline = true;
+            this.out_indate_tb.Name = "out_indate_tb";
+            this.out_indate_tb.PasswordChar = '\0';
+            this.out_indate_tb.ReadOnly = true;
+            this.out_indate_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.out_indate_tb.SelectedText = "";
+            this.out_indate_tb.SelectionLength = 0;
+            this.out_indate_tb.SelectionStart = 0;
+            this.out_indate_tb.ShortcutsEnabled = true;
+            this.out_indate_tb.Size = new System.Drawing.Size(281, 32);
+            this.out_indate_tb.TabIndex = 34;
+            this.out_indate_tb.UseSelectable = true;
+            this.out_indate_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.out_indate_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(115, 52);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(57, 18);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "เวลาเข้า";
             // 
             // out_comment_tb
             // 
@@ -1203,6 +1474,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(111, 494);
             this.label6.Name = "label6";
@@ -1213,6 +1485,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(111, 248);
             this.label11.Name = "label11";
@@ -1223,6 +1496,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(117, 202);
             this.label12.Name = "label12";
@@ -1233,6 +1507,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(75, 442);
             this.label13.Name = "label13";
@@ -1243,6 +1518,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(97, 395);
             this.label14.Name = "label14";
@@ -1253,6 +1529,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(107, 341);
             this.label15.Name = "label15";
@@ -1263,6 +1540,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(132, 296);
             this.label16.Name = "label16";
@@ -1273,6 +1551,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(78, 156);
             this.label17.Name = "label17";
@@ -1283,6 +1562,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(115, 101);
             this.label18.Name = "label18";
@@ -1290,79 +1570,9 @@
             this.label18.TabIndex = 15;
             this.label18.Text = "ชื่อ - สกุล";
             // 
-            // out_head_panel
-            // 
-            this.out_head_panel.Controls.Add(this.out_input_gb);
-            this.out_head_panel.Location = new System.Drawing.Point(3, 3);
-            this.out_head_panel.Name = "out_head_panel";
-            this.out_head_panel.Size = new System.Drawing.Size(1539, 136);
-            this.out_head_panel.TabIndex = 0;
-            // 
-            // out_input_gb
-            // 
-            this.out_input_gb.Controls.Add(this.scan_barcode_btn);
-            this.out_input_gb.Controls.Add(this.out_input_tb);
-            this.out_input_gb.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_input_gb.Location = new System.Drawing.Point(3, 3);
-            this.out_input_gb.Name = "out_input_gb";
-            this.out_input_gb.Size = new System.Drawing.Size(663, 130);
-            this.out_input_gb.TabIndex = 0;
-            this.out_input_gb.TabStop = false;
-            this.out_input_gb.Text = "ป้อนข้อมูลออก";
-            // 
-            // scan_barcode_btn
-            // 
-            this.scan_barcode_btn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.scan_barcode_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.scan_barcode_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.scan_barcode_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scan_barcode_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.scan_barcode_btn.Image = global::BIGCarParkSystem.Properties.Resources.barcode;
-            this.scan_barcode_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.scan_barcode_btn.Location = new System.Drawing.Point(413, 40);
-            this.scan_barcode_btn.Name = "scan_barcode_btn";
-            this.scan_barcode_btn.Size = new System.Drawing.Size(110, 40);
-            this.scan_barcode_btn.TabIndex = 8;
-            this.scan_barcode_btn.Text = "Scan";
-            this.scan_barcode_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.scan_barcode_btn.UseVisualStyleBackColor = false;
-            this.scan_barcode_btn.Click += new System.EventHandler(this.scan_barcode_btn_Click);
-            // 
-            // out_input_tb
-            // 
-            // 
-            // 
-            // 
-            this.out_input_tb.CustomButton.Image = null;
-            this.out_input_tb.CustomButton.Location = new System.Drawing.Point(355, 1);
-            this.out_input_tb.CustomButton.Name = "";
-            this.out_input_tb.CustomButton.Size = new System.Drawing.Size(33, 33);
-            this.out_input_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.out_input_tb.CustomButton.TabIndex = 1;
-            this.out_input_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.out_input_tb.CustomButton.UseSelectable = true;
-            this.out_input_tb.CustomButton.Visible = false;
-            this.out_input_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.out_input_tb.Lines = new string[0];
-            this.out_input_tb.Location = new System.Drawing.Point(17, 43);
-            this.out_input_tb.MaxLength = 32767;
-            this.out_input_tb.Name = "out_input_tb";
-            this.out_input_tb.PasswordChar = '\0';
-            this.out_input_tb.PromptText = "ใส่บาร์โค้ด หรือ เลขบัตรประชาชน";
-            this.out_input_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.out_input_tb.SelectedText = "";
-            this.out_input_tb.SelectionLength = 0;
-            this.out_input_tb.SelectionStart = 0;
-            this.out_input_tb.ShortcutsEnabled = true;
-            this.out_input_tb.Size = new System.Drawing.Size(389, 35);
-            this.out_input_tb.TabIndex = 0;
-            this.out_input_tb.UseSelectable = true;
-            this.out_input_tb.WaterMark = "ใส่บาร์โค้ด หรือ เลขบัตรประชาชน";
-            this.out_input_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.out_input_tb.WaterMarkFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
             // HistoryTab
             // 
+            this.HistoryTab.Controls.Add(this.panel6);
             this.HistoryTab.HorizontalScrollbarBarColor = true;
             this.HistoryTab.HorizontalScrollbarHighlightOnWheel = false;
             this.HistoryTab.HorizontalScrollbarSize = 10;
@@ -1379,48 +1589,97 @@
             // 
             this.metroStyleManager1.Owner = this;
             // 
-            // out_indate_tb
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.bg_01;
+            this.panel6.Controls.Add(this.his_backdrop_panel);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1550, 802);
+            this.panel6.TabIndex = 2;
+            // 
+            // his_backdrop_panel
+            // 
+            this.his_backdrop_panel.BackColor = System.Drawing.Color.Transparent;
+            this.his_backdrop_panel.Controls.Add(this.panel7);
+            this.his_backdrop_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.his_backdrop_panel.Location = new System.Drawing.Point(0, 0);
+            this.his_backdrop_panel.Name = "his_backdrop_panel";
+            this.his_backdrop_panel.Size = new System.Drawing.Size(1550, 802);
+            this.his_backdrop_panel.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.Control;
+            this.panel7.Controls.Add(this.groupBox6);
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1539, 136);
+            this.panel7.TabIndex = 1;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.his_search_box);
+            this.groupBox6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(552, 130);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "ค้นหาประบัติเข้าออก";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Image = global::BIGCarParkSystem.Properties.Resources.barcode;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(413, 40);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 40);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "ค้นหา";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // his_search_box
             // 
             // 
             // 
             // 
-            this.out_indate_tb.CustomButton.Image = null;
-            this.out_indate_tb.CustomButton.Location = new System.Drawing.Point(251, 2);
-            this.out_indate_tb.CustomButton.Name = "";
-            this.out_indate_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.out_indate_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.out_indate_tb.CustomButton.TabIndex = 1;
-            this.out_indate_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.out_indate_tb.CustomButton.UseSelectable = true;
-            this.out_indate_tb.CustomButton.Visible = false;
-            this.out_indate_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.out_indate_tb.Lines = new string[0];
-            this.out_indate_tb.Location = new System.Drawing.Point(218, 49);
-            this.out_indate_tb.MaxLength = 32767;
-            this.out_indate_tb.Multiline = true;
-            this.out_indate_tb.Name = "out_indate_tb";
-            this.out_indate_tb.PasswordChar = '\0';
-            this.out_indate_tb.ReadOnly = true;
-            this.out_indate_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.out_indate_tb.SelectedText = "";
-            this.out_indate_tb.SelectionLength = 0;
-            this.out_indate_tb.SelectionStart = 0;
-            this.out_indate_tb.ShortcutsEnabled = true;
-            this.out_indate_tb.Size = new System.Drawing.Size(281, 32);
-            this.out_indate_tb.TabIndex = 34;
-            this.out_indate_tb.UseSelectable = true;
-            this.out_indate_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.out_indate_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(115, 52);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 18);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "เวลาเข้า";
+            this.his_search_box.CustomButton.Image = null;
+            this.his_search_box.CustomButton.Location = new System.Drawing.Point(355, 1);
+            this.his_search_box.CustomButton.Name = "";
+            this.his_search_box.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.his_search_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.his_search_box.CustomButton.TabIndex = 1;
+            this.his_search_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.his_search_box.CustomButton.UseSelectable = true;
+            this.his_search_box.CustomButton.Visible = false;
+            this.his_search_box.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.his_search_box.Lines = new string[0];
+            this.his_search_box.Location = new System.Drawing.Point(17, 43);
+            this.his_search_box.MaxLength = 32767;
+            this.his_search_box.Name = "his_search_box";
+            this.his_search_box.PasswordChar = '\0';
+            this.his_search_box.PromptText = "ใส่ทะเบียนรถ หรือ เลขบัตรประชาชน";
+            this.his_search_box.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.his_search_box.SelectedText = "";
+            this.his_search_box.SelectionLength = 0;
+            this.his_search_box.SelectionStart = 0;
+            this.his_search_box.ShortcutsEnabled = true;
+            this.his_search_box.Size = new System.Drawing.Size(389, 35);
+            this.his_search_box.TabIndex = 0;
+            this.his_search_box.UseSelectable = true;
+            this.his_search_box.WaterMark = "ใส่ทะเบียนรถ หรือ เลขบัตรประชาชน";
+            this.his_search_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.his_search_box.WaterMarkFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // MainForm
             // 
@@ -1464,11 +1723,26 @@
             this.InTab.ResumeLayout(false);
             this.OutTab.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.backdrop_panel.ResumeLayout(false);
+            this.out_head_panel.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.out_input_gb.ResumeLayout(false);
             this.show_outform_panel.ResumeLayout(false);
             this.show_outform_panel.PerformLayout();
-            this.out_head_panel.ResumeLayout(false);
-            this.out_input_gb.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.out_image2_pb)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.out_idcardpic_pb)).EndInit();
+            this.HistoryTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.his_backdrop_panel.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1547,5 +1821,22 @@
         private MetroFramework.Controls.MetroTextBox out_fullname_tb;
         private MetroFramework.Controls.MetroTextBox out_indate_tb;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel backdrop_panel;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox out_image2_pb;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox out_image1_pb;
+        private System.Windows.Forms.PictureBox out_idcardpic_pb;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button out_save_btn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel his_backdrop_panel;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button2;
+        private MetroFramework.Controls.MetroTextBox his_search_box;
     }
 }

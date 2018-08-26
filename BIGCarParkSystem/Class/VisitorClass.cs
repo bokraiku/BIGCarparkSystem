@@ -45,6 +45,57 @@ namespace BIGCarParkSystem.Class
             DB.CloseConnection();
             return dt;
         }
+        public DataTable getVisitByID(string visitid)
+        {
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+                    dt.Clear();
+                    string sql = "select * from tbl_visitor where visit_id=@visit_id and visit_status=1";
+                         
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                    cmd.Parameters.AddWithValue("@visit_id", visitid);
+                    adr.SelectCommand = cmd;
+                    adr.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return dt;
+        }
+
+        public int UpdateVisitInfo(string visitId)
+        {
+            int rowCount = 0;
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+
+                    string sql = "update tbl_visitor set visit_datetime_out=now(),visit_status=2 where visit_id=@visit_id";
+                        
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                    cmd.Parameters.AddWithValue("@visit_id", visitId);
+
+                    rowCount = cmd.ExecuteNonQuery();
+
+                
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return rowCount;
+        }
+
 
 
         public String InsertVisitData(string staff_id,string cartype_id,string company_id,string obt_id,string visit_name,string car_id,string id_card,string tel,string comment,string contact_id,string image_1, string idcard_image)

@@ -170,6 +170,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\background.jpg" />
+    <None Include="Resources\icons8-save-35.png" />
+    <None Include="Resources\icons8-save-45.png" />
     <None Include="Resources\icons8-save-50.png" />
     <None Include="Images\blue_bg.jpg" />
     <None Include="Images\bg_01.jpg" />
