@@ -22,9 +22,9 @@ namespace BIGCarParkSystem
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
         // Init Class
-        FunctionClass fn = new FunctionClass();
-
-        CompanyClass com = new CompanyClass();
+        FunctionClass   fn = new FunctionClass();
+        VisitorClass    vc = new VisitorClass();
+        CompanyClass    com = new CompanyClass();
         ObjectiveClass objClass = new ObjectiveClass();
         Camera display_cam = new Camera();
         RDNIDWRAPPER.RDNID mRDNIDWRAPPER = new RDNIDWRAPPER.RDNID();
@@ -42,6 +42,10 @@ namespace BIGCarParkSystem
         public string displayImage1 = "";
         public string displayImgae2 = "";
 
+        public string idcard_image = "";
+
+        public bool isVisitOutFound = false;
+
         FileStream fs;
 
         BinaryReader br;
@@ -58,6 +62,9 @@ namespace BIGCarParkSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+            // init defalut tab control
+            main_tabcontrol.SelectedIndex = 0;
             FormBorderStyle = FormBorderStyle.None;
             //WindowState = FormWindowState.Maximized;
             //TopMost = true;
@@ -296,6 +303,16 @@ namespace BIGCarParkSystem
                     Image img = Image.FromStream(new MemoryStream(byteImage));
                     Bitmap MyImage = new Bitmap(img, idcard_pb.Width - 2, idcard_pb.Height - 2);
                     idcard_pb.Image = (Image)MyImage;
+
+                    string name = NIDNum+ ".jpg";
+                    string file = Application.StartupPath+ @"\imagesidcard" + @"\" + name;
+                    if(!Directory.Exists(Application.StartupPath + @"\imagesidcard"))
+                    {
+                        System.IO.Directory.CreateDirectory(Application.StartupPath + @"\imagesidcard");
+                    }
+                    
+                    MyImage.Save(file, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    idcard_image = name;
                 }
 
                 RDNID.disconnectCardRD(obj);
@@ -638,7 +655,7 @@ namespace BIGCarParkSystem
                 return;
             }
             VisitorClass vc = new VisitorClass();
-            String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard,tel, Comment, ContactId,this.displayImage1);
+            String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard,tel, Comment, ContactId,this.displayImage1,this.idcard_image);
 
             if(visit_id == "")
             {
@@ -661,6 +678,60 @@ namespace BIGCarParkSystem
         private void objective_tb_Click(object sender, EventArgs e)
         {
             objective_select_btn.PerformClick();
+        }
+
+        private void main_tabcontrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = main_tabcontrol.SelectedIndex;
+            
+            if(index == 1)
+            {
+                out_input_tb.Focus();
+                show_outform_panel.Visible = false;
+                if (this.isVisitOutFound == true)
+                {
+                    show_outform_panel.Visible = true;
+                }
+
+            }
+        }
+
+        private void scan_barcode_btn_Click(object sender, EventArgs e)
+        {
+            string inputSearch = out_input_tb.Text.Trim();
+           
+            if (inputSearch.Equals(String.Empty))
+            {
+                MessageBox.Show(this, "กรุณากรอกข้อมูล", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                out_input_tb.Focus();
+            }
+
+            DataTable visitorDT = vc.getVisitorInfo(inputSearch);
+            if(visitorDT.Rows.Count < 1)
+            {
+                MessageBox.Show(this, "ไม่พบข้อมูลที่ค้นหา กรุณาตรวจสอบอีกครั้ง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+                this.isVisitOutFound = true;
+                show_outform_panel.Visible = true;
+                out_indate_tb.Text = fn.ConvertDate(visitorDT.Rows[0]["visit_datetime_in"].ToString());
+                out_fullname_tb.Text = visitorDT.Rows[0]["visit_name"].ToString();
+                out_idcard_tb.Text   = visitorDT.Rows[0]["id_card"].ToString();
+                out_tel_tb.Text = visitorDT.Rows[0]["tel"].ToString();
+                out_carid_tb.Text = visitorDT.Rows[0]["car_id"].ToString();
+                out_company_tb.Text = visitorDT.Rows[0]["com_name"].ToString();
+                out_cartype_tb.Text = visitorDT.Rows[0]["cartype_name"].ToString();
+                out_objective_tb.Text = visitorDT.Rows[0]["obt_name"].ToString();
+                out_contact_tb.Text = visitorDT.Rows[0]["contact_name"].ToString();
+                out_comment_tb.Text = visitorDT.Rows[0]["comment"].ToString();
+            }
+        }
+
+        private void idcard_pb_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -173,6 +173,7 @@
     <None Include="Resources\icons8-save-50.png" />
     <None Include="Images\blue_bg.jpg" />
     <None Include="Images\bg_01.jpg" />
+    <None Include="Images\barcode.png" />
     <Content Include="RDNIDlibD.dll" />
     <Content Include="Resources\background.jpg" />
     <None Include="Resources\blue-background.png" />
