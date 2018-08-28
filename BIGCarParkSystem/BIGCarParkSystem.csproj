@@ -33,18 +33,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge">
-      <HintPath>..\..\..\..\Documents\dll_camera\AForge.dll</HintPath>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dll_camera\AForge.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Video">
-      <HintPath>..\..\..\..\Documents\dll_camera\AForge.Video.dll</HintPath>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dll_camera\AForge.Video.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\..\..\..\Documents\dll_camera\AForge.Video.DirectShow.dll</HintPath>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dll_camera\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="DarrenLee.Media">
-      <HintPath>..\..\..\..\Documents\dll_camera\DarrenLee.Media.dll</HintPath>
+    <Reference Include="BarcodeLib">
+      <HintPath>H:\projectTcycle\TCycleApp\TCycleApp\bin\Debug\BarcodeLib.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DarrenLee.Media, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dll_camera\DarrenLee.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -57,6 +69,8 @@
     <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +88,7 @@
     <Compile Include="CarSelectForm.Designer.cs">
       <DependentUpon>CarSelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Barcode.class.cs" />
     <Compile Include="Class\CartypeClass.cs" />
     <Compile Include="Class\CompanyClass.cs" />
     <Compile Include="Class\ObjectiveClass.cs" />
@@ -122,6 +137,32 @@
     <Compile Include="Class\MysqlDB.cs" />
     <Compile Include="Class\UserInfo.cs" />
     <Compile Include="Class\VariableDB.cs" />
+    <Compile Include="report_dataset\VisitDataSet.cs">
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="report_dataset\VisitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ViewVisitHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewVisitHistoryForm.Designer.cs">
+      <DependentUpon>ViewVisitHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisitorReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitorReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VisitorReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisitorReportForm.Designer.cs">
+      <DependentUpon>VisitorReportForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CarSelectForm.resx">
       <DependentUpon>CarSelectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +194,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ViewVisitHistoryForm.resx">
+      <DependentUpon>ViewVisitHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitorReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VisitorReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitorReportForm.resx">
+      <DependentUpon>VisitorReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,6 +221,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\background.jpg" />
+    <None Include="report_dataset\VisitDataSet.xsc">
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="report_dataset\VisitDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisitDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="report_dataset\VisitDataSet.xss">
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\icons8-save-35.png" />
     <None Include="Resources\icons8-save-45.png" />
     <None Include="Resources\icons8-save-50.png" />
@@ -190,6 +252,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

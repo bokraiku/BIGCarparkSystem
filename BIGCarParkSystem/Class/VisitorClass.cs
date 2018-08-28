@@ -16,7 +16,63 @@ namespace BIGCarParkSystem.Class
         MysqlDB DB = new MysqlDB();
         DataTable dt = new DataTable();
         MySqlDataAdapter adr = new MySqlDataAdapter();
-        
+        public static DataSet VisitDS = new DataSet();
+
+        public DataTable getAllVisitorInfo()
+        {
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+                    dt.Clear();
+                    string sql = "select * from tbl_visitor vs inner join tbl_cartype ct on vs.cartype_id=ct.cartype_id" +
+                            " inner join tbl_company cp on vs.company_id = cp.com_id" +
+                            " inner join tbl_objective obt on vs.obt_id = obt.obt_id" +
+                            " inner join tbl_staff_contact sc on vs.contact_id = sc.contact_id" +
+                            " inner join tbl_account acc on vs.staff_id = acc.id " +
+                            " order by vs.visit_datetime_in desc";
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+            
+                    adr.SelectCommand = cmd;
+                    adr.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return dt;
+        }
+
+        public DataTable getVisitorInfoById(string VisitId)
+        {
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+                    dt.Clear();
+                    string sql = "select * from tbl_visitor vs inner join tbl_cartype ct on vs.cartype_id=ct.cartype_id" +
+                            " inner join tbl_company cp on vs.company_id = cp.com_id" +
+                            " inner join tbl_objective obt on vs.obt_id = obt.obt_id" +
+                            " inner join tbl_staff_contact sc on vs.contact_id = sc.contact_id" +
+                            " inner join tbl_account acc on vs.staff_id = acc.id " +
+                            " where vs.visit_id=@visit_id ";
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                    cmd.Parameters.AddWithValue("@visit_id", VisitId);
+                    adr.SelectCommand = cmd;
+                    adr.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return dt;
+        }
 
         public DataTable getVisitorInfo(string input)
         {
@@ -98,7 +154,7 @@ namespace BIGCarParkSystem.Class
 
 
 
-        public String InsertVisitData(string staff_id,string cartype_id,string company_id,string obt_id,string visit_name,string car_id,string id_card,string tel,string comment,string contact_id,string image_1, string idcard_image)
+        public String InsertVisitData(string staff_id,string cartype_id,string company_id,string obt_id,string visit_name,string car_id,string id_card,string tel,string comment,string contact_id,string image_1, string idcard_image,string barcode_id)
         {
             String returnValue = "";
             try
@@ -107,8 +163,8 @@ namespace BIGCarParkSystem.Class
                 {
 
                   
-                    string sql = "INSERT INTO `tbl_visitor` (`visit_datetime_in`, `visit_datetime_out`, `staff_id`, `cartype_id`, `company_id`, `obt_id`, `visit_name`, `car_id`, `id_card`, `tel`, `comment`,contact_id,image_1,idcard_image)" +
-                        " VALUES (now(), NULL, @staff_id, @cartype_id, @company_id, @obt_id, @visitor_name, @car_id, @id_card, @tel, @comment,@contact_id,@image_1,@idcard_image);";
+                    string sql = "INSERT INTO `tbl_visitor` (`visit_datetime_in`, `visit_datetime_out`, `staff_id`, `cartype_id`, `company_id`, `obt_id`, `visit_name`, `car_id`, `id_card`, `tel`, `comment`,contact_id,image_1,idcard_image,barcode_id)" +
+                        " VALUES (now(), NULL, @staff_id, @cartype_id, @company_id, @obt_id, @visitor_name, @car_id, @id_card, @tel, @comment,@contact_id,@image_1,@idcard_image,@barcode_id);";
                     MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
                     cmd.Parameters.AddWithValue("@staff_id", staff_id);
                     cmd.Parameters.AddWithValue("@cartype_id", cartype_id);
@@ -122,6 +178,8 @@ namespace BIGCarParkSystem.Class
                     cmd.Parameters.AddWithValue("@contact_id", contact_id);
                     cmd.Parameters.AddWithValue("@image_1", image_1);
                     cmd.Parameters.AddWithValue("@idcard_image", idcard_image);
+                    cmd.Parameters.AddWithValue("@barcode_id", barcode_id);
+                    
 
                     if (cmd.ExecuteNonQuery() > 0)
                     {

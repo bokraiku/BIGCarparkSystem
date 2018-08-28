@@ -112,13 +112,16 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.HistoryTab = new MetroFramework.Controls.MetroTabPage();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.his_backdrop_panel = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.his_head_panel = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.his_search_box = new MetroFramework.Controls.MetroTextBox();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.his_data_panel = new System.Windows.Forms.Panel();
+            this.history_gridview = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.camera2_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).BeginInit();
@@ -153,11 +156,13 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.out_idcardpic_pb)).BeginInit();
             this.HistoryTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.panel6.SuspendLayout();
             this.his_backdrop_panel.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.his_head_panel.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.his_data_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.history_gridview)).BeginInit();
             this.SuspendLayout();
             // 
             // camera2_display_pb
@@ -707,6 +712,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -864,7 +870,7 @@
             this.main_tabcontrol.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.main_tabcontrol.Location = new System.Drawing.Point(21, 30);
             this.main_tabcontrol.Name = "main_tabcontrol";
-            this.main_tabcontrol.SelectedIndex = 2;
+            this.main_tabcontrol.SelectedIndex = 0;
             this.main_tabcontrol.Size = new System.Drawing.Size(1558, 850);
             this.main_tabcontrol.TabIndex = 2;
             this.main_tabcontrol.UseSelectable = true;
@@ -1585,10 +1591,6 @@
             this.HistoryTab.VerticalScrollbarHighlightOnWheel = false;
             this.HistoryTab.VerticalScrollbarSize = 9;
             // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = this;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
@@ -1603,21 +1605,22 @@
             // his_backdrop_panel
             // 
             this.his_backdrop_panel.BackColor = System.Drawing.Color.Transparent;
-            this.his_backdrop_panel.Controls.Add(this.panel7);
+            this.his_backdrop_panel.Controls.Add(this.his_data_panel);
+            this.his_backdrop_panel.Controls.Add(this.his_head_panel);
             this.his_backdrop_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.his_backdrop_panel.Location = new System.Drawing.Point(0, 0);
             this.his_backdrop_panel.Name = "his_backdrop_panel";
             this.his_backdrop_panel.Size = new System.Drawing.Size(1550, 802);
             this.his_backdrop_panel.TabIndex = 0;
             // 
-            // panel7
+            // his_head_panel
             // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Control;
-            this.panel7.Controls.Add(this.groupBox6);
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1539, 136);
-            this.panel7.TabIndex = 1;
+            this.his_head_panel.BackColor = System.Drawing.SystemColors.Control;
+            this.his_head_panel.Controls.Add(this.groupBox6);
+            this.his_head_panel.Location = new System.Drawing.Point(3, 3);
+            this.his_head_panel.Name = "his_head_panel";
+            this.his_head_panel.Size = new System.Drawing.Size(1539, 136);
+            this.his_head_panel.TabIndex = 1;
             // 
             // groupBox6
             // 
@@ -1681,6 +1684,49 @@
             this.his_search_box.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.his_search_box.WaterMarkFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            // 
+            // his_data_panel
+            // 
+            this.his_data_panel.Controls.Add(this.history_gridview);
+            this.his_data_panel.Location = new System.Drawing.Point(6, 145);
+            this.his_data_panel.Name = "his_data_panel";
+            this.his_data_panel.Size = new System.Drawing.Size(1536, 654);
+            this.his_data_panel.TabIndex = 2;
+            // 
+            // history_gridview
+            // 
+            this.history_gridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.history_gridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.history_gridview.BackgroundColor = System.Drawing.Color.White;
+            this.history_gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.history_gridview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.history_gridview.Location = new System.Drawing.Point(0, 0);
+            this.history_gridview.Name = "history_gridview";
+            this.history_gridview.Size = new System.Drawing.Size(1536, 654);
+            this.history_gridview.TabIndex = 0;
+            this.history_gridview.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.history_gridview_RowHeaderMouseDoubleClick);
+            this.history_gridview.DoubleClick += new System.EventHandler(this.history_gridview_DoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(8, 611);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 47);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "ล้างข้อมูล";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1738,11 +1784,13 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.out_idcardpic_pb)).EndInit();
             this.HistoryTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.his_backdrop_panel.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.his_head_panel.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.his_data_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.history_gridview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1834,9 +1882,12 @@
         private System.Windows.Forms.Button out_save_btn;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel his_backdrop_panel;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel his_head_panel;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button2;
         private MetroFramework.Controls.MetroTextBox his_search_box;
+        private System.Windows.Forms.Panel his_data_panel;
+        private System.Windows.Forms.DataGridView history_gridview;
+        private System.Windows.Forms.Button button1;
     }
 }

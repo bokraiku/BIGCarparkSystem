@@ -22,9 +22,9 @@ namespace BIGCarParkSystem
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
         // Init Class
-        FunctionClass   fn = new FunctionClass();
-        VisitorClass    vc = new VisitorClass();
-        CompanyClass    com = new CompanyClass();
+        FunctionClass fn = new FunctionClass();
+        VisitorClass vc = new VisitorClass();
+        CompanyClass com = new CompanyClass();
         ObjectiveClass objClass = new ObjectiveClass();
         Camera display_cam = new Camera();
         RDNIDWRAPPER.RDNID mRDNIDWRAPPER = new RDNIDWRAPPER.RDNID();
@@ -124,11 +124,11 @@ namespace BIGCarParkSystem
         {
             var cameraDevice = display_cam.GetCameraSources();
             var cameraResolution = display_cam.GetSupportedResolutions();
-            if(cameraDevice[0] != null)
+            if (cameraDevice[0] != null)
             {
                 Camera1 = 0;
             }
-            
+
 
 
 
@@ -153,13 +153,15 @@ namespace BIGCarParkSystem
             form_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
             out_head_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
             show_outform_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
+            his_head_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
+            his_data_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
         }
 
         private void scancard_btn_Click(object sender, EventArgs e)
         {
             if (this.CardReader != null)
             {
-               
+
                 this.ReadCard();
 
 
@@ -197,7 +199,7 @@ namespace BIGCarParkSystem
                 {
 
                     this.CardReader = readlist[i];
-                    
+
                 }
 
 
@@ -220,7 +222,7 @@ namespace BIGCarParkSystem
             String strTerminal = this.CardReader;
 
             IntPtr obj = selectReader(strTerminal);
-            
+
 
             Int32 nInsertCard = 0;
             nInsertCard = RDNID.connectCardRD(obj);
@@ -268,7 +270,7 @@ namespace BIGCarParkSystem
                                     fields[(int)FunctionClass.NID_FIELD.SURNAME_T];
                 fullname_tb.Text = fullname.Trim();
 
-               
+
 
                 string birthday = fn._yyyymmdd_(fields[(int)FunctionClass.NID_FIELD.BIRTH_DATE]);
 
@@ -290,7 +292,7 @@ namespace BIGCarParkSystem
                 {
                     gender = "หญิง";
                 }
-              
+
 
                 byte[] NIDPicture = new byte[1024 * 5];
                 int imgsize = NIDPicture.Length;
@@ -310,13 +312,13 @@ namespace BIGCarParkSystem
                     Bitmap MyImage = new Bitmap(img, idcard_pb.Width - 2, idcard_pb.Height - 2);
                     idcard_pb.Image = (Image)MyImage;
 
-                    string name = NIDNum+ ".jpg";
-                    string file = Application.StartupPath+ @"\imagesidcard" + @"\" + name;
-                    if(!Directory.Exists(Application.StartupPath + @"\imagesidcard"))
+                    string name = NIDNum + ".jpg";
+                    string file = Application.StartupPath + @"\imagesidcard" + @"\" + name;
+                    if (!Directory.Exists(Application.StartupPath + @"\imagesidcard"))
                     {
                         System.IO.Directory.CreateDirectory(Application.StartupPath + @"\imagesidcard");
                     }
-                    
+
                     MyImage.Save(file, System.Drawing.Imaging.ImageFormat.Jpeg);
                     idcard_image = name;
                 }
@@ -330,7 +332,8 @@ namespace BIGCarParkSystem
         }
 
         private void capture_btn_Click(object sender, EventArgs e)
-        {   string name = "Image" + fn.getRanFile();
+        {
+            string name = "Image" + fn.getRanFile();
             string file = Application.StartupPath + @"\" + name;
 
             display_cam.Capture(file);
@@ -346,7 +349,7 @@ namespace BIGCarParkSystem
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
             DataTable compamyDT = com.getAllCompany();
 
-            foreach(DataRow c in compamyDT.Rows)
+            foreach (DataRow c in compamyDT.Rows)
             {
                 coll.Add(c["com_name"].ToString());
                 //MessageBox.Show(c["com_name"].ToString());
@@ -363,7 +366,7 @@ namespace BIGCarParkSystem
             foreach (DataRow c in ContactDT.Rows)
             {
                 con_coll.Add(c["contact_name"].ToString());
-               
+
             }
             contact_tb.AutoCompleteCustomSource = con_coll;
 
@@ -382,7 +385,7 @@ namespace BIGCarParkSystem
 
         private void Cf_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MainForm.CompanySelectedID != 0)
+            if (MainForm.CompanySelectedID != 0)
             {
                 CompanyClass cp = new CompanyClass();
                 DataTable dt = cp.GetCompanyByID(MainForm.CompanySelectedID);
@@ -397,12 +400,12 @@ namespace BIGCarParkSystem
                     MetroMessageBox.Show(this, "ไม่พบบริษัทที่เลือก กรุณาลองใหม่อีกครั้ง");
                 }
             }
-           
+
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F5)
             {
                 select_company_btn.PerformClick();
             }
@@ -442,7 +445,7 @@ namespace BIGCarParkSystem
                 {
                     string CartypeName = dt.Rows[0]["cartype_name"].ToString();
                     cartype_tb.Text = CartypeName;
-                    
+
                 }
                 else
                 {
@@ -459,7 +462,7 @@ namespace BIGCarParkSystem
             cf.ShowDialog();
             contact_tb.Focus();
 
-           
+
         }
         private void Of_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -667,8 +670,14 @@ namespace BIGCarParkSystem
                     MessageBox.Show(this, "กรุณาถ่ายรูปผู้มาติดต่อ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                // Get Barcode
+
+                String NewBar = fn.getRanFile();
+                String BarcodeFull = NewBar + Barcode.CheckSumBarcode(NewBar).ToString();
+                Barcode.GenBarcodeImg(BarcodeFull);
+
                 VisitorClass vc = new VisitorClass();
-                String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard, tel, Comment, ContactId, this.displayImage1, this.idcard_image);
+                String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard, tel, Comment, ContactId, this.displayImage1, this.idcard_image, BarcodeFull);
 
                 if (visit_id == "")
                 {
@@ -680,6 +689,17 @@ namespace BIGCarParkSystem
                     ClearDataInControl(panel2);
                     idcard_pb.Image = null;
                     camera1_display_pb.Image = null;
+
+                    // print bill
+                    VisitorReportForm cf = new VisitorReportForm();
+                    DataSet dst = new DataSet();
+                    DataTable vcdt = vc.getVisitorInfoById(visit_id);
+                    dst.Tables.Add(vcdt);
+                    cf.DsReport = dst;
+
+                    cf.ShowDialog();
+
+
                 }
             }
 
@@ -700,8 +720,8 @@ namespace BIGCarParkSystem
         private void main_tabcontrol_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = main_tabcontrol.SelectedIndex;
-            
-            if(index == 1)
+
+            if (index == 1)
             {
                 out_input_tb.Focus();
                 show_outform_panel.Visible = false;
@@ -711,22 +731,29 @@ namespace BIGCarParkSystem
                 }
 
             }
+            if (index == 2)
+            {
+                this.ConfigHeaderHistoryGridView();
+                this.getHistoryData();
+            }
         }
 
         private void scan_barcode_btn_Click(object sender, EventArgs e)
         {
             string inputSearch = out_input_tb.Text.Trim();
-           
+
             if (inputSearch.Equals(String.Empty))
             {
                 MessageBox.Show(this, "กรุณากรอกข้อมูล", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 out_input_tb.Focus();
+                return;
             }
 
             DataTable visitorDT = vc.getVisitorInfo(inputSearch);
-            if(visitorDT.Rows.Count < 1)
+            if (visitorDT.Rows.Count < 1)
             {
                 MessageBox.Show(this, "ไม่พบข้อมูลที่ค้นหา กรุณาตรวจสอบอีกครั้ง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -736,7 +763,7 @@ namespace BIGCarParkSystem
                 this.OutVisitID = visitorDT.Rows[0]["visit_id"].ToString();
                 out_indate_tb.Text = fn.ConvertDate(visitorDT.Rows[0]["visit_datetime_in"].ToString());
                 out_fullname_tb.Text = visitorDT.Rows[0]["visit_name"].ToString();
-                out_idcard_tb.Text   = visitorDT.Rows[0]["id_card"].ToString();
+                out_idcard_tb.Text = visitorDT.Rows[0]["id_card"].ToString();
                 out_tel_tb.Text = visitorDT.Rows[0]["tel"].ToString();
                 out_carid_tb.Text = visitorDT.Rows[0]["car_id"].ToString();
                 out_company_tb.Text = visitorDT.Rows[0]["com_name"].ToString();
@@ -745,7 +772,7 @@ namespace BIGCarParkSystem
                 out_contact_tb.Text = visitorDT.Rows[0]["contact_name"].ToString();
                 out_comment_tb.Text = visitorDT.Rows[0]["comment"].ToString();
 
-                if(visitorDT.Rows[0]["image_1"].ToString() != "")
+                if (visitorDT.Rows[0]["image_1"].ToString() != "")
                 {
                     out_image1_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString());
                 }
@@ -767,7 +794,7 @@ namespace BIGCarParkSystem
 
         private void out_input_tb_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 scan_barcode_btn.PerformClick();
             }
@@ -797,7 +824,7 @@ namespace BIGCarParkSystem
                 }
                 else
                 {
-                   
+
                     this.isVisitOutFound = false;
                     //show_outform_panel.Visible = false;
                     MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "ข้อความ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -820,7 +847,7 @@ namespace BIGCarParkSystem
                 //MessageBox.Show(box.Name);
                 if (box != null)
                 {
-                   
+
                     box.Text = string.Empty;
                 }
                 var boxSystem = c as TextBox;
@@ -831,6 +858,90 @@ namespace BIGCarParkSystem
                 }
 
             }
+        }
+
+        public void ConfigHeaderHistoryGridView()
+        {
+            this.history_gridview.AllowUserToAddRows = false;
+            this.history_gridview.Refresh();
+            this.history_gridview.ColumnCount = 6;
+            this.history_gridview.Columns[0].Name = "เลขที่";
+            this.history_gridview.Columns[0].ReadOnly = true;
+            this.history_gridview.Columns[1].Name = "ทะเบียน";
+            this.history_gridview.Columns[1].ReadOnly = true;
+            this.history_gridview.Columns[2].Name = "บริษัท";
+            this.history_gridview.Columns[2].ReadOnly = true;
+            this.history_gridview.Columns[3].Name = "เวลาเข้า";
+            this.history_gridview.Columns[3].ReadOnly = true;
+            this.history_gridview.Columns[4].Name = "เวลาออก";
+            this.history_gridview.Columns[4].ReadOnly = true;
+            this.history_gridview.Columns[5].Name = "ชื่อ";
+            this.history_gridview.Columns[5].ReadOnly = true;
+
+        }
+
+        public void getHistoryData()
+        {
+            this.history_gridview.Rows.Clear();
+            this.history_gridview.AllowUserToAddRows = false;
+            this.history_gridview.Refresh();
+            DataTable hisDT = vc.getAllVisitorInfo();
+
+            foreach (DataRow dr in hisDT.Rows)
+            {
+                String visit_id = dr["visit_id"].ToString();
+                String car_id = dr["car_id"].ToString();
+
+                String com_name = dr["com_name"].ToString();
+                String visit_datetime_in = fn.ConvertDate(dr["visit_datetime_in"].ToString());
+                String visit_datetime_out = "";
+                if (dr["visit_datetime_out"].ToString() == "")
+                {
+                    visit_datetime_out = "-";
+                }
+                else
+                {
+                    visit_datetime_out = fn.ConvertDate(dr["visit_datetime_out"].ToString());
+                }
+                
+                String visit_name = dr["visit_name"].ToString();
+
+
+
+                String[] rows = { visit_id,car_id, com_name,visit_datetime_in,visit_datetime_out, visit_name };
+                this.history_gridview.Rows.Add(rows);
+
+
+
+
+
+            }
+        }
+
+        private void history_gridview_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void history_gridview_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            String visit_id = this.history_gridview.Rows[RowIndex].Cells[0].Value.ToString();
+            if (visit_id == "" || visit_id == null)
+            {
+                MessageBox.Show("ขออภัยข้อมูลไม่ถูกต้อง");
+                return;
+            }
+            
+            ViewVisitHistoryForm cf = new ViewVisitHistoryForm();
+            ViewVisitHistoryForm.VisitID = visit_id;
+           
+            cf.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ClearDataInControl(show_outform_panel);
         }
     }
 

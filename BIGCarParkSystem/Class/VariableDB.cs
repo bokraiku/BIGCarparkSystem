@@ -18,5 +18,6 @@ namespace BIGCarParkSystem.Class
 
         public static string PathImage = Application.StartupPath + @"/";
         public static string PathIdCardImage = Application.StartupPath + @"/imagesidcard/";
+        public static string PathBarcodeImage = Application.StartupPath + @"/tempBarcode/";
     }
 }
