@@ -37,9 +37,9 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(20, 30);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(393, 587);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(360, 700);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
@@ -48,14 +48,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 587);
+            this.ClientSize = new System.Drawing.Size(400, 750);
             this.Controls.Add(this.crystalReportViewer1);
+            this.DisplayHeader = false;
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VisitorReportForm";
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "VisitorReportForm";
+            this.TransparencyKey = System.Drawing.Color.Empty;
             this.ResumeLayout(false);
 
         }

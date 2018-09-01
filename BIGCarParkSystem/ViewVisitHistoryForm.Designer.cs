@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelBG = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.delete_history_bt = new System.Windows.Forms.Button();
+            this.save_btn = new System.Windows.Forms.Button();
             this.out_dateout_tb = new MetroFramework.Controls.MetroTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.out_visitid_tb = new MetroFramework.Controls.MetroTextBox();
@@ -61,8 +64,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.save_btn = new System.Windows.Forms.Button();
-            this.panelBG = new System.Windows.Forms.Panel();
+            this.panelBG.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -72,11 +74,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.out_idcardpic_pb)).BeginInit();
-            this.panelBG.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelBG
+            // 
+            this.panelBG.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.bg_01;
+            this.panelBG.Controls.Add(this.panelMain);
+            this.panelBG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBG.Location = new System.Drawing.Point(20, 60);
+            this.panelBG.Name = "panelBG";
+            this.panelBG.Size = new System.Drawing.Size(1160, 720);
+            this.panelBG.TabIndex = 69;
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.delete_history_bt);
             this.panelMain.Controls.Add(this.save_btn);
             this.panelMain.Controls.Add(this.out_dateout_tb);
             this.panelMain.Controls.Add(this.label2);
@@ -110,6 +122,42 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1160, 720);
             this.panelMain.TabIndex = 1;
+            // 
+            // delete_history_bt
+            // 
+            this.delete_history_bt.BackColor = System.Drawing.Color.Red;
+            this.delete_history_bt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete_history_bt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delete_history_bt.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_history_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.delete_history_bt.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
+            this.delete_history_bt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.delete_history_bt.Location = new System.Drawing.Point(292, 624);
+            this.delete_history_bt.Name = "delete_history_bt";
+            this.delete_history_bt.Size = new System.Drawing.Size(79, 47);
+            this.delete_history_bt.TabIndex = 69;
+            this.delete_history_bt.Text = "ลบ";
+            this.delete_history_bt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.delete_history_bt.UseVisualStyleBackColor = false;
+            this.delete_history_bt.Click += new System.EventHandler(this.delete_history_bt_Click);
+            // 
+            // save_btn
+            // 
+            this.save_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.save_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.save_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.save_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.save_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_50;
+            this.save_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.save_btn.Location = new System.Drawing.Point(156, 624);
+            this.save_btn.Name = "save_btn";
+            this.save_btn.Size = new System.Drawing.Size(105, 47);
+            this.save_btn.TabIndex = 68;
+            this.save_btn.Text = "พิมพ์";
+            this.save_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.save_btn.UseVisualStyleBackColor = false;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // out_dateout_tb
             // 
@@ -713,34 +761,6 @@
             this.label18.TabIndex = 41;
             this.label18.Text = "ชื่อ - สกุล";
             // 
-            // save_btn
-            // 
-            this.save_btn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.save_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.save_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.save_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.save_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_50;
-            this.save_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.save_btn.Location = new System.Drawing.Point(156, 624);
-            this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(105, 47);
-            this.save_btn.TabIndex = 68;
-            this.save_btn.Text = "พิมพ์";
-            this.save_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.save_btn.UseVisualStyleBackColor = false;
-            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
-            // 
-            // panelBG
-            // 
-            this.panelBG.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.bg_01;
-            this.panelBG.Controls.Add(this.panelMain);
-            this.panelBG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBG.Location = new System.Drawing.Point(20, 60);
-            this.panelBG.Name = "panelBG";
-            this.panelBG.Size = new System.Drawing.Size(1160, 720);
-            this.panelBG.TabIndex = 69;
-            // 
             // ViewVisitHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,6 +776,7 @@
             this.Text = "ประวัติการใช้งาน";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.ViewVisitHistoryForm_Load);
+            this.panelBG.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -766,7 +787,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.out_idcardpic_pb)).EndInit();
-            this.panelBG.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -808,5 +828,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button save_btn;
         private System.Windows.Forms.Panel panelBG;
+        private System.Windows.Forms.Button delete_history_bt;
     }
 }

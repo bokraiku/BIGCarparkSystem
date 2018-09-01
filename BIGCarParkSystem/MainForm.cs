@@ -110,8 +110,31 @@ namespace BIGCarParkSystem
 
             fullname_tb.Focus();
 
+            this.checkPrivileges();
 
 
+        }
+
+        private void checkPrivileges()
+        {
+            //Check Privileges
+            if (UserInfo.UserRole != "1")
+            {
+                admin_bg_panel.Visible = false;
+                Label ll = new Label();
+                ll.Width = 500;
+                ll.Height = 50;
+                ll.TextAlign = ContentAlignment.MiddleCenter;
+                ll.BackColor = Color.FromArgb(100, 255, 255, 255);
+                ll.ForeColor = Color.FromArgb(0, 255, 0, 0);
+                ll.Text = "คุณไม่มีสิทธิ์ใช้งานระบบนี้";
+                ll.Font  = new Font("Tahoma", 14, FontStyle.Bold);
+                ll.Left = (userTab.Width / 2) - (ll.Width / 2);
+                ll.Top  = 50;
+                userTab.Controls.Add(ll);
+            }
+
+           
         }
 
         public void myCam_OnFrameArrived(object source, FrameArrivedEventArgs e)
@@ -148,6 +171,7 @@ namespace BIGCarParkSystem
             c_panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
             left_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             right_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
+           
             his_backdrop_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             backdrop_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             form_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
@@ -155,6 +179,8 @@ namespace BIGCarParkSystem
             show_outform_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
             his_head_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
             his_data_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
+
+            admin_head_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
         }
 
         private void scancard_btn_Click(object sender, EventArgs e)
@@ -516,7 +542,7 @@ namespace BIGCarParkSystem
             {
                 String fullname = fullname_tb.Text.Trim();
                 String idcard = idcard_tb.Text.Trim();
-                String tel = tel_tb.Text.Trim();
+                //String tel = tel_tb.Text.Trim();
                 String carId = carid_tb.Text.Trim();
                 String Company = company_tb.Text.Trim();
                 String CarType = cartype_tb.Text.Trim();
@@ -551,21 +577,21 @@ namespace BIGCarParkSystem
                 }
 
 
-                if (tel.Equals(String.Empty))
-                {
-                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                    MessageBox.Show(this, "กรุณาระบุเบอร์โทร", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tel_tb.Focus();
-                    return;
-                }
+                //if (tel.Equals(String.Empty))
+                //{
+                //    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                //    MessageBox.Show(this, "กรุณาระบุเบอร์โทร", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    tel_tb.Focus();
+                //    return;
+                //}
 
-                if (fn.checkTel(tel) == false)
-                {
-                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                    MessageBox.Show(this, "กรุณากรอกเบอร์โทรให้ถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tel_tb.Focus();
-                    return;
-                }
+                //if (fn.checkTel(tel) == false)
+                //{
+                //    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                //    MessageBox.Show(this, "กรุณากรอกเบอร์โทรให้ถูกต้อง", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    tel_tb.Focus();
+                //    return;
+                //}
 
                 if (carId.Equals(String.Empty))
                 {
@@ -736,6 +762,22 @@ namespace BIGCarParkSystem
                 this.ConfigHeaderHistoryGridView();
                 this.getHistoryData();
             }
+
+            if(index == 3 && UserInfo.UserRole == "1")
+            {
+                MemberClass member = new MemberClass();
+                DataTable dt = member.getAllRole();
+                DataRow drRole = dt.NewRow();
+                drRole["role_name"] = "กรุณาเลือกผู้มาติดต่อ";
+                drRole["role_id"] = "0";
+
+                dt.Rows.Add(drRole);
+                admin_role_cb.DisplayMember = "role_name";
+                admin_role_cb.ValueMember = "role_id";
+                admin_role_cb.DataSource = dt;
+                admin_role_cb.SelectedValue = "0";
+
+            }
         }
 
         private void scan_barcode_btn_Click(object sender, EventArgs e)
@@ -880,12 +922,21 @@ namespace BIGCarParkSystem
 
         }
 
-        public void getHistoryData()
+        public void getHistoryData(DataTable _hisDT = null)
         {
             this.history_gridview.Rows.Clear();
             this.history_gridview.AllowUserToAddRows = false;
             this.history_gridview.Refresh();
-            DataTable hisDT = vc.getAllVisitorInfo();
+            DataTable hisDT;
+            if (_hisDT == null)
+            {
+                hisDT = vc.getAllVisitorInfo();
+            }
+            else
+            {
+                hisDT = _hisDT;
+            }
+            
 
             foreach (DataRow dr in hisDT.Rows)
             {
@@ -935,13 +986,97 @@ namespace BIGCarParkSystem
             
             ViewVisitHistoryForm cf = new ViewVisitHistoryForm();
             ViewVisitHistoryForm.VisitID = visit_id;
+            cf.FormClosing += Cf_FormClosing1;
            
             cf.ShowDialog();
         }
 
+        private void Cf_FormClosing1(object sender, FormClosingEventArgs e)
+        {
+            button2.PerformClick();
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ClearDataInControl(show_outform_panel);
+            ClearDataInControl(panel2);
+            idcard_pb.Image = null;
+            camera1_display_pb.Image = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string searchHistory = his_search_box.Text.Trim();
+            if (searchHistory.Equals(string.Empty))
+            {
+                getHistoryData();
+            }
+            else
+            {
+                DataTable historyDT = vc.getAllVisitorInfoHistory(searchHistory);
+
+                if(historyDT.Rows.Count > 0)
+                {
+                    getHistoryData(historyDT);
+                }
+                else
+                {
+                    MessageBox.Show(this, "ไม่พบข้อมูลที่ค้นหา", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+        }
+
+        private void his_search_box_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                button2.PerformClick();
+            }
+        }
+
+        private void admin_save_bt_Click(object sender, EventArgs e)
+        {
+            string username = admin_username_tb.Text.Trim();
+            string password = admin_password_tb.Text;
+            string conPassword = admin_conpass_tb.Text;
+            string roleId = admin_role_cb.SelectedIndex.ToString();
+            if (username.Equals(string.Empty) || password.Equals(string.Empty) || conPassword.Equals(string.Empty))
+            {
+                MessageBox.Show(this, "กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if(password != conPassword)
+            {
+                MessageBox.Show(this, "กรุณากรอกรหัสผ่านให้ตรงกัน", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(roleId == null || roleId == "0")
+            {
+                MessageBox.Show(this, "กรุณาเลือกสิทธิ์การใช้งาน", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string md5Pass = fn.MD5Hash(password);
+            MemberClass member = new MemberClass();
+            DataTable adminDT = member.checkUsername(username);
+            if(adminDT.Rows.Count > 0)
+            {
+                MessageBox.Show(this, "Username นี้มีในระบบแล้ว", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string index = member.InsertAccount(username, md5Pass, roleId);
+            if(index == "")
+            {
+                MessageBox.Show(this, "ไม่สามารถบันททึกข้อมูลได้", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
         }
     }
 

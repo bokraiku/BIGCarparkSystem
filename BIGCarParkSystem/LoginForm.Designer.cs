@@ -51,6 +51,7 @@
             this.login_panel_bg.Name = "login_panel_bg";
             this.login_panel_bg.Size = new System.Drawing.Size(620, 359);
             this.login_panel_bg.TabIndex = 5;
+            this.login_panel_bg.Paint += new System.Windows.Forms.PaintEventHandler(this.login_panel_bg_Paint);
             // 
             // login_panel
             // 

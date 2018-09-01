@@ -17,7 +17,7 @@ namespace BIGCarParkSystem
    
     public partial class LoginForm : MetroFramework.Forms.MetroForm
     {
-        private int isTest = 1;
+        private int isTest = 0;
         FunctionClass fn = new FunctionClass();
         MemberClass member = new MemberClass();
        
@@ -79,9 +79,11 @@ namespace BIGCarParkSystem
                 UserInfo.Username = dt.Rows[0]["username"].ToString();
                 UserInfo.UserRole = dt.Rows[0]["role_id"].ToString();
                 UserInfo.LoginTime = fn.getDateNow();
+                member.InsertLoginLog(UserInfo.UserId);
                 this.Hide();
                 MainForm mf = new MainForm();
                 mf.ShowDialog();
+
             }
         }
 
@@ -99,6 +101,11 @@ namespace BIGCarParkSystem
             {
                 button1.PerformClick();
             }
+        }
+
+        private void login_panel_bg_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

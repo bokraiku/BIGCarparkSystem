@@ -18,6 +18,36 @@ namespace BIGCarParkSystem.Class
         MySqlDataAdapter adr = new MySqlDataAdapter();
         public static DataSet VisitDS = new DataSet();
 
+
+        public DataTable getAllVisitorInfoHistory(string input)
+        {
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+                    dt.Clear();
+                    string sql = "select * from tbl_visitor vs inner join tbl_cartype ct on vs.cartype_id=ct.cartype_id" +
+                            " inner join tbl_company cp on vs.company_id = cp.com_id" +
+                            " inner join tbl_objective obt on vs.obt_id = obt.obt_id" +
+                            " inner join tbl_staff_contact sc on vs.contact_id = sc.contact_id" +
+                            " inner join tbl_account acc on vs.staff_id = acc.id " +
+                            " where vs.car_id like '%"+ input + "%' or vs.id_card like '%" + input + "%' or  cp.com_name like '%" + input + "%' or vs.visit_name like '%" + input + "%' or vs.visit_datetime_in like '%" + input + "%'  or vs.visit_datetime_out like '%" + input + "%' " +
+                            " order by vs.visit_datetime_in desc";
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+
+                    adr.SelectCommand = cmd;
+                    adr.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return dt;
+        }
+
         public DataTable getAllVisitorInfo()
         {
             try
@@ -142,6 +172,32 @@ namespace BIGCarParkSystem.Class
                     rowCount = cmd.ExecuteNonQuery();
 
                 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return rowCount;
+        }
+        public int DeleteVisitor(string visitId)
+        {
+            int rowCount = 0;
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+
+                    string sql = "delete from tbl_visitor where visit_id=@visit_id";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                    cmd.Parameters.AddWithValue("@visit_id", visitId);
+
+                    rowCount = cmd.ExecuteNonQuery();
+
+
                 }
             }
             catch (Exception ex)

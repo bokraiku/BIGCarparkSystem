@@ -25,6 +25,15 @@ namespace BIGCarParkSystem
         {
             InitializeComponent();
             this.transparent_bg();
+
+            if(UserInfo.UserRole != "1")
+            {
+                delete_history_bt.Visible = false;
+            }
+            else
+            {
+                delete_history_bt.Visible = true;
+            }
         }
 
         private void ViewVisitHistoryForm_Load(object sender, EventArgs e)
@@ -102,6 +111,25 @@ namespace BIGCarParkSystem
         {
            
             panelMain.BackColor = Color.FromArgb(100, 255, 255, 255);
+        }
+
+        private void delete_history_bt_Click(object sender, EventArgs e)
+        {
+            if (ViewVisitHistoryForm.VisitID != "")
+            {
+                VisitorClass vc = new VisitorClass();
+                int rowCount = vc.DeleteVisitor(ViewVisitHistoryForm.VisitID);
+                if (rowCount == 0)
+                {
+                    MessageBox.Show(this, "ไม่สามารถลบข้อมูลได้ กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(this, "ลบข้อมูลสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
         }
     }
 }

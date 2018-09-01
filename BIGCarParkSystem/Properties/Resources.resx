@@ -121,6 +121,9 @@
   <data name="blue_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\blue_bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-search-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-search-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\bg_01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,8 +151,14 @@
   <data name="icons8-save-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-save-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-search-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-search-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Camera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-save-35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-save-35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,7 +169,10 @@
   <data name="barcode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\barcode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-save-35" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-save-35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-search-501" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-search-501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-trash-35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-trash-35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

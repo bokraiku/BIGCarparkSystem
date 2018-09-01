@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIGCarParkSystem.Class;
+using MetroFramework;
 
 namespace BIGCarParkSystem
 {
-    public partial class VisitorReportForm : Form
+    public partial class VisitorReportForm : MetroFramework.Forms.MetroForm
     {
         public DataSet DsReport = new DataSet();
         public VisitorReportForm()
