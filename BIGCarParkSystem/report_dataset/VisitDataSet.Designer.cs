@@ -293,6 +293,8 @@ namespace BIGCarParkSystem.report_dataset {
             
             private global::System.Data.DataColumn columnvisit_name;
             
+            private global::System.Data.DataColumn columncontact_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public VisitorDataSetDataTable() {
@@ -384,6 +386,14 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn contact_nameColumn {
+                get {
+                    return this.columncontact_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VisitorDataSetRow AddVisitorDataSetRow(string visit_id, string visit_datetime_in, string barcode_id, string id_card, string car_id, string username, string visit_name) {
+            public VisitorDataSetRow AddVisitorDataSetRow(string visit_id, string visit_datetime_in, string barcode_id, string id_card, string car_id, string username, string visit_name, string contact_name) {
                 VisitorDataSetRow rowVisitorDataSetRow = ((VisitorDataSetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         visit_id,
@@ -428,7 +438,8 @@ namespace BIGCarParkSystem.report_dataset {
                         id_card,
                         car_id,
                         username,
-                        visit_name};
+                        visit_name,
+                        contact_name};
                 rowVisitorDataSetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVisitorDataSetRow);
                 return rowVisitorDataSetRow;
@@ -458,6 +469,7 @@ namespace BIGCarParkSystem.report_dataset {
                 this.columncar_id = base.Columns["car_id"];
                 this.columnusername = base.Columns["username"];
                 this.columnvisit_name = base.Columns["visit_name"];
+                this.columncontact_name = base.Columns["contact_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace BIGCarParkSystem.report_dataset {
                 base.Columns.Add(this.columnusername);
                 this.columnvisit_name = new global::System.Data.DataColumn("visit_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvisit_name);
+                this.columncontact_name = new global::System.Data.DataColumn("contact_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontact_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -731,6 +745,22 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string contact_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableVisitorDataSet.contact_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'contact_name\' in table \'VisitorDataSet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVisitorDataSet.contact_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Isvisit_idNull() {
                 return this.IsNull(this.tableVisitorDataSet.visit_idColumn);
             }
@@ -811,6 +841,18 @@ namespace BIGCarParkSystem.report_dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setvisit_nameNull() {
                 this[this.tableVisitorDataSet.visit_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscontact_nameNull() {
+                return this.IsNull(this.tableVisitorDataSet.contact_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcontact_nameNull() {
+                this[this.tableVisitorDataSet.contact_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

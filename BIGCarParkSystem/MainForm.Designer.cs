@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.camera2_display_pb = new System.Windows.Forms.PictureBox();
             this.camera1_display_pb = new System.Windows.Forms.PictureBox();
             this.camera1_pb = new System.Windows.Forms.PictureBox();
-            this.camera2_pb = new System.Windows.Forms.PictureBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.right_panel = new System.Windows.Forms.Panel();
             this.form_panel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.visitor_amount_tb = new MetroFramework.Controls.MetroTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.contact_select_bt = new System.Windows.Forms.Button();
             this.comment_tb = new MetroFramework.Controls.MetroTextBox();
             this.save_btn = new System.Windows.Forms.Button();
@@ -45,17 +45,17 @@
             this.objective_select_btn = new System.Windows.Forms.Button();
             this.cartype_select_btn = new System.Windows.Forms.Button();
             this.cartype_tb = new MetroFramework.Controls.MetroTextBox();
+            this.scancard_btn = new System.Windows.Forms.Button();
             this.company_tb = new MetroFramework.Controls.MetroTextBox();
             this.select_company_btn = new System.Windows.Forms.Button();
             this.capture_btn = new System.Windows.Forms.Button();
-            this.scancard_btn = new System.Windows.Forms.Button();
             this.idcard_pb = new System.Windows.Forms.PictureBox();
             this.contact_tb = new MetroFramework.Controls.MetroTextBox();
             this.objective_tb = new MetroFramework.Controls.MetroTextBox();
             this.idcard_tb = new MetroFramework.Controls.MetroTextBox();
             this.fullname_tb = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.labelcontact = new System.Windows.Forms.Label();
@@ -65,9 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.left_panel = new System.Windows.Forms.Panel();
-            this.c_panel4 = new System.Windows.Forms.Panel();
             this.c_panel3 = new System.Windows.Forms.Panel();
-            this.c_panel2 = new System.Windows.Forms.Panel();
             this.c_panel1 = new System.Windows.Forms.Panel();
             this.main_tabcontrol = new MetroFramework.Controls.MetroTabControl();
             this.InTab = new MetroFramework.Controls.MetroTabPage();
@@ -81,9 +79,6 @@
             this.scan_barcode_btn = new System.Windows.Forms.Button();
             this.out_input_tb = new MetroFramework.Controls.MetroTextBox();
             this.show_outform_panel = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.out_image2_pb = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.out_image1_pb = new System.Windows.Forms.PictureBox();
@@ -93,7 +88,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.out_comment_tb = new MetroFramework.Controls.MetroTextBox();
             this.out_carid_tb = new MetroFramework.Controls.MetroTextBox();
-            this.out_tel_tb = new MetroFramework.Controls.MetroTextBox();
             this.out_cartype_tb = new MetroFramework.Controls.MetroTextBox();
             this.out_company_tb = new MetroFramework.Controls.MetroTextBox();
             this.out_contact_tb = new MetroFramework.Controls.MetroTextBox();
@@ -102,7 +96,6 @@
             this.out_fullname_tb = new MetroFramework.Controls.MetroTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -115,6 +108,7 @@
             this.his_data_panel = new System.Windows.Forms.Panel();
             this.history_gridview = new System.Windows.Forms.DataGridView();
             this.his_head_panel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.his_search_box = new MetroFramework.Controls.MetroTextBox();
@@ -123,6 +117,9 @@
             this.admin_bottom_panel = new System.Windows.Forms.Panel();
             this.admin_head_panel = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.admin_role_cb = new MetroFramework.Controls.MetroComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.admin_save_bt = new System.Windows.Forms.Button();
             this.admin_conpass_tb = new MetroFramework.Controls.MetroTextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.admin_username_tb = new MetroFramework.Controls.MetroTextBox();
@@ -130,13 +127,8 @@
             this.admin_password_tb = new MetroFramework.Controls.MetroTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.admin_save_bt = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.admin_role_cb = new MetroFramework.Controls.MetroComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.camera2_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.camera2_pb)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.right_panel.SuspendLayout();
             this.form_panel.SuspendLayout();
@@ -145,9 +137,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.idcard_pb)).BeginInit();
             this.panel1.SuspendLayout();
             this.left_panel.SuspendLayout();
-            this.c_panel4.SuspendLayout();
             this.c_panel3.SuspendLayout();
-            this.c_panel2.SuspendLayout();
             this.c_panel1.SuspendLayout();
             this.main_tabcontrol.SuspendLayout();
             this.InTab.SuspendLayout();
@@ -158,9 +148,6 @@
             this.groupBox4.SuspendLayout();
             this.out_input_gb.SuspendLayout();
             this.show_outform_panel.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.out_image2_pb)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).BeginInit();
@@ -180,23 +167,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // camera2_display_pb
-            // 
-            this.camera2_display_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.camera2_display_pb.Location = new System.Drawing.Point(8, 4);
-            this.camera2_display_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.camera2_display_pb.Name = "camera2_display_pb";
-            this.camera2_display_pb.Size = new System.Drawing.Size(320, 240);
-            this.camera2_display_pb.TabIndex = 4;
-            this.camera2_display_pb.TabStop = false;
-            // 
             // camera1_display_pb
             // 
             this.camera1_display_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.camera1_display_pb.Location = new System.Drawing.Point(2, 4);
+            this.camera1_display_pb.Location = new System.Drawing.Point(13, 8);
             this.camera1_display_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.camera1_display_pb.Name = "camera1_display_pb";
-            this.camera1_display_pb.Size = new System.Drawing.Size(320, 240);
+            this.camera1_display_pb.Size = new System.Drawing.Size(450, 350);
             this.camera1_display_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.camera1_display_pb.TabIndex = 3;
             this.camera1_display_pb.TabStop = false;
@@ -204,24 +181,13 @@
             // camera1_pb
             // 
             this.camera1_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.camera1_pb.Location = new System.Drawing.Point(2, 6);
+            this.camera1_pb.Location = new System.Drawing.Point(13, 10);
             this.camera1_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.camera1_pb.Name = "camera1_pb";
-            this.camera1_pb.Size = new System.Drawing.Size(320, 240);
+            this.camera1_pb.Size = new System.Drawing.Size(450, 350);
             this.camera1_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.camera1_pb.TabIndex = 2;
             this.camera1_pb.TabStop = false;
-            // 
-            // camera2_pb
-            // 
-            this.camera2_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.camera2_pb.Location = new System.Drawing.Point(8, 6);
-            this.camera2_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.camera2_pb.Name = "camera2_pb";
-            this.camera2_pb.Size = new System.Drawing.Size(320, 240);
-            this.camera2_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.camera2_pb.TabIndex = 3;
-            this.camera2_pb.TabStop = false;
             // 
             // metroPanel1
             // 
@@ -278,6 +244,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.visitor_amount_tb);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.contact_select_bt);
             this.panel2.Controls.Add(this.comment_tb);
@@ -301,6 +268,62 @@
             this.panel2.Size = new System.Drawing.Size(584, 675);
             this.panel2.TabIndex = 1;
             // 
+            // visitor_amount_tb
+            // 
+            // 
+            // 
+            // 
+            this.visitor_amount_tb.CustomButton.Image = null;
+            this.visitor_amount_tb.CustomButton.Location = new System.Drawing.Point(277, 2);
+            this.visitor_amount_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.visitor_amount_tb.CustomButton.Name = "";
+            this.visitor_amount_tb.CustomButton.Size = new System.Drawing.Size(35, 35);
+            this.visitor_amount_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.visitor_amount_tb.CustomButton.TabIndex = 1;
+            this.visitor_amount_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.visitor_amount_tb.CustomButton.UseSelectable = true;
+            this.visitor_amount_tb.CustomButton.Visible = false;
+            this.visitor_amount_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.visitor_amount_tb.Lines = new string[] {
+        "1"};
+            this.visitor_amount_tb.Location = new System.Drawing.Point(2, 527);
+            this.visitor_amount_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.visitor_amount_tb.MaxLength = 32767;
+            this.visitor_amount_tb.Multiline = true;
+            this.visitor_amount_tb.Name = "visitor_amount_tb";
+            this.visitor_amount_tb.PasswordChar = '\0';
+            this.visitor_amount_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.visitor_amount_tb.SelectedText = "";
+            this.visitor_amount_tb.SelectionLength = 0;
+            this.visitor_amount_tb.SelectionStart = 0;
+            this.visitor_amount_tb.ShortcutsEnabled = true;
+            this.visitor_amount_tb.Size = new System.Drawing.Size(315, 40);
+            this.visitor_amount_tb.TabIndex = 21;
+            this.visitor_amount_tb.Text = "1";
+            this.visitor_amount_tb.UseSelectable = true;
+            this.visitor_amount_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.visitor_amount_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(452, 613);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 58);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "ล้างข้อมูล";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // contact_select_bt
             // 
             this.contact_select_bt.BackColor = System.Drawing.SystemColors.Highlight;
@@ -308,7 +331,7 @@
             this.contact_select_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contact_select_bt.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contact_select_bt.ForeColor = System.Drawing.Color.White;
-            this.contact_select_bt.Location = new System.Drawing.Point(332, 406);
+            this.contact_select_bt.Location = new System.Drawing.Point(332, 416);
             this.contact_select_bt.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.contact_select_bt.Name = "contact_select_bt";
             this.contact_select_bt.Size = new System.Drawing.Size(82, 41);
@@ -334,7 +357,7 @@
             this.comment_tb.CustomButton.Visible = false;
             this.comment_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.comment_tb.Lines = new string[0];
-            this.comment_tb.Location = new System.Drawing.Point(2, 461);
+            this.comment_tb.Location = new System.Drawing.Point(2, 471);
             this.comment_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.comment_tb.MaxLength = 32767;
             this.comment_tb.Multiline = true;
@@ -387,7 +410,7 @@
             this.carid_tb.CustomButton.Visible = false;
             this.carid_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.carid_tb.Lines = new string[0];
-            this.carid_tb.Location = new System.Drawing.Point(2, 212);
+            this.carid_tb.Location = new System.Drawing.Point(2, 222);
             this.carid_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.carid_tb.MaxLength = 100;
             this.carid_tb.Multiline = true;
@@ -411,7 +434,7 @@
             this.objective_select_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.objective_select_btn.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.objective_select_btn.ForeColor = System.Drawing.Color.White;
-            this.objective_select_btn.Location = new System.Drawing.Point(332, 359);
+            this.objective_select_btn.Location = new System.Drawing.Point(332, 369);
             this.objective_select_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.objective_select_btn.Name = "objective_select_btn";
             this.objective_select_btn.Size = new System.Drawing.Size(82, 41);
@@ -427,7 +450,7 @@
             this.cartype_select_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cartype_select_btn.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cartype_select_btn.ForeColor = System.Drawing.Color.White;
-            this.cartype_select_btn.Location = new System.Drawing.Point(332, 311);
+            this.cartype_select_btn.Location = new System.Drawing.Point(332, 269);
             this.cartype_select_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cartype_select_btn.Name = "cartype_select_btn";
             this.cartype_select_btn.Size = new System.Drawing.Size(82, 40);
@@ -453,7 +476,7 @@
             this.cartype_tb.CustomButton.Visible = false;
             this.cartype_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.cartype_tb.Lines = new string[0];
-            this.cartype_tb.Location = new System.Drawing.Point(2, 259);
+            this.cartype_tb.Location = new System.Drawing.Point(2, 269);
             this.cartype_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cartype_tb.MaxLength = 32767;
             this.cartype_tb.Name = "cartype_tb";
@@ -473,6 +496,25 @@
             this.cartype_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.cartype_tb.Click += new System.EventHandler(this.cartype_tb_Click);
             // 
+            // scancard_btn
+            // 
+            this.scancard_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.scancard_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.scancard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.scancard_btn.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scancard_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.scancard_btn.Image = global::BIGCarParkSystem.Properties.Resources.user_icon;
+            this.scancard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.scancard_btn.Location = new System.Drawing.Point(2, 611);
+            this.scancard_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.scancard_btn.Name = "scancard_btn";
+            this.scancard_btn.Size = new System.Drawing.Size(135, 58);
+            this.scancard_btn.TabIndex = 7;
+            this.scancard_btn.Text = "อ่านบัตร";
+            this.scancard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.scancard_btn.UseVisualStyleBackColor = false;
+            this.scancard_btn.Click += new System.EventHandler(this.scancard_btn_Click);
+            // 
             // company_tb
             // 
             // 
@@ -490,7 +532,7 @@
             this.company_tb.CustomButton.Visible = false;
             this.company_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.company_tb.Lines = new string[0];
-            this.company_tb.Location = new System.Drawing.Point(2, 309);
+            this.company_tb.Location = new System.Drawing.Point(2, 319);
             this.company_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.company_tb.MaxLength = 32767;
             this.company_tb.Name = "company_tb";
@@ -515,7 +557,7 @@
             this.select_company_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.select_company_btn.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.select_company_btn.ForeColor = System.Drawing.Color.White;
-            this.select_company_btn.Location = new System.Drawing.Point(332, 261);
+            this.select_company_btn.Location = new System.Drawing.Point(332, 317);
             this.select_company_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.select_company_btn.Name = "select_company_btn";
             this.select_company_btn.Size = new System.Drawing.Size(82, 38);
@@ -542,25 +584,6 @@
             this.capture_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.capture_btn.UseVisualStyleBackColor = false;
             this.capture_btn.Click += new System.EventHandler(this.capture_btn_Click);
-            // 
-            // scancard_btn
-            // 
-            this.scancard_btn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.scancard_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.scancard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.scancard_btn.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scancard_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.scancard_btn.Image = global::BIGCarParkSystem.Properties.Resources.user_icon;
-            this.scancard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.scancard_btn.Location = new System.Drawing.Point(2, 611);
-            this.scancard_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.scancard_btn.Name = "scancard_btn";
-            this.scancard_btn.Size = new System.Drawing.Size(135, 58);
-            this.scancard_btn.TabIndex = 7;
-            this.scancard_btn.Text = "อ่านบัตร";
-            this.scancard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.scancard_btn.UseVisualStyleBackColor = false;
-            this.scancard_btn.Click += new System.EventHandler(this.scancard_btn_Click);
             // 
             // idcard_pb
             // 
@@ -589,7 +612,7 @@
             this.contact_tb.CustomButton.Visible = false;
             this.contact_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.contact_tb.Lines = new string[0];
-            this.contact_tb.Location = new System.Drawing.Point(2, 407);
+            this.contact_tb.Location = new System.Drawing.Point(2, 417);
             this.contact_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.contact_tb.MaxLength = 32767;
             this.contact_tb.Name = "contact_tb";
@@ -624,7 +647,7 @@
             this.objective_tb.CustomButton.Visible = false;
             this.objective_tb.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.objective_tb.Lines = new string[0];
-            this.objective_tb.Location = new System.Drawing.Point(2, 360);
+            this.objective_tb.Location = new System.Drawing.Point(2, 370);
             this.objective_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.objective_tb.MaxLength = 32767;
             this.objective_tb.Multiline = true;
@@ -716,6 +739,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.labelcontact);
@@ -730,31 +754,22 @@
             this.panel1.Size = new System.Drawing.Size(222, 675);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // label7
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(452, 613);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 58);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "ล้างข้อมูล";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(62, 528);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 39);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "จำนวนผู้มาติดต่อ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(119, 454);
+            this.label10.Location = new System.Drawing.Point(119, 463);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 39);
@@ -765,7 +780,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(109, 205);
+            this.label8.Location = new System.Drawing.Point(109, 218);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 39);
@@ -776,7 +791,7 @@
             // 
             this.labelcontact.AutoSize = true;
             this.labelcontact.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcontact.Location = new System.Drawing.Point(62, 400);
+            this.labelcontact.Location = new System.Drawing.Point(62, 413);
             this.labelcontact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelcontact.Name = "labelcontact";
             this.labelcontact.Size = new System.Drawing.Size(149, 39);
@@ -787,7 +802,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(94, 353);
+            this.label5.Location = new System.Drawing.Point(94, 366);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 39);
@@ -798,7 +813,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(109, 261);
+            this.label4.Location = new System.Drawing.Point(109, 274);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 39);
@@ -809,7 +824,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(135, 310);
+            this.label3.Location = new System.Drawing.Point(135, 323);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 39);
@@ -840,9 +855,7 @@
             // 
             // left_panel
             // 
-            this.left_panel.Controls.Add(this.c_panel4);
             this.left_panel.Controls.Add(this.c_panel3);
-            this.left_panel.Controls.Add(this.c_panel2);
             this.left_panel.Controls.Add(this.c_panel1);
             this.left_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.left_panel.Location = new System.Drawing.Point(0, 0);
@@ -850,41 +863,24 @@
             this.left_panel.Name = "left_panel";
             this.left_panel.Size = new System.Drawing.Size(722, 805);
             this.left_panel.TabIndex = 2;
-            // 
-            // c_panel4
-            // 
-            this.c_panel4.Controls.Add(this.camera2_display_pb);
-            this.c_panel4.Location = new System.Drawing.Point(370, 286);
-            this.c_panel4.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.c_panel4.Name = "c_panel4";
-            this.c_panel4.Size = new System.Drawing.Size(338, 251);
-            this.c_panel4.TabIndex = 8;
+            this.left_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.left_panel_Paint);
             // 
             // c_panel3
             // 
             this.c_panel3.Controls.Add(this.camera1_display_pb);
-            this.c_panel3.Location = new System.Drawing.Point(14, 286);
+            this.c_panel3.Location = new System.Drawing.Point(134, 415);
             this.c_panel3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.c_panel3.Name = "c_panel3";
-            this.c_panel3.Size = new System.Drawing.Size(330, 251);
+            this.c_panel3.Size = new System.Drawing.Size(477, 368);
             this.c_panel3.TabIndex = 7;
-            // 
-            // c_panel2
-            // 
-            this.c_panel2.Controls.Add(this.camera2_pb);
-            this.c_panel2.Location = new System.Drawing.Point(370, 17);
-            this.c_panel2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.c_panel2.Name = "c_panel2";
-            this.c_panel2.Size = new System.Drawing.Size(338, 251);
-            this.c_panel2.TabIndex = 6;
             // 
             // c_panel1
             // 
             this.c_panel1.Controls.Add(this.camera1_pb);
-            this.c_panel1.Location = new System.Drawing.Point(14, 17);
+            this.c_panel1.Location = new System.Drawing.Point(134, 17);
             this.c_panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.c_panel1.Name = "c_panel1";
-            this.c_panel1.Size = new System.Drawing.Size(330, 251);
+            this.c_panel1.Size = new System.Drawing.Size(477, 370);
             this.c_panel1.TabIndex = 5;
             // 
             // main_tabcontrol
@@ -898,7 +894,7 @@
             this.main_tabcontrol.Location = new System.Drawing.Point(22, 30);
             this.main_tabcontrol.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.main_tabcontrol.Name = "main_tabcontrol";
-            this.main_tabcontrol.SelectedIndex = 1;
+            this.main_tabcontrol.SelectedIndex = 0;
             this.main_tabcontrol.Size = new System.Drawing.Size(1556, 850);
             this.main_tabcontrol.TabIndex = 2;
             this.main_tabcontrol.UseSelectable = true;
@@ -1022,16 +1018,16 @@
             this.scan_barcode_btn.BackColor = System.Drawing.SystemColors.Highlight;
             this.scan_barcode_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.scan_barcode_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.scan_barcode_btn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scan_barcode_btn.Font = new System.Drawing.Font("Angsana New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scan_barcode_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.scan_barcode_btn.Image = global::BIGCarParkSystem.Properties.Resources.barcode;
             this.scan_barcode_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.scan_barcode_btn.Location = new System.Drawing.Point(412, 40);
             this.scan_barcode_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.scan_barcode_btn.Name = "scan_barcode_btn";
-            this.scan_barcode_btn.Size = new System.Drawing.Size(110, 40);
+            this.scan_barcode_btn.Size = new System.Drawing.Size(121, 47);
             this.scan_barcode_btn.TabIndex = 8;
-            this.scan_barcode_btn.Text = "Scan";
+            this.scan_barcode_btn.Text = "ค้นหา";
             this.scan_barcode_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.scan_barcode_btn.UseVisualStyleBackColor = false;
             this.scan_barcode_btn.Click += new System.EventHandler(this.scan_barcode_btn_Click);
@@ -1042,10 +1038,10 @@
             // 
             // 
             this.out_input_tb.CustomButton.Image = null;
-            this.out_input_tb.CustomButton.Location = new System.Drawing.Point(266, 0);
+            this.out_input_tb.CustomButton.Location = new System.Drawing.Point(354, 1);
             this.out_input_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_input_tb.CustomButton.Name = "";
-            this.out_input_tb.CustomButton.Size = new System.Drawing.Size(25, 15);
+            this.out_input_tb.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.out_input_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_input_tb.CustomButton.TabIndex = 1;
             this.out_input_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1075,14 +1071,12 @@
             // show_outform_panel
             // 
             this.show_outform_panel.BackColor = System.Drawing.SystemColors.Control;
-            this.show_outform_panel.Controls.Add(this.groupBox3);
             this.show_outform_panel.Controls.Add(this.groupBox2);
             this.show_outform_panel.Controls.Add(this.groupBox1);
             this.show_outform_panel.Controls.Add(this.out_indate_tb);
             this.show_outform_panel.Controls.Add(this.label19);
             this.show_outform_panel.Controls.Add(this.out_comment_tb);
             this.show_outform_panel.Controls.Add(this.out_carid_tb);
-            this.show_outform_panel.Controls.Add(this.out_tel_tb);
             this.show_outform_panel.Controls.Add(this.out_cartype_tb);
             this.show_outform_panel.Controls.Add(this.out_company_tb);
             this.show_outform_panel.Controls.Add(this.out_contact_tb);
@@ -1091,7 +1085,6 @@
             this.show_outform_panel.Controls.Add(this.out_fullname_tb);
             this.show_outform_panel.Controls.Add(this.label6);
             this.show_outform_panel.Controls.Add(this.label11);
-            this.show_outform_panel.Controls.Add(this.label12);
             this.show_outform_panel.Controls.Add(this.label13);
             this.show_outform_panel.Controls.Add(this.label14);
             this.show_outform_panel.Controls.Add(this.label15);
@@ -1104,48 +1097,15 @@
             this.show_outform_panel.Size = new System.Drawing.Size(1536, 649);
             this.show_outform_panel.TabIndex = 1;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.panel5);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(610, 342);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.groupBox3.Size = new System.Drawing.Size(382, 300);
-            this.groupBox3.TabIndex = 40;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "กล้องตัวที่ 2";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.out_image2_pb);
-            this.panel5.Location = new System.Drawing.Point(26, 25);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(330, 251);
-            this.panel5.TabIndex = 36;
-            // 
-            // out_image2_pb
-            // 
-            this.out_image2_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.out_image2_pb.Location = new System.Drawing.Point(2, 6);
-            this.out_image2_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.out_image2_pb.Name = "out_image2_pb";
-            this.out_image2_pb.Size = new System.Drawing.Size(320, 240);
-            this.out_image2_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.out_image2_pb.TabIndex = 2;
-            this.out_image2_pb.TabStop = false;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.panel4);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(610, 14);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.groupBox2.Size = new System.Drawing.Size(382, 300);
+            this.groupBox2.Size = new System.Drawing.Size(553, 468);
             this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "กล้องตัวที่ 1";
@@ -1153,19 +1113,19 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.out_image1_pb);
-            this.panel4.Location = new System.Drawing.Point(26, 25);
+            this.panel4.Location = new System.Drawing.Point(38, 54);
             this.panel4.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(330, 251);
+            this.panel4.Size = new System.Drawing.Size(472, 368);
             this.panel4.TabIndex = 35;
             // 
             // out_image1_pb
             // 
             this.out_image1_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.out_image1_pb.Location = new System.Drawing.Point(2, 6);
+            this.out_image1_pb.Location = new System.Drawing.Point(11, 9);
             this.out_image1_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_image1_pb.Name = "out_image1_pb";
-            this.out_image1_pb.Size = new System.Drawing.Size(320, 240);
+            this.out_image1_pb.Size = new System.Drawing.Size(450, 350);
             this.out_image1_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.out_image1_pb.TabIndex = 2;
             this.out_image1_pb.TabStop = false;
@@ -1174,7 +1134,7 @@
             // 
             this.groupBox1.Controls.Add(this.out_idcardpic_pb);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1018, 17);
+            this.groupBox1.Location = new System.Drawing.Point(1241, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -1198,10 +1158,10 @@
             // 
             // 
             this.out_indate_tb.CustomButton.Image = null;
-            this.out_indate_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_indate_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_indate_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_indate_tb.CustomButton.Name = "";
-            this.out_indate_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_indate_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_indate_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_indate_tb.CustomButton.TabIndex = 1;
             this.out_indate_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1231,11 +1191,11 @@
             // 
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(116, 52);
+            this.label19.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(115, 52);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 18);
+            this.label19.Size = new System.Drawing.Size(76, 39);
             this.label19.TabIndex = 33;
             this.label19.Text = "เวลาเข้า";
             // 
@@ -1245,10 +1205,10 @@
             // 
             // 
             this.out_comment_tb.CustomButton.Image = null;
-            this.out_comment_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_comment_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_comment_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_comment_tb.CustomButton.Name = "";
-            this.out_comment_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_comment_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_comment_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_comment_tb.CustomButton.TabIndex = 1;
             this.out_comment_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1256,7 +1216,7 @@
             this.out_comment_tb.CustomButton.Visible = false;
             this.out_comment_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.out_comment_tb.Lines = new string[0];
-            this.out_comment_tb.Location = new System.Drawing.Point(218, 490);
+            this.out_comment_tb.Location = new System.Drawing.Point(218, 450);
             this.out_comment_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_comment_tb.MaxLength = 32767;
             this.out_comment_tb.Multiline = true;
@@ -1280,10 +1240,10 @@
             // 
             // 
             this.out_carid_tb.CustomButton.Image = null;
-            this.out_carid_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_carid_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_carid_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_carid_tb.CustomButton.Name = "";
-            this.out_carid_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_carid_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_carid_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_carid_tb.CustomButton.TabIndex = 1;
             this.out_carid_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1291,7 +1251,7 @@
             this.out_carid_tb.CustomButton.Visible = false;
             this.out_carid_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.out_carid_tb.Lines = new string[0];
-            this.out_carid_tb.Location = new System.Drawing.Point(218, 243);
+            this.out_carid_tb.Location = new System.Drawing.Point(218, 203);
             this.out_carid_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_carid_tb.MaxLength = 100;
             this.out_carid_tb.Multiline = true;
@@ -1309,51 +1269,16 @@
             this.out_carid_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.out_carid_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // out_tel_tb
-            // 
-            // 
-            // 
-            // 
-            this.out_tel_tb.CustomButton.Image = null;
-            this.out_tel_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
-            this.out_tel_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.out_tel_tb.CustomButton.Name = "";
-            this.out_tel_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
-            this.out_tel_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.out_tel_tb.CustomButton.TabIndex = 1;
-            this.out_tel_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.out_tel_tb.CustomButton.UseSelectable = true;
-            this.out_tel_tb.CustomButton.Visible = false;
-            this.out_tel_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.out_tel_tb.Lines = new string[0];
-            this.out_tel_tb.Location = new System.Drawing.Point(218, 196);
-            this.out_tel_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.out_tel_tb.MaxLength = 25;
-            this.out_tel_tb.Multiline = true;
-            this.out_tel_tb.Name = "out_tel_tb";
-            this.out_tel_tb.PasswordChar = '\0';
-            this.out_tel_tb.ReadOnly = true;
-            this.out_tel_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.out_tel_tb.SelectedText = "";
-            this.out_tel_tb.SelectionLength = 0;
-            this.out_tel_tb.SelectionStart = 0;
-            this.out_tel_tb.ShortcutsEnabled = true;
-            this.out_tel_tb.Size = new System.Drawing.Size(280, 32);
-            this.out_tel_tb.TabIndex = 30;
-            this.out_tel_tb.UseSelectable = true;
-            this.out_tel_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.out_tel_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // out_cartype_tb
             // 
             // 
             // 
             // 
             this.out_cartype_tb.CustomButton.Image = null;
-            this.out_cartype_tb.CustomButton.Location = new System.Drawing.Point(189, 1);
+            this.out_cartype_tb.CustomButton.Location = new System.Drawing.Point(252, 2);
             this.out_cartype_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_cartype_tb.CustomButton.Name = "";
-            this.out_cartype_tb.CustomButton.Size = new System.Drawing.Size(19, 11);
+            this.out_cartype_tb.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.out_cartype_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_cartype_tb.CustomButton.TabIndex = 1;
             this.out_cartype_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1361,7 +1286,7 @@
             this.out_cartype_tb.CustomButton.Visible = false;
             this.out_cartype_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.out_cartype_tb.Lines = new string[0];
-            this.out_cartype_tb.Location = new System.Drawing.Point(218, 342);
+            this.out_cartype_tb.Location = new System.Drawing.Point(218, 302);
             this.out_cartype_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_cartype_tb.MaxLength = 32767;
             this.out_cartype_tb.Name = "out_cartype_tb";
@@ -1384,10 +1309,10 @@
             // 
             // 
             this.out_company_tb.CustomButton.Image = null;
-            this.out_company_tb.CustomButton.Location = new System.Drawing.Point(189, 1);
+            this.out_company_tb.CustomButton.Location = new System.Drawing.Point(252, 2);
             this.out_company_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_company_tb.CustomButton.Name = "";
-            this.out_company_tb.CustomButton.Size = new System.Drawing.Size(19, 11);
+            this.out_company_tb.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.out_company_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_company_tb.CustomButton.TabIndex = 1;
             this.out_company_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1395,7 +1320,7 @@
             this.out_company_tb.CustomButton.Visible = false;
             this.out_company_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.out_company_tb.Lines = new string[0];
-            this.out_company_tb.Location = new System.Drawing.Point(218, 290);
+            this.out_company_tb.Location = new System.Drawing.Point(218, 250);
             this.out_company_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_company_tb.MaxLength = 32767;
             this.out_company_tb.Name = "out_company_tb";
@@ -1418,10 +1343,10 @@
             // 
             // 
             this.out_contact_tb.CustomButton.Image = null;
-            this.out_contact_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_contact_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_contact_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_contact_tb.CustomButton.Name = "";
-            this.out_contact_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_contact_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_contact_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_contact_tb.CustomButton.TabIndex = 1;
             this.out_contact_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1429,7 +1354,7 @@
             this.out_contact_tb.CustomButton.Visible = false;
             this.out_contact_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.out_contact_tb.Lines = new string[0];
-            this.out_contact_tb.Location = new System.Drawing.Point(218, 438);
+            this.out_contact_tb.Location = new System.Drawing.Point(218, 398);
             this.out_contact_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_contact_tb.MaxLength = 32767;
             this.out_contact_tb.Name = "out_contact_tb";
@@ -1452,10 +1377,10 @@
             // 
             // 
             this.out_objective_tb.CustomButton.Image = null;
-            this.out_objective_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_objective_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_objective_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_objective_tb.CustomButton.Name = "";
-            this.out_objective_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_objective_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_objective_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_objective_tb.CustomButton.TabIndex = 1;
             this.out_objective_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1463,7 +1388,7 @@
             this.out_objective_tb.CustomButton.Visible = false;
             this.out_objective_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.out_objective_tb.Lines = new string[0];
-            this.out_objective_tb.Location = new System.Drawing.Point(218, 389);
+            this.out_objective_tb.Location = new System.Drawing.Point(218, 349);
             this.out_objective_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_objective_tb.MaxLength = 32767;
             this.out_objective_tb.Multiline = true;
@@ -1487,10 +1412,10 @@
             // 
             // 
             this.out_idcard_tb.CustomButton.Image = null;
-            this.out_idcard_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_idcard_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_idcard_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_idcard_tb.CustomButton.Name = "";
-            this.out_idcard_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_idcard_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_idcard_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_idcard_tb.CustomButton.TabIndex = 1;
             this.out_idcard_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1522,10 +1447,10 @@
             // 
             // 
             this.out_fullname_tb.CustomButton.Image = null;
-            this.out_fullname_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.out_fullname_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.out_fullname_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.out_fullname_tb.CustomButton.Name = "";
-            this.out_fullname_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.out_fullname_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.out_fullname_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.out_fullname_tb.CustomButton.TabIndex = 1;
             this.out_fullname_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1555,11 +1480,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(110, 494);
+            this.label6.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(109, 454);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 18);
+            this.label6.Size = new System.Drawing.Size(92, 39);
             this.label6.TabIndex = 23;
             this.label6.Text = "หมายเหตุ";
             // 
@@ -1567,35 +1492,23 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(110, 248);
+            this.label11.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(109, 208);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 18);
+            this.label11.Size = new System.Drawing.Size(102, 39);
             this.label11.TabIndex = 22;
             this.label11.Text = "ทะเบียนรถ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(118, 202);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 18);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "เบอร์โทร";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(74, 442);
+            this.label13.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(73, 402);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(107, 18);
+            this.label13.Size = new System.Drawing.Size(149, 39);
             this.label13.TabIndex = 20;
             this.label13.Text = "ผู้ได้รับการติดต่อ";
             // 
@@ -1603,11 +1516,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(98, 394);
+            this.label14.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(97, 354);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(80, 18);
+            this.label14.Size = new System.Drawing.Size(117, 39);
             this.label14.TabIndex = 19;
             this.label14.Text = "วัตถุประสงค์";
             // 
@@ -1615,11 +1528,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(106, 342);
+            this.label15.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(105, 302);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(70, 18);
+            this.label15.Size = new System.Drawing.Size(101, 39);
             this.label15.TabIndex = 18;
             this.label15.Text = "ประเภทรถ";
             // 
@@ -1627,11 +1540,11 @@
             // 
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(132, 295);
+            this.label16.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(131, 255);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 18);
+            this.label16.Size = new System.Drawing.Size(66, 39);
             this.label16.TabIndex = 17;
             this.label16.Text = "บริษัท";
             // 
@@ -1639,11 +1552,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(78, 156);
+            this.label17.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(52, 156);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(111, 18);
+            this.label17.Size = new System.Drawing.Size(158, 39);
             this.label17.TabIndex = 16;
             this.label17.Text = "เลขบัตรประชาชน";
             // 
@@ -1651,11 +1564,11 @@
             // 
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(116, 100);
+            this.label18.Font = new System.Drawing.Font("Angsana New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(115, 100);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 18);
+            this.label18.Size = new System.Drawing.Size(91, 39);
             this.label18.TabIndex = 15;
             this.label18.Text = "ชื่อ - สกุล";
             // 
@@ -1668,7 +1581,7 @@
             this.HistoryTab.Location = new System.Drawing.Point(4, 44);
             this.HistoryTab.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.HistoryTab.Name = "HistoryTab";
-            this.HistoryTab.Size = new System.Drawing.Size(1550, 802);
+            this.HistoryTab.Size = new System.Drawing.Size(1548, 802);
             this.HistoryTab.TabIndex = 2;
             this.HistoryTab.Text = "ประวัติ";
             this.HistoryTab.VerticalScrollbarBarColor = true;
@@ -1725,6 +1638,7 @@
             // his_head_panel
             // 
             this.his_head_panel.BackColor = System.Drawing.SystemColors.Control;
+            this.his_head_panel.Controls.Add(this.button3);
             this.his_head_panel.Controls.Add(this.groupBox6);
             this.his_head_panel.Location = new System.Drawing.Point(6, 12);
             this.his_head_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -1732,11 +1646,30 @@
             this.his_head_panel.Size = new System.Drawing.Size(1536, 113);
             this.his_head_panel.TabIndex = 1;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Image = global::BIGCarParkSystem.Properties.Resources.icons8_print_50;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(1335, 36);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(173, 60);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "พิมพ์รายงาน";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.button2);
             this.groupBox6.Controls.Add(this.his_search_box);
-            this.groupBox6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(2, 4);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.groupBox6.Name = "groupBox6";
@@ -1751,14 +1684,14 @@
             this.button2.BackColor = System.Drawing.SystemColors.Highlight;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Image = global::BIGCarParkSystem.Properties.Resources.icons8_search_30;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(412, 43);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 38);
+            this.button2.Size = new System.Drawing.Size(101, 38);
             this.button2.TabIndex = 8;
             this.button2.Text = "ค้นหา";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1771,10 +1704,10 @@
             // 
             // 
             this.his_search_box.CustomButton.Image = null;
-            this.his_search_box.CustomButton.Location = new System.Drawing.Point(266, 0);
+            this.his_search_box.CustomButton.Location = new System.Drawing.Point(354, 1);
             this.his_search_box.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.his_search_box.CustomButton.Name = "";
-            this.his_search_box.CustomButton.Size = new System.Drawing.Size(25, 15);
+            this.his_search_box.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.his_search_box.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.his_search_box.CustomButton.TabIndex = 1;
             this.his_search_box.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1810,7 +1743,7 @@
             this.userTab.Location = new System.Drawing.Point(4, 44);
             this.userTab.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.userTab.Name = "userTab";
-            this.userTab.Size = new System.Drawing.Size(1550, 802);
+            this.userTab.Size = new System.Drawing.Size(1548, 802);
             this.userTab.TabIndex = 3;
             this.userTab.Text = "ผู้ใช้งาน";
             this.userTab.VerticalScrollbarBarColor = true;
@@ -1826,7 +1759,7 @@
             this.admin_bg_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_bg_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_bg_panel.Name = "admin_bg_panel";
-            this.admin_bg_panel.Size = new System.Drawing.Size(1550, 802);
+            this.admin_bg_panel.Size = new System.Drawing.Size(1548, 802);
             this.admin_bg_panel.TabIndex = 2;
             // 
             // admin_bottom_panel
@@ -1835,7 +1768,7 @@
             this.admin_bottom_panel.Location = new System.Drawing.Point(0, 428);
             this.admin_bottom_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_bottom_panel.Name = "admin_bottom_panel";
-            this.admin_bottom_panel.Size = new System.Drawing.Size(1550, 374);
+            this.admin_bottom_panel.Size = new System.Drawing.Size(1548, 374);
             this.admin_bottom_panel.TabIndex = 1;
             // 
             // admin_head_panel
@@ -1845,7 +1778,7 @@
             this.admin_head_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_head_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_head_panel.Name = "admin_head_panel";
-            this.admin_head_panel.Size = new System.Drawing.Size(1550, 422);
+            this.admin_head_panel.Size = new System.Drawing.Size(1548, 422);
             this.admin_head_panel.TabIndex = 0;
             // 
             // groupBox5
@@ -1869,16 +1802,58 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "เพิ่มผู้ใช้งาน";
             // 
+            // admin_role_cb
+            // 
+            this.admin_role_cb.FormattingEnabled = true;
+            this.admin_role_cb.ItemHeight = 23;
+            this.admin_role_cb.Location = new System.Drawing.Point(166, 199);
+            this.admin_role_cb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.admin_role_cb.Name = "admin_role_cb";
+            this.admin_role_cb.Size = new System.Drawing.Size(282, 29);
+            this.admin_role_cb.TabIndex = 43;
+            this.admin_role_cb.UseSelectable = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(26, 212);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(97, 18);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "สิทธิ์การใช้งาน";
+            // 
+            // admin_save_bt
+            // 
+            this.admin_save_bt.BackColor = System.Drawing.SystemColors.Highlight;
+            this.admin_save_bt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.admin_save_bt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.admin_save_bt.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin_save_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.admin_save_bt.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_35;
+            this.admin_save_bt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_save_bt.Location = new System.Drawing.Point(356, 274);
+            this.admin_save_bt.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.admin_save_bt.Name = "admin_save_bt";
+            this.admin_save_bt.Size = new System.Drawing.Size(94, 43);
+            this.admin_save_bt.TabIndex = 41;
+            this.admin_save_bt.Text = "บันทึก";
+            this.admin_save_bt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.admin_save_bt.UseVisualStyleBackColor = false;
+            this.admin_save_bt.Click += new System.EventHandler(this.admin_save_bt_Click);
+            // 
             // admin_conpass_tb
             // 
             // 
             // 
             // 
             this.admin_conpass_tb.CustomButton.Image = null;
-            this.admin_conpass_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.admin_conpass_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.admin_conpass_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_conpass_tb.CustomButton.Name = "";
-            this.admin_conpass_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.admin_conpass_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.admin_conpass_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.admin_conpass_tb.CustomButton.TabIndex = 1;
             this.admin_conpass_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1922,10 +1897,10 @@
             // 
             // 
             this.admin_username_tb.CustomButton.Image = null;
-            this.admin_username_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.admin_username_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.admin_username_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_username_tb.CustomButton.Name = "";
-            this.admin_username_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.admin_username_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.admin_username_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.admin_username_tb.CustomButton.TabIndex = 1;
             this.admin_username_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1969,10 +1944,10 @@
             // 
             // 
             this.admin_password_tb.CustomButton.Image = null;
-            this.admin_password_tb.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.admin_password_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
             this.admin_password_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_password_tb.CustomButton.Name = "";
-            this.admin_password_tb.CustomButton.Size = new System.Drawing.Size(20, 12);
+            this.admin_password_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.admin_password_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.admin_password_tb.CustomButton.TabIndex = 1;
             this.admin_password_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -2014,48 +1989,6 @@
             // 
             this.metroStyleManager1.Owner = this;
             // 
-            // admin_save_bt
-            // 
-            this.admin_save_bt.BackColor = System.Drawing.SystemColors.Highlight;
-            this.admin_save_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.admin_save_bt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.admin_save_bt.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin_save_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.admin_save_bt.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_35;
-            this.admin_save_bt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_save_bt.Location = new System.Drawing.Point(356, 274);
-            this.admin_save_bt.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.admin_save_bt.Name = "admin_save_bt";
-            this.admin_save_bt.Size = new System.Drawing.Size(94, 43);
-            this.admin_save_bt.TabIndex = 41;
-            this.admin_save_bt.Text = "บันทึก";
-            this.admin_save_bt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.admin_save_bt.UseVisualStyleBackColor = false;
-            this.admin_save_bt.Click += new System.EventHandler(this.admin_save_bt_Click);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(26, 212);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(97, 18);
-            this.label23.TabIndex = 42;
-            this.label23.Text = "สิทธิ์การใช้งาน";
-            // 
-            // admin_role_cb
-            // 
-            this.admin_role_cb.FormattingEnabled = true;
-            this.admin_role_cb.ItemHeight = 23;
-            this.admin_role_cb.Location = new System.Drawing.Point(166, 199);
-            this.admin_role_cb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.admin_role_cb.Name = "admin_role_cb";
-            this.admin_role_cb.Size = new System.Drawing.Size(282, 29);
-            this.admin_role_cb.TabIndex = 43;
-            this.admin_role_cb.UseSelectable = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2077,10 +2010,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.camera2_display_pb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.camera2_pb)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.right_panel.ResumeLayout(false);
             this.form_panel.ResumeLayout(false);
@@ -2090,9 +2021,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.left_panel.ResumeLayout(false);
-            this.c_panel4.ResumeLayout(false);
             this.c_panel3.ResumeLayout(false);
-            this.c_panel2.ResumeLayout(false);
             this.c_panel1.ResumeLayout(false);
             this.main_tabcontrol.ResumeLayout(false);
             this.InTab.ResumeLayout(false);
@@ -2104,9 +2033,6 @@
             this.out_input_gb.ResumeLayout(false);
             this.show_outform_panel.ResumeLayout(false);
             this.show_outform_panel.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.out_image2_pb)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).EndInit();
@@ -2131,15 +2057,11 @@
 
         #endregion
         private System.Windows.Forms.PictureBox camera1_pb;
-        private System.Windows.Forms.PictureBox camera2_pb;
         private System.Windows.Forms.PictureBox camera1_display_pb;
-        private System.Windows.Forms.PictureBox camera2_display_pb;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.Panel left_panel;
         private System.Windows.Forms.Panel c_panel1;
-        private System.Windows.Forms.Panel c_panel2;
         private System.Windows.Forms.Panel c_panel3;
-        private System.Windows.Forms.Panel c_panel4;
         private System.Windows.Forms.Panel right_panel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel form_panel;
@@ -2182,7 +2104,6 @@
         private System.Windows.Forms.Panel show_outform_panel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -2191,7 +2112,6 @@
         private System.Windows.Forms.Label label18;
         private MetroFramework.Controls.MetroTextBox out_comment_tb;
         private MetroFramework.Controls.MetroTextBox out_carid_tb;
-        private MetroFramework.Controls.MetroTextBox out_tel_tb;
         private MetroFramework.Controls.MetroTextBox out_cartype_tb;
         private MetroFramework.Controls.MetroTextBox out_company_tb;
         private MetroFramework.Controls.MetroTextBox out_contact_tb;
@@ -2201,14 +2121,11 @@
         private MetroFramework.Controls.MetroTextBox out_indate_tb;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel backdrop_panel;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox out_image2_pb;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox out_image1_pb;
         private System.Windows.Forms.PictureBox out_idcardpic_pb;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button out_save_btn;
         private System.Windows.Forms.Panel panel6;
@@ -2234,5 +2151,8 @@
         private System.Windows.Forms.Button admin_save_bt;
         private System.Windows.Forms.Label label23;
         private MetroFramework.Controls.MetroComboBox admin_role_cb;
+        private MetroFramework.Controls.MetroTextBox visitor_amount_tb;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button3;
     }
 }

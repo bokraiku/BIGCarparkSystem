@@ -60,6 +60,8 @@ namespace BIGCarParkSystem
             metroStyleManager1.Style = MetroColorStyle.Blue;
 
 
+
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -74,7 +76,8 @@ namespace BIGCarParkSystem
             display_cam.OnFrameArrived += new FrameArrivedEventHandler(myCam_OnFrameArrived);
 
 
-            display_cam.Start(2);
+            display_cam.Start(0);
+           
 
             // transparant panel
             this.transparent_bg();
@@ -113,6 +116,9 @@ namespace BIGCarParkSystem
             this.checkPrivileges();
 
 
+            history_gridview.DefaultCellStyle.Font = new Font("Ansana New", 18, GraphicsUnit.Pixel);
+
+
         }
 
         private void checkPrivileges()
@@ -140,8 +146,17 @@ namespace BIGCarParkSystem
         public void myCam_OnFrameArrived(object source, FrameArrivedEventArgs e)
         {
             Image img = e.GetFrame();
+            img = resizeImage(img, new Size(450, 350));
             camera1_pb.Image = img;
+
+
         }
+
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
 
         private void GetCameraInfo()
         {
@@ -151,6 +166,7 @@ namespace BIGCarParkSystem
             {
                 Camera1 = 0;
             }
+
 
 
 
@@ -166,9 +182,9 @@ namespace BIGCarParkSystem
         private void transparent_bg()
         {
             c_panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
-            c_panel2.BackColor = Color.FromArgb(100, 0, 0, 0);
+          
             c_panel3.BackColor = Color.FromArgb(100, 0, 0, 0);
-            c_panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
+          
             left_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             right_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
            
@@ -549,6 +565,7 @@ namespace BIGCarParkSystem
                 String Objective = objective_tb.Text.Trim();
                 String Comment = comment_tb.Text.Trim();
                 String ContactName = contact_tb.Text.Trim();
+                string visitor_amount = visitor_amount_tb.Text.Trim();
 
                 String CompanyId = "";
                 String CartypeId = "";
@@ -703,7 +720,7 @@ namespace BIGCarParkSystem
                 Barcode.GenBarcodeImg(BarcodeFull);
 
                 VisitorClass vc = new VisitorClass();
-                String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard, tel, Comment, ContactId, this.displayImage1, this.idcard_image, BarcodeFull);
+                String visit_id = vc.InsertVisitData(UserInfo.UserId, CartypeId, CompanyId, ObjectiveId, fullname, carId, idcard, null, Comment, ContactId, this.displayImage1, this.idcard_image, BarcodeFull,visitor_amount);
 
                 if (visit_id == "")
                 {
@@ -806,7 +823,7 @@ namespace BIGCarParkSystem
                 out_indate_tb.Text = fn.ConvertDate(visitorDT.Rows[0]["visit_datetime_in"].ToString());
                 out_fullname_tb.Text = visitorDT.Rows[0]["visit_name"].ToString();
                 out_idcard_tb.Text = visitorDT.Rows[0]["id_card"].ToString();
-                out_tel_tb.Text = visitorDT.Rows[0]["tel"].ToString();
+                
                 out_carid_tb.Text = visitorDT.Rows[0]["car_id"].ToString();
                 out_company_tb.Text = visitorDT.Rows[0]["com_name"].ToString();
                 out_cartype_tb.Text = visitorDT.Rows[0]["cartype_name"].ToString();
@@ -818,10 +835,10 @@ namespace BIGCarParkSystem
                 {
                     out_image1_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString());
                 }
-                if (visitorDT.Rows[0]["image_2"].ToString() != "")
-                {
-                    out_image2_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_2"].ToString());
-                }
+                //if (visitorDT.Rows[0]["image_2"].ToString() != "")
+                //{
+                //    out_image2_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_2"].ToString());
+                //}
                 if (visitorDT.Rows[0]["idcard_image"].ToString() != "")
                 {
                     out_idcardpic_pb.Image = Image.FromFile(VariableDB.PathIdCardImage + visitorDT.Rows[0]["idcard_image"].ToString());
@@ -872,7 +889,7 @@ namespace BIGCarParkSystem
                     MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "ข้อความ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDataInControl(show_outform_panel);
                     out_image1_pb.Image = null;
-                    out_image2_pb.Image = null;
+                    //out_image2_pb.Image = null;
                     out_idcardpic_pb.Image = null;
                     out_input_tb.Text = string.Empty;
                     out_input_tb.Focus();
@@ -928,14 +945,26 @@ namespace BIGCarParkSystem
             this.history_gridview.AllowUserToAddRows = false;
             this.history_gridview.Refresh();
             DataTable hisDT;
+            DataTable ReportDT;
+           
             if (_hisDT == null)
             {
                 hisDT = vc.getAllVisitorInfo();
+                ReportDT = vc.getAllVisitorInfo();
+              
+                VisitorClass.VisitDS.Clear();
+                VisitorClass.VisitDS.Reset();
+                VisitorClass.VisitDS.Tables.Add(ReportDT.Copy());
+                //HisDSS.Tables.Add(vc.getAllVisitorInfo());
             }
             else
             {
                 hisDT = _hisDT;
+                VisitorClass.VisitDS.Clear();
+                VisitorClass.VisitDS.Reset();
+                VisitorClass.VisitDS.Tables.Add(hisDT.Copy());
             }
+            
             
 
             foreach (DataRow dr in hisDT.Rows)
@@ -1014,9 +1043,14 @@ namespace BIGCarParkSystem
             {
                 DataTable historyDT = vc.getAllVisitorInfoHistory(searchHistory);
 
-                if(historyDT.Rows.Count > 0)
+               
+
+                if (historyDT.Rows.Count > 0)
                 {
                     getHistoryData(historyDT);
+                    //DataSet _HisDS = new DataSet();
+                    //_HisDS.Tables.Add(historyDT);
+                    //VisitorClass.VisitDS = _HisDS;
                 }
                 else
                 {
@@ -1077,6 +1111,18 @@ namespace BIGCarParkSystem
                 return;
             }
 
+        }
+
+        private void left_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HistoryReportForm hsr = new HistoryReportForm();
+            hsr.DsReport = VisitorClass.VisitDS;
+            hsr.ShowDialog();
         }
     }
 

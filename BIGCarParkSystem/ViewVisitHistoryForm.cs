@@ -70,22 +70,23 @@ namespace BIGCarParkSystem
                    
                     out_fullname_tb.Text = visitorDT.Rows[0]["visit_name"].ToString();
                     out_idcard_tb.Text = visitorDT.Rows[0]["id_card"].ToString();
-                    out_tel_tb.Text = visitorDT.Rows[0]["tel"].ToString();
+                 
                     out_carid_tb.Text = visitorDT.Rows[0]["car_id"].ToString();
                     out_company_tb.Text = visitorDT.Rows[0]["com_name"].ToString();
                     out_cartype_tb.Text = visitorDT.Rows[0]["cartype_name"].ToString();
                     out_objective_tb.Text = visitorDT.Rows[0]["obt_name"].ToString();
                     out_contact_tb.Text = visitorDT.Rows[0]["contact_name"].ToString();
                     out_comment_tb.Text = visitorDT.Rows[0]["comment"].ToString();
+                    visitor_amount_tb.Text = visitorDT.Rows[0]["visitor_amount"].ToString();
 
                     if (visitorDT.Rows[0]["image_1"].ToString() != "")
                     {
                         out_image1_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString());
                     }
-                    if (visitorDT.Rows[0]["image_2"].ToString() != "")
-                    {
-                        out_image2_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_2"].ToString());
-                    }
+                    //if (visitorDT.Rows[0]["image_2"].ToString() != "")
+                    //{
+                    //    out_image2_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_2"].ToString());
+                    //}
                     if (visitorDT.Rows[0]["idcard_image"].ToString() != "")
                     {
                         out_idcardpic_pb.Image = Image.FromFile(VariableDB.PathIdCardImage + visitorDT.Rows[0]["idcard_image"].ToString());
@@ -130,6 +131,11 @@ namespace BIGCarParkSystem
                     this.Close();
                 }
             }
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

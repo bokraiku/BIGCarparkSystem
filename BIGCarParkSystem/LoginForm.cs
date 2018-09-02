@@ -17,7 +17,7 @@ namespace BIGCarParkSystem
    
     public partial class LoginForm : MetroFramework.Forms.MetroForm
     {
-        private int isTest = 0;
+        private int isTest = 1;
         FunctionClass fn = new FunctionClass();
         MemberClass member = new MemberClass();
        

@@ -111,6 +111,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HistoryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HistoryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HistoryReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryReportForm.Designer.cs">
+      <DependentUpon>HistoryReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,14 @@
     <Compile Include="Class\MysqlDB.cs" />
     <Compile Include="Class\UserInfo.cs" />
     <Compile Include="Class\VariableDB.cs" />
+    <Compile Include="report_dataset\HistoryReportDataSet.cs">
+      <DependentUpon>HistoryReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="report_dataset\HistoryReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HistoryReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="report_dataset\VisitDataSet.cs">
       <DependentUpon>VisitDataSet.xsd</DependentUpon>
     </Compile>
@@ -174,6 +194,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HistoryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryReportForm.resx">
+      <DependentUpon>HistoryReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -221,6 +248,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\background.jpg" />
+    <None Include="Resources\icons8-print-50.png" />
+    <None Include="report_dataset\HistoryReportDataSet.xsc">
+      <DependentUpon>HistoryReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="report_dataset\HistoryReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HistoryReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="report_dataset\HistoryReportDataSet.xss">
+      <DependentUpon>HistoryReportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\icons8-trash-35.png" />
     <None Include="Resources\icons8-search-30.png" />
     <None Include="Resources\icons8-search-501.png" />

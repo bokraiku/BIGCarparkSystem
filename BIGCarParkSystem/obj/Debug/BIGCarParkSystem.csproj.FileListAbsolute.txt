@@ -70,3 +70,4 @@ C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\Shoc
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\stdole.dll
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.VisitorReportForm.resources
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.HistoryReportForm.resources

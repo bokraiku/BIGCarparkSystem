@@ -210,7 +210,7 @@ namespace BIGCarParkSystem.Class
 
 
 
-        public String InsertVisitData(string staff_id,string cartype_id,string company_id,string obt_id,string visit_name,string car_id,string id_card,string tel,string comment,string contact_id,string image_1, string idcard_image,string barcode_id)
+        public String InsertVisitData(string staff_id,string cartype_id,string company_id,string obt_id,string visit_name,string car_id,string id_card,string tel,string comment,string contact_id,string image_1, string idcard_image,string barcode_id,string visitor_amount)
         {
             String returnValue = "";
             try
@@ -219,8 +219,8 @@ namespace BIGCarParkSystem.Class
                 {
 
                   
-                    string sql = "INSERT INTO `tbl_visitor` (`visit_datetime_in`, `visit_datetime_out`, `staff_id`, `cartype_id`, `company_id`, `obt_id`, `visit_name`, `car_id`, `id_card`, `tel`, `comment`,contact_id,image_1,idcard_image,barcode_id)" +
-                        " VALUES (now(), NULL, @staff_id, @cartype_id, @company_id, @obt_id, @visitor_name, @car_id, @id_card, @tel, @comment,@contact_id,@image_1,@idcard_image,@barcode_id);";
+                    string sql = "INSERT INTO `tbl_visitor` (`visit_datetime_in`, `visit_datetime_out`, `staff_id`, `cartype_id`, `company_id`, `obt_id`, `visit_name`, `car_id`, `id_card`, `tel`, `comment`,contact_id,image_1,idcard_image,barcode_id,visitor_amount)" +
+                        " VALUES (now(), NULL, @staff_id, @cartype_id, @company_id, @obt_id, @visitor_name, @car_id, @id_card, @tel, @comment,@contact_id,@image_1,@idcard_image,@barcode_id,@visitor_amount);";
                     MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
                     cmd.Parameters.AddWithValue("@staff_id", staff_id);
                     cmd.Parameters.AddWithValue("@cartype_id", cartype_id);
@@ -235,7 +235,8 @@ namespace BIGCarParkSystem.Class
                     cmd.Parameters.AddWithValue("@image_1", image_1);
                     cmd.Parameters.AddWithValue("@idcard_image", idcard_image);
                     cmd.Parameters.AddWithValue("@barcode_id", barcode_id);
-                    
+                    cmd.Parameters.AddWithValue("@visitor_amount", visitor_amount);
+
 
                     if (cmd.ExecuteNonQuery() > 0)
                     {
