@@ -39,7 +39,7 @@
             this.company_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.company_panel.Location = new System.Drawing.Point(20, 60);
             this.company_panel.Name = "company_panel";
-            this.company_panel.Size = new System.Drawing.Size(760, 520);
+            this.company_panel.Size = new System.Drawing.Size(774, 520);
             this.company_panel.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -47,14 +47,14 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 520);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(774, 520);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CompanySelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(814, 600);
             this.Controls.Add(this.company_panel);
             this.IsMdiContainer = true;
             this.MaximizeBox = false;

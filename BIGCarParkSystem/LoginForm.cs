@@ -89,10 +89,10 @@ namespace BIGCarParkSystem
 
         private void password_tbx_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button1.PerformClick();
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    button1.PerformClick();
+            //}
         }
 
         private void LoginForm_KeyDown(object sender, KeyEventArgs e)

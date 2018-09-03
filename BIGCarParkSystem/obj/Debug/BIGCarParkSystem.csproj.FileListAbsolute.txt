@@ -49,7 +49,6 @@ C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGC
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.exe
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.pdb
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.ViewVisitHistoryForm.resources
-C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\BarcodeLib.dll
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\CrystalDecisions.ReportSource.dll
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\CrystalDecisions.Shared.dll
@@ -71,3 +70,6 @@ C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\Crys
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\stdole.dll
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.VisitorReportForm.resources
 C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.HistoryReportForm.resources
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.EditUserForm.resources
+C:\Users\Tommy\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.Test.resources

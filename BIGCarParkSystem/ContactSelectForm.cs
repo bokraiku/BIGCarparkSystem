@@ -28,38 +28,38 @@ namespace BIGCarParkSystem
             ObjectiveClass cn = new ObjectiveClass();
             DataTable dt = cn.getAllContact();
 
-            DataRow drContact = dt.NewRow();
-            drContact["contact_name"] = "กรุณาเลือกผู้มาติดต่อ";
-            drContact["contact_id"] = "0";
 
-            dt.Rows.Add(drContact);
-            contact_cb.DisplayMember = "contact_name";
-            contact_cb.ValueMember = "contact_id";
-            contact_cb.DataSource = dt;
-            contact_cb.SelectedValue = "0";
+            foreach (DataRow d in dt.Rows)
+            {
+                Button bt = new Button();
+                bt.Tag = d["contact_id"];
+                bt.BackColor = Color.DodgerBlue; //Color.FromArgb(0, 0, 180, 255);
+                bt.ForeColor = Color.White;
+                bt.Font = new Font("Angsana New", 18, FontStyle.Bold);
+                bt.Cursor = Cursors.Hand;
+                bt.FlatStyle = FlatStyle.Flat;
+                bt.Padding = new Padding(5, 5, 5, 5);
+                bt.Width = 250;
+                bt.AutoSize = true;
+                bt.Text = d["contact_name"].ToString();
+                bt.Click += Bt_Click;
+                flowLayoutPanel1.Controls.Add(bt);
+            }
+
+           
         }
 
-        private void contact_cb_SelectedIndexChanged(object sender, EventArgs e)
+        private void Bt_Click(object sender, EventArgs e)
         {
-            if (contact_cb.SelectedValue != null && contact_cb.SelectedValue.ToString() != "0")
-            {
-                //MessageBox.Show(contact_cb.SelectedValue.ToString());
-               
-            }
+            Button bt = (Button)sender;
+            //CompanyClass cp = new CompanyClass();
+            //cp.CompanySelectdId = Int32.Parse(bt.Tag.ToString());
+            MainForm.ContactId = Int32.Parse(bt.Tag.ToString());
+            this.Close();
+            return;
+
         }
 
-        private void select_company_btn_Click(object sender, EventArgs e)
-        {
-            if (contact_cb.SelectedValue != null && contact_cb.SelectedValue.ToString() != "0")
-            {
-                MainForm.ContactId = Int32.Parse(contact_cb.SelectedValue.ToString());
-                this.Close();
-                return;
-            }
-            else
-            {
-                MessageBox.Show("กรุณาเลือกผู้มาติดต่อ");
-            }
-        }
+        
     }
 }

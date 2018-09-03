@@ -15,6 +15,8 @@ using System.Drawing.Imaging;
 using System.IO;
 using RDNIDWRAPPER;
 using BIGCarParkSystem.Class;
+using Newtonsoft.Json;
+
 
 
 namespace BIGCarParkSystem
@@ -47,6 +49,7 @@ namespace BIGCarParkSystem
         public bool isVisitOutFound = false;
 
         public string OutVisitID = "";
+        public string objectiveID = "0";
 
         FileStream fs;
 
@@ -127,17 +130,37 @@ namespace BIGCarParkSystem
             if (UserInfo.UserRole != "1")
             {
                 admin_bg_panel.Visible = false;
-                Label ll = new Label();
-                ll.Width = 500;
-                ll.Height = 50;
-                ll.TextAlign = ContentAlignment.MiddleCenter;
-                ll.BackColor = Color.FromArgb(100, 255, 255, 255);
-                ll.ForeColor = Color.FromArgb(0, 255, 0, 0);
-                ll.Text = "คุณไม่มีสิทธิ์ใช้งานระบบนี้";
-                ll.Font  = new Font("Tahoma", 14, FontStyle.Bold);
-                ll.Left = (userTab.Width / 2) - (ll.Width / 2);
-                ll.Top  = 50;
-                userTab.Controls.Add(ll);
+                objective_panel_bg.Visible = false;
+              
+                
+                for(int i = 0;i < 2; i++)
+                {
+                    Label ll = new Label();
+                    Label ll2 = new Label();
+                    ll.Width = 500;
+                    ll.Height = 50;
+                    ll.TextAlign = ContentAlignment.MiddleCenter;
+                    ll.BackColor = Color.FromArgb(100, 255, 255, 255);
+                    ll.ForeColor = Color.FromArgb(0, 255, 0, 0);
+                    ll.Text = "คุณไม่มีสิทธิ์ใช้งานระบบนี้";
+                    ll.Font = new Font("Tahoma", 14, FontStyle.Bold);
+                    ll.Left = (userTab.Width / 2) - (ll.Width / 2);
+                    ll.Top = 50;
+
+                    if(i == 0)
+                    {
+                        userTab.Controls.Add(ll);
+                    }
+                    if(i == 1)
+                    {
+                        objective_tab.Controls.Add(ll);
+                    }
+                   
+                }
+               
+                //objective_tab.Controls.Add(ll2);
+
+
             }
 
            
@@ -166,9 +189,25 @@ namespace BIGCarParkSystem
             {
                 Camera1 = 0;
             }
-
-
-
+            if(cameraResolution.Count < 1)
+            {
+                MessageBox.Show("ตรวจสอบไม่พบกล้อง กรุณาเช็คอุปกรณ์อีกครั้ง");
+                Application.Restart();
+                return;
+            }
+            foreach (var r in cameraResolution)
+            {
+               
+               
+                //object obj = JObjec
+                String json = r.ToString();
+                String NewJson = json.Replace('=', ':');
+                Console.WriteLine(NewJson);
+                Dictionary<string, string> resolution = JsonConvert.DeserializeObject<Dictionary<string, string>>(NewJson);
+                string showText = resolution["Width"] + " X " + resolution["Height"];
+                change_resolution_cb.Items.Add(showText);
+            }
+            change_resolution_cb.SelectedIndex = 0;
 
 
 
@@ -187,7 +226,8 @@ namespace BIGCarParkSystem
           
             left_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             right_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
-           
+            admin_manage_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
+            objective_manage_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             his_backdrop_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             backdrop_panel.BackColor = Color.FromArgb(100, 0, 0, 0);
             form_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
@@ -197,6 +237,7 @@ namespace BIGCarParkSystem
             his_data_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
 
             admin_head_panel.BackColor = Color.FromArgb(100, 255, 255, 255);
+            objective_group.BackColor = Color.FromArgb(100, 255, 255, 255);
         }
 
         private void scancard_btn_Click(object sender, EventArgs e)
@@ -381,6 +422,10 @@ namespace BIGCarParkSystem
             display_cam.Capture(file);
             this.displayImage1 = name + ".jpg";
             camera1_display_pb.Image = Image.FromFile(file + ".jpg");
+
+            Image img = resizeImage(Image.FromFile(file + ".jpg"), new Size(450, 350));
+            //camera1_pb.Image = img;
+            camera1_display_pb.Image = img;
         }
 
         private void AutoCompleteCompanyTB()
@@ -419,7 +464,8 @@ namespace BIGCarParkSystem
             CompanySelectForm cf = new CompanySelectForm();
             cf.FormClosing += new FormClosingEventHandler(Cf_FormClosing);
             cf.ShowDialog();
-            cartype_select_btn.PerformClick();
+            //cartype_select_btn.PerformClick();
+            objective_select_btn.PerformClick();
 
             //cf.FormClosed += new FormClosedEventHandler(Cf_FormClosed);
 
@@ -474,7 +520,8 @@ namespace BIGCarParkSystem
             CarSelectForm cf = new CarSelectForm();
             cf.FormClosing += new FormClosingEventHandler(CT_FormClosing);
             cf.ShowDialog();
-            objective_select_btn.PerformClick();
+            //objective_select_btn.PerformClick();
+            select_company_btn.PerformClick();
         }
 
         private void CT_FormClosing(object sender, FormClosingEventArgs e)
@@ -785,7 +832,7 @@ namespace BIGCarParkSystem
                 MemberClass member = new MemberClass();
                 DataTable dt = member.getAllRole();
                 DataRow drRole = dt.NewRow();
-                drRole["role_name"] = "กรุณาเลือกผู้มาติดต่อ";
+                drRole["role_name"] = "กรุณาเลือกสิทธิ์การใช้งาน";
                 drRole["role_id"] = "0";
 
                 dt.Rows.Add(drRole);
@@ -794,7 +841,21 @@ namespace BIGCarParkSystem
                 admin_role_cb.DataSource = dt;
                 admin_role_cb.SelectedValue = "0";
 
+                //DataTable dtacc = member.getAllUser();
+                this.ConfigHeaderAccountGridView();
+                this.getAccountData();
+
             }
+            if (index == 4 && UserInfo.UserRole == "1")
+            {
+                this.ConfigHeaderObjectiveGridView();
+                this.getobjectiveData();
+                // Objective manage
+                ObjectiveClass objC = new ObjectiveClass();
+                DataTable objDT = objC.getAllObjective();
+            }
+
+
         }
 
         private void scan_barcode_btn_Click(object sender, EventArgs e)
@@ -918,6 +979,39 @@ namespace BIGCarParkSystem
 
             }
         }
+        
+        public void ConfigHeaderObjectiveGridView()
+        {
+            this.objective_datagrid.AllowUserToAddRows = false;
+            this.objective_datagrid.Refresh();
+            this.objective_datagrid.ColumnCount = 3;
+            this.objective_datagrid.Columns[0].Name = "เลขที่";
+            this.objective_datagrid.Columns[0].ReadOnly = true;
+            this.objective_datagrid.Columns[1].Name = "ชื่อวัตถุประสงค์";
+            this.objective_datagrid.Columns[1].ReadOnly = true;
+            this.objective_datagrid.Columns[2].Name = "กลุ่ม";
+            this.objective_datagrid.Columns[2].ReadOnly = true;
+
+
+
+        }
+
+        public void ConfigHeaderAccountGridView()
+        {
+            this.manage_user_gridview.AllowUserToAddRows = false;
+            this.manage_user_gridview.Refresh();
+            this.manage_user_gridview.ColumnCount = 4;
+            this.manage_user_gridview.Columns[0].Name = "รหัสผู้ใช้งาน";
+            this.manage_user_gridview.Columns[0].ReadOnly = true;
+            this.manage_user_gridview.Columns[1].Name = "Username";
+            this.manage_user_gridview.Columns[1].ReadOnly = true;
+            this.manage_user_gridview.Columns[2].Name = "สิทธิ์การใช้งาน";
+            this.manage_user_gridview.Columns[2].ReadOnly = true;
+            this.manage_user_gridview.Columns[3].Name = "วันที่เพิ่ม";
+            this.manage_user_gridview.Columns[3].ReadOnly = true;
+
+
+        }
 
         public void ConfigHeaderHistoryGridView()
         {
@@ -936,6 +1030,80 @@ namespace BIGCarParkSystem
             this.history_gridview.Columns[4].ReadOnly = true;
             this.history_gridview.Columns[5].Name = "ชื่อ";
             this.history_gridview.Columns[5].ReadOnly = true;
+
+        }
+
+        
+
+        public void getobjectiveData()
+        {
+            this.objective_datagrid.Rows.Clear();
+            this.objective_datagrid.AllowUserToAddRows = false;
+            this.objective_datagrid.Refresh();
+            ObjectiveClass objClass = new ObjectiveClass();
+            DataTable ObjectiveDT = objClass.getAllObjective();
+
+
+            if (ObjectiveDT.Rows.Count > 0)
+            {
+                foreach (DataRow dr in ObjectiveDT.Rows)
+                {
+                    String obt_id   = dr["obt_id"].ToString();
+                    String obt_name = dr["obt_name"].ToString();
+
+                    String group_id = dr["group"].ToString();
+                    //String create_date = fn.ConvertDate(dr["create_date"].ToString());
+
+
+
+                    String[] rows = { obt_id, obt_name, group_id };
+                    this.objective_datagrid.Rows.Add(rows);
+
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("ไม่พบข้อมูลผู้ใช้งาน");
+            }
+
+
+        }
+
+        public void getAccountData()
+        {
+            this.manage_user_gridview.Rows.Clear();
+            this.manage_user_gridview.AllowUserToAddRows = false;
+            this.manage_user_gridview.Refresh();
+            MemberClass mem = new MemberClass();
+            DataTable AccountDT = mem.getAllUser();
+            
+
+            if(AccountDT.Rows.Count > 0)
+            {
+                foreach (DataRow dr in AccountDT.Rows)
+                {
+                    String acc_id = dr["acc_id"].ToString();
+                    String ac_name = dr["username"].ToString();
+
+                    String role_name = dr["role_name"].ToString();
+                    String create_date = fn.ConvertDate(dr["create_date"].ToString());
+
+
+
+                    String[] rows = { acc_id, ac_name, role_name, create_date };
+                    this.manage_user_gridview.Rows.Add(rows);
+
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("ไม่พบข้อมูลผู้ใช้งาน");
+            }
+
 
         }
 
@@ -1073,7 +1241,7 @@ namespace BIGCarParkSystem
             string username = admin_username_tb.Text.Trim();
             string password = admin_password_tb.Text;
             string conPassword = admin_conpass_tb.Text;
-            string roleId = admin_role_cb.SelectedIndex.ToString();
+            string roleId = admin_role_cb.SelectedValue.ToString();
             if (username.Equals(string.Empty) || password.Equals(string.Empty) || conPassword.Equals(string.Empty))
             {
                 MessageBox.Show(this, "กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1108,6 +1276,7 @@ namespace BIGCarParkSystem
             else
             {
                 MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.getAccountData();
                 return;
             }
 
@@ -1123,6 +1292,162 @@ namespace BIGCarParkSystem
             HistoryReportForm hsr = new HistoryReportForm();
             hsr.DsReport = VisitorClass.VisitDS;
             hsr.ShowDialog();
+        }
+
+        private void change_resolution_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            display_cam.Start(change_resolution_cb.SelectedIndex);
+            
+        }
+
+        private void manage_user_gridview_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            String Userid = this.manage_user_gridview.Rows[RowIndex].Cells[0].Value.ToString();
+            if (Userid == "" || Userid == null)
+            {
+                MessageBox.Show("ขออภัยข้อมูลไม่ถูกต้อง");
+                return;
+            }
+
+           
+            EditUserForm ef = new EditUserForm();
+            EditUserForm.UserID = Userid;
+            ef.FormClosing += Ef_FormClosing;
+
+            ef.ShowDialog();
+        }
+
+        private void Ef_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.getAccountData();
+        }
+
+        private void delete_objective_Click(object sender, EventArgs e)
+        {
+            int selectedRow = objective_datagrid.CurrentCell.RowIndex;
+            string obt_id = objective_datagrid.Rows[selectedRow].Cells[0].Value.ToString();
+
+            ObjectiveClass obtClass = new ObjectiveClass();
+            DialogResult dialogResult = MessageBox.Show("คุณต้องการลบข้อมูลหรือไม่", "ยืนยันการลบ", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int rowCount = obtClass.DeleteObjective(obt_id);
+                if (rowCount > 0)
+                {
+                    MessageBox.Show(this, "ลบข้อมูลำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.getobjectiveData();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(this, "ไม่สามารถลบข้อมูลได้ กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+        }
+
+        private void save_objective_btn_Click(object sender, EventArgs e)
+        {
+            string obt_name = objective_name_tb.Text.Trim();
+            string group = objective_group_tb.Text.Trim();
+            if(obt_name.Equals(string.Empty) || group.Equals(string.Empty))
+            {
+                MessageBox.Show(this, "กรุณากรอกข้อมูลให้ครบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (this.objectiveID == "")
+            {
+                DataTable obtDT = objClass.getObjectiveByName(obt_name);
+                if(obtDT.Rows.Count > 0)
+                {
+                    MessageBox.Show(this, "วัตถุประสงค์นี้มีในระบบแล้ว", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string lastId = objClass.InsertObjective(obt_name, group);
+                if (lastId != "")
+                {
+                    MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.getobjectiveData();
+                    this.objectiveID = "";
+                    objective_name_tb.Text = "";
+                    objective_group_tb.Text = "";
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else
+            {
+
+                DataTable obtDT = objClass.getObjectiveById(Int32.Parse(this.objectiveID));
+
+
+                if (obtDT.Rows.Count > 0)
+                {
+                    int rowCount = objClass.UpdateObjectiveByName(obt_name, group, this.objectiveID);
+                    if (rowCount > 0)
+                    {
+                        MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.getobjectiveData();
+                        this.objectiveID = "";
+                        objective_name_tb.Text = "";
+                        objective_group_tb.Text = "";
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    string lastId = objClass.InsertObjective(obt_name, group);
+                    if (lastId != "")
+                    {
+                        MessageBox.Show(this, "บันทึกข้อมูลสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.getobjectiveData();
+                        this.objectiveID = "";
+                        objective_name_tb.Text = "";
+                        objective_group_tb.Text = "";
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "ไม่สามารถบันทึกข้อมูลได้ กรุณาตรวจสอบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+            }
+
+
+
+        }
+
+        private void objective_datagrid_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int selectedRow = objective_datagrid.CurrentCell.RowIndex;
+            string obt_id = objective_datagrid.Rows[selectedRow].Cells[0].Value.ToString();
+            ObjectiveClass objClass = new ObjectiveClass();
+            DataTable obtDT = objClass.getObjectiveById(Int32.Parse(obt_id));
+            if(obtDT.Rows.Count > 0)
+            {
+                objective_name_tb.Text = obtDT.Rows[0]["obt_name"].ToString();
+                objective_group_tb.Text = obtDT.Rows[0]["group"].ToString();
+                this.objectiveID = obtDT.Rows[0]["obt_id"].ToString();
+            }
+        }
+
+        private void clear_objective_btn_Click(object sender, EventArgs e)
+        {
+            this.objectiveID = "";
+            objective_name_tb.Text = "";
+            objective_group_tb.Text =  "";
         }
     }
 

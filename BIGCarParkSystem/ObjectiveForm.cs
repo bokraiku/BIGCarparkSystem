@@ -27,27 +27,44 @@ namespace BIGCarParkSystem
         private void ObjectiveForm_Load(object sender, EventArgs e)
         {
           
-                ObjectiveClass cn = new ObjectiveClass();
+            ObjectiveClass cn = new ObjectiveClass();
 
-                DataTable dt = cn.getAllObjective();
+            DataTable dt = cn.getAllObjective();
 
-                foreach (DataRow d in dt.Rows)
+            foreach (DataRow d in dt.Rows)
+            {
+                Button bt = new Button();
+                bt.Tag = d["obt_id"];
+                bt.BackColor = Color.DodgerBlue; //Color.FromArgb(0, 0, 180, 255);
+                bt.ForeColor = Color.White;
+                bt.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                bt.Cursor = Cursors.Hand;
+                bt.FlatStyle = FlatStyle.Flat;
+                bt.Width = 250;
+                bt.Padding = new Padding(5, 5, 5, 5);
+                bt.AutoSize = true;
+                bt.Text = d["obt_name"].ToString();
+                bt.Click += Bt_Click;
+                if (d["group"].ToString() == "1")
                 {
-                    Button bt = new Button();
-                    bt.Tag = d["obt_id"];
-                    bt.BackColor = Color.DodgerBlue; //Color.FromArgb(0, 0, 180, 255);
-                    bt.ForeColor = Color.White;
-                    bt.Font = new Font("Tahoma", 10, FontStyle.Bold);
-                    bt.Cursor = Cursors.Hand;
-                    bt.FlatStyle = FlatStyle.Flat;
-                    bt.Padding = new Padding(5, 5, 5, 5);
-                    bt.AutoSize = true;
-                    bt.Text = d["obt_name"].ToString();
-                    bt.Click += Bt_Click;
-                     flowLayoutPanel1.Controls.Add(bt);
-
-                    
+                    flow_group_1.Controls.Add(bt);
+                }else if(d["group"].ToString() == "2")
+                {
+                    flow_group_2.Controls.Add(bt);
                 }
+                else if (d["group"].ToString() == "3")
+                {
+                    flow_group_3.Controls.Add(bt);
+                }
+                else if (d["group"].ToString() == "4")
+                {
+                    flow_group_4.Controls.Add(bt);
+                }
+
+
+
+
+            }
             dt.Clear();
             
             /*

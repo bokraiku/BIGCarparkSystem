@@ -39,6 +39,7 @@ namespace BIGCarParkSystem
                 bt.Font = new Font("Tahoma", 10, FontStyle.Bold);
                 bt.Cursor = Cursors.Hand;
                 bt.FlatStyle = FlatStyle.Flat;
+                bt.Width = 200;
                 bt.Padding = new Padding(5, 5, 5, 5);
                 bt.AutoSize = true;
                 bt.Text = d["cartype_name"].ToString();

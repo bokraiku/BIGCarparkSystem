@@ -39,7 +39,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 520);
+            this.panel1.Size = new System.Drawing.Size(835, 520);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -47,14 +47,14 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 520);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(835, 520);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CarSelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(875, 600);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.MaximizeBox = false;

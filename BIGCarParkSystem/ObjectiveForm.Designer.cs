@@ -29,32 +29,62 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_group_1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_group_2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_group_4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_group_3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.flow_group_3);
+            this.panel1.Controls.Add(this.flow_group_4);
+            this.panel1.Controls.Add(this.flow_group_2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 300);
+            this.panel1.Size = new System.Drawing.Size(1060, 420);
             this.panel1.TabIndex = 0;
             // 
-            // flowLayoutPanel1
+            // flow_group_1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 300);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flow_group_1.AutoScroll = true;
+            this.flow_group_1.Location = new System.Drawing.Point(20, 60);
+            this.flow_group_1.Name = "flow_group_1";
+            this.flow_group_1.Size = new System.Drawing.Size(250, 420);
+            this.flow_group_1.TabIndex = 0;
+            // 
+            // flow_group_2
+            // 
+            this.flow_group_2.AutoScroll = true;
+            this.flow_group_2.Location = new System.Drawing.Point(271, 0);
+            this.flow_group_2.Name = "flow_group_2";
+            this.flow_group_2.Size = new System.Drawing.Size(250, 420);
+            this.flow_group_2.TabIndex = 1;
+            // 
+            // flow_group_4
+            // 
+            this.flow_group_4.AutoScroll = true;
+            this.flow_group_4.Location = new System.Drawing.Point(810, 0);
+            this.flow_group_4.Name = "flow_group_4";
+            this.flow_group_4.Size = new System.Drawing.Size(250, 420);
+            this.flow_group_4.TabIndex = 2;
+            // 
+            // flow_group_3
+            // 
+            this.flow_group_3.AutoScroll = true;
+            this.flow_group_3.Location = new System.Drawing.Point(540, 0);
+            this.flow_group_3.Name = "flow_group_3";
+            this.flow_group_3.Size = new System.Drawing.Size(250, 420);
+            this.flow_group_3.TabIndex = 3;
             // 
             // ObjectiveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 380);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1100, 500);
+            this.Controls.Add(this.flow_group_1);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
@@ -65,6 +95,7 @@
             this.Text = "วัตถุประสงค์";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.ObjectiveForm_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -72,6 +103,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flow_group_1;
+        private System.Windows.Forms.FlowLayoutPanel flow_group_2;
+        private System.Windows.Forms.FlowLayoutPanel flow_group_4;
+        private System.Windows.Forms.FlowLayoutPanel flow_group_3;
     }
 }

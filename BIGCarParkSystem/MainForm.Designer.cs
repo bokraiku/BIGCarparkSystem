@@ -65,6 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.left_panel = new System.Windows.Forms.Panel();
+            this.change_resolution_cb = new System.Windows.Forms.ComboBox();
             this.c_panel3 = new System.Windows.Forms.Panel();
             this.c_panel1 = new System.Windows.Forms.Panel();
             this.main_tabcontrol = new MetroFramework.Controls.MetroTabControl();
@@ -115,6 +116,7 @@
             this.userTab = new MetroFramework.Controls.MetroTabPage();
             this.admin_bg_panel = new System.Windows.Forms.Panel();
             this.admin_bottom_panel = new System.Windows.Forms.Panel();
+            this.manage_user_gridview = new System.Windows.Forms.DataGridView();
             this.admin_head_panel = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.admin_role_cb = new MetroFramework.Controls.MetroComboBox();
@@ -126,7 +128,21 @@
             this.label20 = new System.Windows.Forms.Label();
             this.admin_password_tb = new MetroFramework.Controls.MetroTextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.objective_tab = new MetroFramework.Controls.MetroTabPage();
+            this.objective_panel_bg = new System.Windows.Forms.Panel();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.objective_manage_panel = new System.Windows.Forms.Panel();
+            this.admin_manage_panel = new System.Windows.Forms.Panel();
+            this.objective_datagrid = new System.Windows.Forms.DataGridView();
+            this.delete_objective = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.objective_group = new System.Windows.Forms.GroupBox();
+            this.save_objective_btn = new System.Windows.Forms.Button();
+            this.objective_name_tb = new MetroFramework.Controls.MetroTextBox();
+            this.ชื่อวัตถุประสงค์ = new System.Windows.Forms.Label();
+            this.objective_group_tb = new MetroFramework.Controls.MetroTextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.clear_objective_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).BeginInit();
             this.metroPanel1.SuspendLayout();
@@ -162,15 +178,24 @@
             this.groupBox6.SuspendLayout();
             this.userTab.SuspendLayout();
             this.admin_bg_panel.SuspendLayout();
+            this.admin_bottom_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manage_user_gridview)).BeginInit();
             this.admin_head_panel.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.objective_tab.SuspendLayout();
+            this.objective_panel_bg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.objective_manage_panel.SuspendLayout();
+            this.admin_manage_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objective_datagrid)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.objective_group.SuspendLayout();
             this.SuspendLayout();
             // 
             // camera1_display_pb
             // 
             this.camera1_display_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.camera1_display_pb.Location = new System.Drawing.Point(13, 8);
+            this.camera1_display_pb.Location = new System.Drawing.Point(13, 9);
             this.camera1_display_pb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.camera1_display_pb.Name = "camera1_display_pb";
             this.camera1_display_pb.Size = new System.Drawing.Size(450, 350);
@@ -855,6 +880,7 @@
             // 
             // left_panel
             // 
+            this.left_panel.Controls.Add(this.change_resolution_cb);
             this.left_panel.Controls.Add(this.c_panel3);
             this.left_panel.Controls.Add(this.c_panel1);
             this.left_panel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -865,10 +891,19 @@
             this.left_panel.TabIndex = 2;
             this.left_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.left_panel_Paint);
             // 
+            // change_resolution_cb
+            // 
+            this.change_resolution_cb.FormattingEnabled = true;
+            this.change_resolution_cb.Location = new System.Drawing.Point(134, 7);
+            this.change_resolution_cb.Name = "change_resolution_cb";
+            this.change_resolution_cb.Size = new System.Drawing.Size(477, 31);
+            this.change_resolution_cb.TabIndex = 8;
+            this.change_resolution_cb.SelectedIndexChanged += new System.EventHandler(this.change_resolution_cb_SelectedIndexChanged);
+            // 
             // c_panel3
             // 
             this.c_panel3.Controls.Add(this.camera1_display_pb);
-            this.c_panel3.Location = new System.Drawing.Point(134, 415);
+            this.c_panel3.Location = new System.Drawing.Point(134, 427);
             this.c_panel3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.c_panel3.Name = "c_panel3";
             this.c_panel3.Size = new System.Drawing.Size(477, 368);
@@ -877,7 +912,7 @@
             // c_panel1
             // 
             this.c_panel1.Controls.Add(this.camera1_pb);
-            this.c_panel1.Location = new System.Drawing.Point(134, 17);
+            this.c_panel1.Location = new System.Drawing.Point(134, 50);
             this.c_panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.c_panel1.Name = "c_panel1";
             this.c_panel1.Size = new System.Drawing.Size(477, 370);
@@ -889,12 +924,13 @@
             this.main_tabcontrol.Controls.Add(this.OutTab);
             this.main_tabcontrol.Controls.Add(this.HistoryTab);
             this.main_tabcontrol.Controls.Add(this.userTab);
+            this.main_tabcontrol.Controls.Add(this.objective_tab);
             this.main_tabcontrol.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_tabcontrol.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.main_tabcontrol.Location = new System.Drawing.Point(22, 30);
             this.main_tabcontrol.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.main_tabcontrol.Name = "main_tabcontrol";
-            this.main_tabcontrol.SelectedIndex = 0;
+            this.main_tabcontrol.SelectedIndex = 4;
             this.main_tabcontrol.Size = new System.Drawing.Size(1556, 850);
             this.main_tabcontrol.TabIndex = 2;
             this.main_tabcontrol.UseSelectable = true;
@@ -1753,10 +1789,8 @@
             // admin_bg_panel
             // 
             this.admin_bg_panel.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.bg_01;
-            this.admin_bg_panel.Controls.Add(this.admin_bottom_panel);
-            this.admin_bg_panel.Controls.Add(this.admin_head_panel);
-            this.admin_bg_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.admin_bg_panel.Location = new System.Drawing.Point(0, 0);
+            this.admin_bg_panel.Controls.Add(this.admin_manage_panel);
+            this.admin_bg_panel.Location = new System.Drawing.Point(4, 4);
             this.admin_bg_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_bg_panel.Name = "admin_bg_panel";
             this.admin_bg_panel.Size = new System.Drawing.Size(1548, 802);
@@ -1764,12 +1798,28 @@
             // 
             // admin_bottom_panel
             // 
+            this.admin_bottom_panel.Controls.Add(this.manage_user_gridview);
             this.admin_bottom_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.admin_bottom_panel.Location = new System.Drawing.Point(0, 428);
+            this.admin_bottom_panel.Location = new System.Drawing.Point(0, 395);
             this.admin_bottom_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_bottom_panel.Name = "admin_bottom_panel";
-            this.admin_bottom_panel.Size = new System.Drawing.Size(1548, 374);
+            this.admin_bottom_panel.Size = new System.Drawing.Size(1548, 407);
             this.admin_bottom_panel.TabIndex = 1;
+            // 
+            // manage_user_gridview
+            // 
+            this.manage_user_gridview.AllowUserToAddRows = false;
+            this.manage_user_gridview.AllowUserToDeleteRows = false;
+            this.manage_user_gridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.manage_user_gridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.manage_user_gridview.BackgroundColor = System.Drawing.Color.White;
+            this.manage_user_gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.manage_user_gridview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.manage_user_gridview.Location = new System.Drawing.Point(0, 0);
+            this.manage_user_gridview.Name = "manage_user_gridview";
+            this.manage_user_gridview.Size = new System.Drawing.Size(1548, 407);
+            this.manage_user_gridview.TabIndex = 0;
+            this.manage_user_gridview.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.manage_user_gridview_RowHeaderMouseDoubleClick);
             // 
             // admin_head_panel
             // 
@@ -1778,7 +1828,7 @@
             this.admin_head_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_head_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_head_panel.Name = "admin_head_panel";
-            this.admin_head_panel.Size = new System.Drawing.Size(1548, 422);
+            this.admin_head_panel.Size = new System.Drawing.Size(1548, 387);
             this.admin_head_panel.TabIndex = 0;
             // 
             // groupBox5
@@ -1834,7 +1884,7 @@
             this.admin_save_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.admin_save_bt.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_35;
             this.admin_save_bt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_save_bt.Location = new System.Drawing.Point(356, 274);
+            this.admin_save_bt.Location = new System.Drawing.Point(166, 270);
             this.admin_save_bt.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.admin_save_bt.Name = "admin_save_bt";
             this.admin_save_bt.Size = new System.Drawing.Size(94, 43);
@@ -1866,15 +1916,14 @@
             this.admin_conpass_tb.MaxLength = 32767;
             this.admin_conpass_tb.Multiline = true;
             this.admin_conpass_tb.Name = "admin_conpass_tb";
-            this.admin_conpass_tb.PasswordChar = '\0';
-            this.admin_conpass_tb.ReadOnly = true;
+            this.admin_conpass_tb.PasswordChar = '*';
             this.admin_conpass_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.admin_conpass_tb.SelectedText = "";
             this.admin_conpass_tb.SelectionLength = 0;
             this.admin_conpass_tb.SelectionStart = 0;
             this.admin_conpass_tb.ShortcutsEnabled = true;
             this.admin_conpass_tb.Size = new System.Drawing.Size(280, 32);
-            this.admin_conpass_tb.TabIndex = 40;
+            this.admin_conpass_tb.TabIndex = 38;
             this.admin_conpass_tb.UseSelectable = true;
             this.admin_conpass_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.admin_conpass_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1914,14 +1963,13 @@
             this.admin_username_tb.Multiline = true;
             this.admin_username_tb.Name = "admin_username_tb";
             this.admin_username_tb.PasswordChar = '\0';
-            this.admin_username_tb.ReadOnly = true;
             this.admin_username_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.admin_username_tb.SelectedText = "";
             this.admin_username_tb.SelectionLength = 0;
             this.admin_username_tb.SelectionStart = 0;
             this.admin_username_tb.ShortcutsEnabled = true;
             this.admin_username_tb.Size = new System.Drawing.Size(280, 32);
-            this.admin_username_tb.TabIndex = 38;
+            this.admin_username_tb.TabIndex = 36;
             this.admin_username_tb.UseSelectable = true;
             this.admin_username_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.admin_username_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1960,15 +2008,14 @@
             this.admin_password_tb.MaxLength = 32767;
             this.admin_password_tb.Multiline = true;
             this.admin_password_tb.Name = "admin_password_tb";
-            this.admin_password_tb.PasswordChar = '\0';
-            this.admin_password_tb.ReadOnly = true;
+            this.admin_password_tb.PasswordChar = '*';
             this.admin_password_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.admin_password_tb.SelectedText = "";
             this.admin_password_tb.SelectionLength = 0;
             this.admin_password_tb.SelectionStart = 0;
             this.admin_password_tb.ShortcutsEnabled = true;
             this.admin_password_tb.Size = new System.Drawing.Size(280, 32);
-            this.admin_password_tb.TabIndex = 36;
+            this.admin_password_tb.TabIndex = 37;
             this.admin_password_tb.UseSelectable = true;
             this.admin_password_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.admin_password_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -1985,9 +2032,246 @@
             this.label21.TabIndex = 35;
             this.label21.Text = "Password";
             // 
+            // objective_tab
+            // 
+            this.objective_tab.Controls.Add(this.objective_panel_bg);
+            this.objective_tab.HorizontalScrollbarBarColor = true;
+            this.objective_tab.HorizontalScrollbarHighlightOnWheel = false;
+            this.objective_tab.HorizontalScrollbarSize = 10;
+            this.objective_tab.Location = new System.Drawing.Point(4, 44);
+            this.objective_tab.Name = "objective_tab";
+            this.objective_tab.Size = new System.Drawing.Size(1548, 802);
+            this.objective_tab.TabIndex = 4;
+            this.objective_tab.Text = "วัตถุประสงค์";
+            this.objective_tab.VerticalScrollbarBarColor = true;
+            this.objective_tab.VerticalScrollbarHighlightOnWheel = false;
+            this.objective_tab.VerticalScrollbarSize = 10;
+            // 
+            // objective_panel_bg
+            // 
+            this.objective_panel_bg.BackColor = System.Drawing.Color.Transparent;
+            this.objective_panel_bg.BackgroundImage = global::BIGCarParkSystem.Properties.Resources.bg_01;
+            this.objective_panel_bg.Controls.Add(this.objective_manage_panel);
+            this.objective_panel_bg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objective_panel_bg.Location = new System.Drawing.Point(0, 0);
+            this.objective_panel_bg.Name = "objective_panel_bg";
+            this.objective_panel_bg.Size = new System.Drawing.Size(1548, 802);
+            this.objective_panel_bg.TabIndex = 2;
+            // 
             // metroStyleManager1
             // 
             this.metroStyleManager1.Owner = this;
+            // 
+            // objective_manage_panel
+            // 
+            this.objective_manage_panel.BackColor = System.Drawing.SystemColors.Control;
+            this.objective_manage_panel.Controls.Add(this.panel5);
+            this.objective_manage_panel.Controls.Add(this.delete_objective);
+            this.objective_manage_panel.Controls.Add(this.objective_datagrid);
+            this.objective_manage_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objective_manage_panel.Location = new System.Drawing.Point(0, 0);
+            this.objective_manage_panel.Name = "objective_manage_panel";
+            this.objective_manage_panel.Size = new System.Drawing.Size(1548, 802);
+            this.objective_manage_panel.TabIndex = 0;
+            // 
+            // admin_manage_panel
+            // 
+            this.admin_manage_panel.Controls.Add(this.admin_head_panel);
+            this.admin_manage_panel.Controls.Add(this.admin_bottom_panel);
+            this.admin_manage_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.admin_manage_panel.Location = new System.Drawing.Point(0, 0);
+            this.admin_manage_panel.Name = "admin_manage_panel";
+            this.admin_manage_panel.Size = new System.Drawing.Size(1548, 802);
+            this.admin_manage_panel.TabIndex = 1;
+            // 
+            // objective_datagrid
+            // 
+            this.objective_datagrid.AllowUserToAddRows = false;
+            this.objective_datagrid.AllowUserToDeleteRows = false;
+            this.objective_datagrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.objective_datagrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.objective_datagrid.BackgroundColor = System.Drawing.Color.White;
+            this.objective_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.objective_datagrid.Location = new System.Drawing.Point(3, 436);
+            this.objective_datagrid.Name = "objective_datagrid";
+            this.objective_datagrid.Size = new System.Drawing.Size(1542, 363);
+            this.objective_datagrid.TabIndex = 0;
+            this.objective_datagrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.objective_datagrid_RowHeaderMouseClick);
+            // 
+            // delete_objective
+            // 
+            this.delete_objective.BackColor = System.Drawing.Color.IndianRed;
+            this.delete_objective.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete_objective.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delete_objective.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_objective.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.delete_objective.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
+            this.delete_objective.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.delete_objective.Location = new System.Drawing.Point(3, 386);
+            this.delete_objective.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.delete_objective.Name = "delete_objective";
+            this.delete_objective.Size = new System.Drawing.Size(87, 43);
+            this.delete_objective.TabIndex = 42;
+            this.delete_objective.Text = "ลบ";
+            this.delete_objective.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.delete_objective.UseVisualStyleBackColor = false;
+            this.delete_objective.Click += new System.EventHandler(this.delete_objective_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.objective_group);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1542, 312);
+            this.panel5.TabIndex = 43;
+            // 
+            // objective_group
+            // 
+            this.objective_group.Controls.Add(this.clear_objective_btn);
+            this.objective_group.Controls.Add(this.save_objective_btn);
+            this.objective_group.Controls.Add(this.objective_name_tb);
+            this.objective_group.Controls.Add(this.ชื่อวัตถุประสงค์);
+            this.objective_group.Controls.Add(this.objective_group_tb);
+            this.objective_group.Controls.Add(this.label25);
+            this.objective_group.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.objective_group.Location = new System.Drawing.Point(2, 13);
+            this.objective_group.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.objective_group.Name = "objective_group";
+            this.objective_group.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.objective_group.Size = new System.Drawing.Size(578, 231);
+            this.objective_group.TabIndex = 1;
+            this.objective_group.TabStop = false;
+            this.objective_group.Text = "เพิ่มผู้ใช้งาน";
+            // 
+            // save_objective_btn
+            // 
+            this.save_objective_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.save_objective_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.save_objective_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.save_objective_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.save_objective_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.save_objective_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_35;
+            this.save_objective_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.save_objective_btn.Location = new System.Drawing.Point(352, 157);
+            this.save_objective_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.save_objective_btn.Name = "save_objective_btn";
+            this.save_objective_btn.Size = new System.Drawing.Size(94, 43);
+            this.save_objective_btn.TabIndex = 41;
+            this.save_objective_btn.Text = "บันทึก";
+            this.save_objective_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.save_objective_btn.UseVisualStyleBackColor = false;
+            this.save_objective_btn.Click += new System.EventHandler(this.save_objective_btn_Click);
+            // 
+            // objective_name_tb
+            // 
+            // 
+            // 
+            // 
+            this.objective_name_tb.CustomButton.Image = null;
+            this.objective_name_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
+            this.objective_name_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.objective_name_tb.CustomButton.Name = "";
+            this.objective_name_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.objective_name_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.objective_name_tb.CustomButton.TabIndex = 1;
+            this.objective_name_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.objective_name_tb.CustomButton.UseSelectable = true;
+            this.objective_name_tb.CustomButton.Visible = false;
+            this.objective_name_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.objective_name_tb.Lines = new string[0];
+            this.objective_name_tb.Location = new System.Drawing.Point(166, 51);
+            this.objective_name_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.objective_name_tb.MaxLength = 32767;
+            this.objective_name_tb.Multiline = true;
+            this.objective_name_tb.Name = "objective_name_tb";
+            this.objective_name_tb.PasswordChar = '\0';
+            this.objective_name_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.objective_name_tb.SelectedText = "";
+            this.objective_name_tb.SelectionLength = 0;
+            this.objective_name_tb.SelectionStart = 0;
+            this.objective_name_tb.ShortcutsEnabled = true;
+            this.objective_name_tb.Size = new System.Drawing.Size(280, 32);
+            this.objective_name_tb.TabIndex = 36;
+            this.objective_name_tb.UseSelectable = true;
+            this.objective_name_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.objective_name_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // ชื่อวัตถุประสงค์
+            // 
+            this.ชื่อวัตถุประสงค์.AutoSize = true;
+            this.ชื่อวัตถุประสงค์.BackColor = System.Drawing.Color.Transparent;
+            this.ชื่อวัตถุประสงค์.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ชื่อวัตถุประสงค์.Location = new System.Drawing.Point(26, 51);
+            this.ชื่อวัตถุประสงค์.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ชื่อวัตถุประสงค์.Name = "ชื่อวัตถุประสงค์";
+            this.ชื่อวัตถุประสงค์.Size = new System.Drawing.Size(98, 18);
+            this.ชื่อวัตถุประสงค์.TabIndex = 37;
+            this.ชื่อวัตถุประสงค์.Text = "ชื่อวัตถุประสงค์";
+            // 
+            // objective_group_tb
+            // 
+            // 
+            // 
+            // 
+            this.objective_group_tb.CustomButton.Image = null;
+            this.objective_group_tb.CustomButton.Location = new System.Drawing.Point(250, 2);
+            this.objective_group_tb.CustomButton.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.objective_group_tb.CustomButton.Name = "";
+            this.objective_group_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.objective_group_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.objective_group_tb.CustomButton.TabIndex = 1;
+            this.objective_group_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.objective_group_tb.CustomButton.UseSelectable = true;
+            this.objective_group_tb.CustomButton.Visible = false;
+            this.objective_group_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.objective_group_tb.Lines = new string[0];
+            this.objective_group_tb.Location = new System.Drawing.Point(166, 100);
+            this.objective_group_tb.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.objective_group_tb.MaxLength = 32767;
+            this.objective_group_tb.Multiline = true;
+            this.objective_group_tb.Name = "objective_group_tb";
+            this.objective_group_tb.PasswordChar = '\0';
+            this.objective_group_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.objective_group_tb.SelectedText = "";
+            this.objective_group_tb.SelectionLength = 0;
+            this.objective_group_tb.SelectionStart = 0;
+            this.objective_group_tb.ShortcutsEnabled = true;
+            this.objective_group_tb.Size = new System.Drawing.Size(280, 32);
+            this.objective_group_tb.TabIndex = 37;
+            this.objective_group_tb.UseSelectable = true;
+            this.objective_group_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.objective_group_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(26, 100);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 18);
+            this.label25.TabIndex = 35;
+            this.label25.Text = "กลุ่ม";
+            // 
+            // clear_objective_btn
+            // 
+            this.clear_objective_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.clear_objective_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clear_objective_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clear_objective_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_objective_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.clear_objective_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
+            this.clear_objective_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clear_objective_btn.Location = new System.Drawing.Point(454, 157);
+            this.clear_objective_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.clear_objective_btn.Name = "clear_objective_btn";
+            this.clear_objective_btn.Size = new System.Drawing.Size(113, 43);
+            this.clear_objective_btn.TabIndex = 42;
+            this.clear_objective_btn.Text = "ล้างข้อมูล";
+            this.clear_objective_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.clear_objective_btn.UseVisualStyleBackColor = false;
+            this.clear_objective_btn.Click += new System.EventHandler(this.clear_objective_btn_Click);
             // 
             // MainForm
             // 
@@ -2047,10 +2331,20 @@
             this.groupBox6.ResumeLayout(false);
             this.userTab.ResumeLayout(false);
             this.admin_bg_panel.ResumeLayout(false);
+            this.admin_bottom_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.manage_user_gridview)).EndInit();
             this.admin_head_panel.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.objective_tab.ResumeLayout(false);
+            this.objective_panel_bg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.objective_manage_panel.ResumeLayout(false);
+            this.admin_manage_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.objective_datagrid)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.objective_group.ResumeLayout(false);
+            this.objective_group.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2154,5 +2448,21 @@
         private MetroFramework.Controls.MetroTextBox visitor_amount_tb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox change_resolution_cb;
+        private System.Windows.Forms.DataGridView manage_user_gridview;
+        private MetroFramework.Controls.MetroTabPage objective_tab;
+        private System.Windows.Forms.Panel objective_panel_bg;
+        private System.Windows.Forms.Panel objective_manage_panel;
+        private System.Windows.Forms.Panel admin_manage_panel;
+        private System.Windows.Forms.DataGridView objective_datagrid;
+        private System.Windows.Forms.Button delete_objective;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.GroupBox objective_group;
+        private System.Windows.Forms.Button save_objective_btn;
+        private MetroFramework.Controls.MetroTextBox objective_name_tb;
+        private System.Windows.Forms.Label ชื่อวัตถุประสงค์;
+        private MetroFramework.Controls.MetroTextBox objective_group_tb;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button clear_objective_btn;
     }
 }
