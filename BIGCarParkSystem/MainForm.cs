@@ -62,9 +62,18 @@ namespace BIGCarParkSystem
             // trans panel
             metroStyleManager1.Style = MetroColorStyle.Blue;
 
+            // check every 30 minutes
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = (1000*60)*30;
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
 
 
+        }
 
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -122,6 +131,14 @@ namespace BIGCarParkSystem
             history_gridview.DefaultCellStyle.Font = new Font("Ansana New", 18, GraphicsUnit.Pixel);
 
 
+            
+
+        }
+       
+
+        public void Callback(object state)
+        {
+            Console.WriteLine("The current time is {0}", DateTime.Now);
         }
 
         private void checkPrivileges()
@@ -246,7 +263,7 @@ namespace BIGCarParkSystem
             {
 
                 this.ReadCard();
-
+                this.carid_tb.Focus();
 
 
             }
@@ -825,6 +842,8 @@ namespace BIGCarParkSystem
             {
                 this.ConfigHeaderHistoryGridView();
                 this.getHistoryData();
+
+
             }
 
             if(index == 3 && UserInfo.UserRole == "1")
@@ -853,6 +872,8 @@ namespace BIGCarParkSystem
                 // Objective manage
                 ObjectiveClass objC = new ObjectiveClass();
                 DataTable objDT = objC.getAllObjective();
+
+                
             }
 
 
@@ -1202,14 +1223,20 @@ namespace BIGCarParkSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             string searchHistory = his_search_box.Text.Trim();
-            if (searchHistory.Equals(string.Empty))
+            string start_date = fn.ConvertDateV2(from_datetime.Text.Trim()) + " 00:00:01";
+            string end_date = fn.ConvertDateV2(to_datetime.Text.Trim()) + " 23:59:59";
+            bool isOut = his_noout_rb.Checked;
+
+            //MessageBox.Show(isOut.ToString());
+            if (searchHistory.Equals(string.Empty) && isOut == false )
             {
                 getHistoryData();
             }
             else
             {
-                DataTable historyDT = vc.getAllVisitorInfoHistory(searchHistory);
+                DataTable historyDT = vc.getAllVisitorInfoHistory(searchHistory,start_date,end_date,isOut);
 
                
 

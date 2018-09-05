@@ -19,7 +19,7 @@ namespace BIGCarParkSystem.Class
         public static DataSet VisitDS = new DataSet();
 
 
-        public DataTable getAllVisitorInfoHistory(string input)
+        public DataTable getAllVisitorInfoHistory(string input,string from_date,string to_date,bool isOut)
         {
             try
             {
@@ -32,8 +32,15 @@ namespace BIGCarParkSystem.Class
                             " inner join tbl_objective obt on vs.obt_id = obt.obt_id" +
                             " inner join tbl_staff_contact sc on vs.contact_id = sc.contact_id" +
                             " inner join tbl_account acc on vs.staff_id = acc.id " +
-                            " where vs.car_id like '%"+ input + "%' or vs.id_card like '%" + input + "%' or  cp.com_name like '%" + input + "%' or vs.visit_name like '%" + input + "%' or vs.visit_datetime_in like '%" + input + "%'  or vs.visit_datetime_out like '%" + input + "%' " +
-                            " order by vs.visit_datetime_in desc";
+                            " where (vs.car_id like '%" + input + "%' or vs.id_card like '%" + input + "%' or  cp.com_name like '%" + input + "%' or vs.visit_name like '%" + input + "%' or vs.visit_datetime_in like '%" + input + "%'  or vs.visit_datetime_out like '%" + input + "%') ";
+
+                    sql += " and vs.visit_datetime_in  between '" + from_date + "' and '" + to_date + "' ";
+                    if (isOut)
+                    {
+                        sql += " and vs.visit_datetime_out is null";
+                    }
+                    sql += " order by vs.visit_datetime_in desc";
+                    Console.WriteLine(sql);
                     MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
 
                     adr.SelectCommand = cmd;

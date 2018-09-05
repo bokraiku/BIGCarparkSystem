@@ -73,6 +73,11 @@ namespace BIGCarParkSystem.Class
             DateTime newDate = DateTime.Parse(date);
             return newDate.ToString("yyyy-MM-dd HH:mm:ss");
         }
+        public string ConvertDateV2(string date)
+        {
+            DateTime newDate = DateTime.Parse(date);
+            return newDate.ToString("yyyy-MM-dd");
+        }
 
 
         public byte[] String2Byte(string s)

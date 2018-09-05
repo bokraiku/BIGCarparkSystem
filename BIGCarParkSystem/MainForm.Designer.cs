@@ -115,8 +115,7 @@
             this.his_search_box = new MetroFramework.Controls.MetroTextBox();
             this.userTab = new MetroFramework.Controls.MetroTabPage();
             this.admin_bg_panel = new System.Windows.Forms.Panel();
-            this.admin_bottom_panel = new System.Windows.Forms.Panel();
-            this.manage_user_gridview = new System.Windows.Forms.DataGridView();
+            this.admin_manage_panel = new System.Windows.Forms.Panel();
             this.admin_head_panel = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.admin_role_cb = new MetroFramework.Controls.MetroComboBox();
@@ -128,21 +127,27 @@
             this.label20 = new System.Windows.Forms.Label();
             this.admin_password_tb = new MetroFramework.Controls.MetroTextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.admin_bottom_panel = new System.Windows.Forms.Panel();
+            this.manage_user_gridview = new System.Windows.Forms.DataGridView();
             this.objective_tab = new MetroFramework.Controls.MetroTabPage();
             this.objective_panel_bg = new System.Windows.Forms.Panel();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.objective_manage_panel = new System.Windows.Forms.Panel();
-            this.admin_manage_panel = new System.Windows.Forms.Panel();
-            this.objective_datagrid = new System.Windows.Forms.DataGridView();
-            this.delete_objective = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.objective_group = new System.Windows.Forms.GroupBox();
+            this.clear_objective_btn = new System.Windows.Forms.Button();
             this.save_objective_btn = new System.Windows.Forms.Button();
             this.objective_name_tb = new MetroFramework.Controls.MetroTextBox();
             this.ชื่อวัตถุประสงค์ = new System.Windows.Forms.Label();
             this.objective_group_tb = new MetroFramework.Controls.MetroTextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.clear_objective_btn = new System.Windows.Forms.Button();
+            this.delete_objective = new System.Windows.Forms.Button();
+            this.objective_datagrid = new System.Windows.Forms.DataGridView();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.from_datetime = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.to_datetime = new System.Windows.Forms.DateTimePicker();
+            this.his_noout_rb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).BeginInit();
             this.metroPanel1.SuspendLayout();
@@ -178,18 +183,18 @@
             this.groupBox6.SuspendLayout();
             this.userTab.SuspendLayout();
             this.admin_bg_panel.SuspendLayout();
-            this.admin_bottom_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.manage_user_gridview)).BeginInit();
+            this.admin_manage_panel.SuspendLayout();
             this.admin_head_panel.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.admin_bottom_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manage_user_gridview)).BeginInit();
             this.objective_tab.SuspendLayout();
             this.objective_panel_bg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.objective_manage_panel.SuspendLayout();
-            this.admin_manage_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.objective_datagrid)).BeginInit();
             this.panel5.SuspendLayout();
             this.objective_group.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objective_datagrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // camera1_display_pb
@@ -323,7 +328,7 @@
             this.visitor_amount_tb.SelectionStart = 0;
             this.visitor_amount_tb.ShortcutsEnabled = true;
             this.visitor_amount_tb.Size = new System.Drawing.Size(315, 40);
-            this.visitor_amount_tb.TabIndex = 21;
+            this.visitor_amount_tb.TabIndex = 20;
             this.visitor_amount_tb.Text = "1";
             this.visitor_amount_tb.UseSelectable = true;
             this.visitor_amount_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -343,7 +348,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 58);
-            this.button1.TabIndex = 20;
+            this.button1.TabIndex = 26;
             this.button1.Text = "ล้างข้อมูล";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
@@ -360,7 +365,7 @@
             this.contact_select_bt.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.contact_select_bt.Name = "contact_select_bt";
             this.contact_select_bt.Size = new System.Drawing.Size(82, 41);
-            this.contact_select_bt.TabIndex = 19;
+            this.contact_select_bt.TabIndex = 30;
             this.contact_select_bt.Text = "เลือก (F8)";
             this.contact_select_bt.UseVisualStyleBackColor = false;
             this.contact_select_bt.Click += new System.EventHandler(this.contact_select_bt_Click);
@@ -394,7 +399,7 @@
             this.comment_tb.SelectionStart = 0;
             this.comment_tb.ShortcutsEnabled = true;
             this.comment_tb.Size = new System.Drawing.Size(315, 40);
-            this.comment_tb.TabIndex = 18;
+            this.comment_tb.TabIndex = 19;
             this.comment_tb.UseSelectable = true;
             this.comment_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.comment_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -412,7 +417,7 @@
             this.save_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.save_btn.Name = "save_btn";
             this.save_btn.Size = new System.Drawing.Size(113, 58);
-            this.save_btn.TabIndex = 16;
+            this.save_btn.TabIndex = 23;
             this.save_btn.Text = "บันทึก";
             this.save_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.save_btn.UseVisualStyleBackColor = false;
@@ -463,7 +468,7 @@
             this.objective_select_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.objective_select_btn.Name = "objective_select_btn";
             this.objective_select_btn.Size = new System.Drawing.Size(82, 41);
-            this.objective_select_btn.TabIndex = 13;
+            this.objective_select_btn.TabIndex = 29;
             this.objective_select_btn.Text = "เลือก (F7)";
             this.objective_select_btn.UseVisualStyleBackColor = false;
             this.objective_select_btn.Click += new System.EventHandler(this.objective_select_btn_Click);
@@ -479,7 +484,7 @@
             this.cartype_select_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cartype_select_btn.Name = "cartype_select_btn";
             this.cartype_select_btn.Size = new System.Drawing.Size(82, 40);
-            this.cartype_select_btn.TabIndex = 12;
+            this.cartype_select_btn.TabIndex = 27;
             this.cartype_select_btn.Text = "เลือก (F6)";
             this.cartype_select_btn.UseVisualStyleBackColor = false;
             this.cartype_select_btn.Click += new System.EventHandler(this.cartype_select_btn_Click);
@@ -514,7 +519,7 @@
             this.cartype_tb.SelectionStart = 0;
             this.cartype_tb.ShortcutsEnabled = true;
             this.cartype_tb.Size = new System.Drawing.Size(315, 40);
-            this.cartype_tb.TabIndex = 11;
+            this.cartype_tb.TabIndex = 16;
             this.cartype_tb.UseSelectable = true;
             this.cartype_tb.WaterMark = "ประเภทรถ ..";
             this.cartype_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -534,7 +539,7 @@
             this.scancard_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.scancard_btn.Name = "scancard_btn";
             this.scancard_btn.Size = new System.Drawing.Size(135, 58);
-            this.scancard_btn.TabIndex = 7;
+            this.scancard_btn.TabIndex = 24;
             this.scancard_btn.Text = "อ่านบัตร";
             this.scancard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.scancard_btn.UseVisualStyleBackColor = false;
@@ -569,7 +574,7 @@
             this.company_tb.SelectionStart = 0;
             this.company_tb.ShortcutsEnabled = true;
             this.company_tb.Size = new System.Drawing.Size(315, 40);
-            this.company_tb.TabIndex = 10;
+            this.company_tb.TabIndex = 17;
             this.company_tb.UseSelectable = true;
             this.company_tb.WaterMark = "ชื่อบริษัท ..";
             this.company_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -586,7 +591,7 @@
             this.select_company_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.select_company_btn.Name = "select_company_btn";
             this.select_company_btn.Size = new System.Drawing.Size(82, 38);
-            this.select_company_btn.TabIndex = 9;
+            this.select_company_btn.TabIndex = 28;
             this.select_company_btn.Text = "เลือก (F5)";
             this.select_company_btn.UseVisualStyleBackColor = false;
             this.select_company_btn.Click += new System.EventHandler(this.button1_Click);
@@ -604,7 +609,7 @@
             this.capture_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.capture_btn.Name = "capture_btn";
             this.capture_btn.Size = new System.Drawing.Size(118, 58);
-            this.capture_btn.TabIndex = 8;
+            this.capture_btn.TabIndex = 25;
             this.capture_btn.Text = "ถ่ายรูป";
             this.capture_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.capture_btn.UseVisualStyleBackColor = false;
@@ -649,7 +654,7 @@
             this.contact_tb.SelectionStart = 0;
             this.contact_tb.ShortcutsEnabled = true;
             this.contact_tb.Size = new System.Drawing.Size(315, 40);
-            this.contact_tb.TabIndex = 5;
+            this.contact_tb.TabIndex = 18;
             this.contact_tb.UseSelectable = true;
             this.contact_tb.WaterMark = "ติดต่อคุณ ...";
             this.contact_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -686,7 +691,7 @@
             this.objective_tb.SelectionStart = 0;
             this.objective_tb.ShortcutsEnabled = true;
             this.objective_tb.Size = new System.Drawing.Size(315, 40);
-            this.objective_tb.TabIndex = 4;
+            this.objective_tb.TabIndex = 18;
             this.objective_tb.UseSelectable = true;
             this.objective_tb.WaterMark = "เลือกวัตถุประสงค์";
             this.objective_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -930,7 +935,7 @@
             this.main_tabcontrol.Location = new System.Drawing.Point(22, 30);
             this.main_tabcontrol.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.main_tabcontrol.Name = "main_tabcontrol";
-            this.main_tabcontrol.SelectedIndex = 4;
+            this.main_tabcontrol.SelectedIndex = 2;
             this.main_tabcontrol.Size = new System.Drawing.Size(1556, 850);
             this.main_tabcontrol.TabIndex = 2;
             this.main_tabcontrol.UseSelectable = true;
@@ -1650,10 +1655,10 @@
             // his_data_panel
             // 
             this.his_data_panel.Controls.Add(this.history_gridview);
-            this.his_data_panel.Location = new System.Drawing.Point(6, 144);
+            this.his_data_panel.Location = new System.Drawing.Point(6, 321);
             this.his_data_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.his_data_panel.Name = "his_data_panel";
-            this.his_data_panel.Size = new System.Drawing.Size(1536, 654);
+            this.his_data_panel.Size = new System.Drawing.Size(1536, 477);
             this.his_data_panel.TabIndex = 2;
             // 
             // history_gridview
@@ -1666,7 +1671,7 @@
             this.history_gridview.Location = new System.Drawing.Point(0, 0);
             this.history_gridview.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.history_gridview.Name = "history_gridview";
-            this.history_gridview.Size = new System.Drawing.Size(1536, 654);
+            this.history_gridview.Size = new System.Drawing.Size(1536, 477);
             this.history_gridview.TabIndex = 0;
             this.history_gridview.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.history_gridview_RowHeaderMouseDoubleClick);
             this.history_gridview.DoubleClick += new System.EventHandler(this.history_gridview_DoubleClick);
@@ -1679,7 +1684,7 @@
             this.his_head_panel.Location = new System.Drawing.Point(6, 12);
             this.his_head_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.his_head_panel.Name = "his_head_panel";
-            this.his_head_panel.Size = new System.Drawing.Size(1536, 113);
+            this.his_head_panel.Size = new System.Drawing.Size(1536, 301);
             this.his_head_panel.TabIndex = 1;
             // 
             // button3
@@ -1703,6 +1708,11 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.his_noout_rb);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.to_datetime);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.from_datetime);
             this.groupBox6.Controls.Add(this.button2);
             this.groupBox6.Controls.Add(this.his_search_box);
             this.groupBox6.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1710,7 +1720,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.groupBox6.Size = new System.Drawing.Size(552, 105);
+            this.groupBox6.Size = new System.Drawing.Size(552, 264);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ค้นหาประวัติเข้าออก";
@@ -1724,7 +1734,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Image = global::BIGCarParkSystem.Properties.Resources.icons8_search_30;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(412, 43);
+            this.button2.Location = new System.Drawing.Point(16, 208);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 38);
@@ -1796,30 +1806,15 @@
             this.admin_bg_panel.Size = new System.Drawing.Size(1548, 802);
             this.admin_bg_panel.TabIndex = 2;
             // 
-            // admin_bottom_panel
+            // admin_manage_panel
             // 
-            this.admin_bottom_panel.Controls.Add(this.manage_user_gridview);
-            this.admin_bottom_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.admin_bottom_panel.Location = new System.Drawing.Point(0, 395);
-            this.admin_bottom_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.admin_bottom_panel.Name = "admin_bottom_panel";
-            this.admin_bottom_panel.Size = new System.Drawing.Size(1548, 407);
-            this.admin_bottom_panel.TabIndex = 1;
-            // 
-            // manage_user_gridview
-            // 
-            this.manage_user_gridview.AllowUserToAddRows = false;
-            this.manage_user_gridview.AllowUserToDeleteRows = false;
-            this.manage_user_gridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.manage_user_gridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.manage_user_gridview.BackgroundColor = System.Drawing.Color.White;
-            this.manage_user_gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.manage_user_gridview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manage_user_gridview.Location = new System.Drawing.Point(0, 0);
-            this.manage_user_gridview.Name = "manage_user_gridview";
-            this.manage_user_gridview.Size = new System.Drawing.Size(1548, 407);
-            this.manage_user_gridview.TabIndex = 0;
-            this.manage_user_gridview.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.manage_user_gridview_RowHeaderMouseDoubleClick);
+            this.admin_manage_panel.Controls.Add(this.admin_head_panel);
+            this.admin_manage_panel.Controls.Add(this.admin_bottom_panel);
+            this.admin_manage_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.admin_manage_panel.Location = new System.Drawing.Point(0, 0);
+            this.admin_manage_panel.Name = "admin_manage_panel";
+            this.admin_manage_panel.Size = new System.Drawing.Size(1548, 802);
+            this.admin_manage_panel.TabIndex = 1;
             // 
             // admin_head_panel
             // 
@@ -2032,6 +2027,31 @@
             this.label21.TabIndex = 35;
             this.label21.Text = "Password";
             // 
+            // admin_bottom_panel
+            // 
+            this.admin_bottom_panel.Controls.Add(this.manage_user_gridview);
+            this.admin_bottom_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.admin_bottom_panel.Location = new System.Drawing.Point(0, 395);
+            this.admin_bottom_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.admin_bottom_panel.Name = "admin_bottom_panel";
+            this.admin_bottom_panel.Size = new System.Drawing.Size(1548, 407);
+            this.admin_bottom_panel.TabIndex = 1;
+            // 
+            // manage_user_gridview
+            // 
+            this.manage_user_gridview.AllowUserToAddRows = false;
+            this.manage_user_gridview.AllowUserToDeleteRows = false;
+            this.manage_user_gridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.manage_user_gridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.manage_user_gridview.BackgroundColor = System.Drawing.Color.White;
+            this.manage_user_gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.manage_user_gridview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.manage_user_gridview.Location = new System.Drawing.Point(0, 0);
+            this.manage_user_gridview.Name = "manage_user_gridview";
+            this.manage_user_gridview.Size = new System.Drawing.Size(1548, 407);
+            this.manage_user_gridview.TabIndex = 0;
+            this.manage_user_gridview.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.manage_user_gridview_RowHeaderMouseDoubleClick);
+            // 
             // objective_tab
             // 
             this.objective_tab.Controls.Add(this.objective_panel_bg);
@@ -2058,10 +2078,6 @@
             this.objective_panel_bg.Size = new System.Drawing.Size(1548, 802);
             this.objective_panel_bg.TabIndex = 2;
             // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = this;
-            // 
             // objective_manage_panel
             // 
             this.objective_manage_panel.BackColor = System.Drawing.SystemColors.Control;
@@ -2073,49 +2089,6 @@
             this.objective_manage_panel.Name = "objective_manage_panel";
             this.objective_manage_panel.Size = new System.Drawing.Size(1548, 802);
             this.objective_manage_panel.TabIndex = 0;
-            // 
-            // admin_manage_panel
-            // 
-            this.admin_manage_panel.Controls.Add(this.admin_head_panel);
-            this.admin_manage_panel.Controls.Add(this.admin_bottom_panel);
-            this.admin_manage_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.admin_manage_panel.Location = new System.Drawing.Point(0, 0);
-            this.admin_manage_panel.Name = "admin_manage_panel";
-            this.admin_manage_panel.Size = new System.Drawing.Size(1548, 802);
-            this.admin_manage_panel.TabIndex = 1;
-            // 
-            // objective_datagrid
-            // 
-            this.objective_datagrid.AllowUserToAddRows = false;
-            this.objective_datagrid.AllowUserToDeleteRows = false;
-            this.objective_datagrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.objective_datagrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.objective_datagrid.BackgroundColor = System.Drawing.Color.White;
-            this.objective_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.objective_datagrid.Location = new System.Drawing.Point(3, 436);
-            this.objective_datagrid.Name = "objective_datagrid";
-            this.objective_datagrid.Size = new System.Drawing.Size(1542, 363);
-            this.objective_datagrid.TabIndex = 0;
-            this.objective_datagrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.objective_datagrid_RowHeaderMouseClick);
-            // 
-            // delete_objective
-            // 
-            this.delete_objective.BackColor = System.Drawing.Color.IndianRed;
-            this.delete_objective.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.delete_objective.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.delete_objective.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete_objective.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.delete_objective.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
-            this.delete_objective.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delete_objective.Location = new System.Drawing.Point(3, 386);
-            this.delete_objective.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.delete_objective.Name = "delete_objective";
-            this.delete_objective.Size = new System.Drawing.Size(87, 43);
-            this.delete_objective.TabIndex = 42;
-            this.delete_objective.Text = "ลบ";
-            this.delete_objective.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delete_objective.UseVisualStyleBackColor = false;
-            this.delete_objective.Click += new System.EventHandler(this.delete_objective_Click);
             // 
             // panel5
             // 
@@ -2142,6 +2115,25 @@
             this.objective_group.TabIndex = 1;
             this.objective_group.TabStop = false;
             this.objective_group.Text = "เพิ่มผู้ใช้งาน";
+            // 
+            // clear_objective_btn
+            // 
+            this.clear_objective_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.clear_objective_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clear_objective_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clear_objective_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_objective_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.clear_objective_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
+            this.clear_objective_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clear_objective_btn.Location = new System.Drawing.Point(454, 157);
+            this.clear_objective_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.clear_objective_btn.Name = "clear_objective_btn";
+            this.clear_objective_btn.Size = new System.Drawing.Size(113, 43);
+            this.clear_objective_btn.TabIndex = 42;
+            this.clear_objective_btn.Text = "ล้างข้อมูล";
+            this.clear_objective_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.clear_objective_btn.UseVisualStyleBackColor = false;
+            this.clear_objective_btn.Click += new System.EventHandler(this.clear_objective_btn_Click);
             // 
             // save_objective_btn
             // 
@@ -2254,24 +2246,88 @@
             this.label25.TabIndex = 35;
             this.label25.Text = "กลุ่ม";
             // 
-            // clear_objective_btn
+            // delete_objective
             // 
-            this.clear_objective_btn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.clear_objective_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clear_objective_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clear_objective_btn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clear_objective_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.clear_objective_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
-            this.clear_objective_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clear_objective_btn.Location = new System.Drawing.Point(454, 157);
-            this.clear_objective_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.clear_objective_btn.Name = "clear_objective_btn";
-            this.clear_objective_btn.Size = new System.Drawing.Size(113, 43);
-            this.clear_objective_btn.TabIndex = 42;
-            this.clear_objective_btn.Text = "ล้างข้อมูล";
-            this.clear_objective_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.clear_objective_btn.UseVisualStyleBackColor = false;
-            this.clear_objective_btn.Click += new System.EventHandler(this.clear_objective_btn_Click);
+            this.delete_objective.BackColor = System.Drawing.Color.IndianRed;
+            this.delete_objective.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete_objective.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delete_objective.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_objective.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.delete_objective.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
+            this.delete_objective.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.delete_objective.Location = new System.Drawing.Point(3, 386);
+            this.delete_objective.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.delete_objective.Name = "delete_objective";
+            this.delete_objective.Size = new System.Drawing.Size(87, 43);
+            this.delete_objective.TabIndex = 42;
+            this.delete_objective.Text = "ลบ";
+            this.delete_objective.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.delete_objective.UseVisualStyleBackColor = false;
+            this.delete_objective.Click += new System.EventHandler(this.delete_objective_Click);
+            // 
+            // objective_datagrid
+            // 
+            this.objective_datagrid.AllowUserToAddRows = false;
+            this.objective_datagrid.AllowUserToDeleteRows = false;
+            this.objective_datagrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.objective_datagrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.objective_datagrid.BackgroundColor = System.Drawing.Color.White;
+            this.objective_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.objective_datagrid.Location = new System.Drawing.Point(3, 436);
+            this.objective_datagrid.Name = "objective_datagrid";
+            this.objective_datagrid.Size = new System.Drawing.Size(1542, 363);
+            this.objective_datagrid.TabIndex = 0;
+            this.objective_datagrid.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.objective_datagrid_RowHeaderMouseClick);
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            // 
+            // from_datetime
+            // 
+            this.from_datetime.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.from_datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.from_datetime.Location = new System.Drawing.Point(60, 98);
+            this.from_datetime.Name = "from_datetime";
+            this.from_datetime.Size = new System.Drawing.Size(109, 36);
+            this.from_datetime.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 36);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "จาก";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(213, 99);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 36);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "ถึง";
+            // 
+            // to_datetime
+            // 
+            this.to_datetime.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.to_datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.to_datetime.Location = new System.Drawing.Point(254, 98);
+            this.to_datetime.Name = "to_datetime";
+            this.to_datetime.Size = new System.Drawing.Size(109, 36);
+            this.to_datetime.TabIndex = 11;
+            // 
+            // his_noout_rb
+            // 
+            this.his_noout_rb.AutoSize = true;
+            this.his_noout_rb.Location = new System.Drawing.Point(16, 151);
+            this.his_noout_rb.Name = "his_noout_rb";
+            this.his_noout_rb.Size = new System.Drawing.Size(132, 40);
+            this.his_noout_rb.TabIndex = 14;
+            this.his_noout_rb.Text = "ไม่มีเวลาออก";
+            this.his_noout_rb.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -2329,22 +2385,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.history_gridview)).EndInit();
             this.his_head_panel.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.userTab.ResumeLayout(false);
             this.admin_bg_panel.ResumeLayout(false);
-            this.admin_bottom_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.manage_user_gridview)).EndInit();
+            this.admin_manage_panel.ResumeLayout(false);
             this.admin_head_panel.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.admin_bottom_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.manage_user_gridview)).EndInit();
             this.objective_tab.ResumeLayout(false);
             this.objective_panel_bg.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.objective_manage_panel.ResumeLayout(false);
-            this.admin_manage_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.objective_datagrid)).EndInit();
             this.panel5.ResumeLayout(false);
             this.objective_group.ResumeLayout(false);
             this.objective_group.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.objective_datagrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2464,5 +2521,10 @@
         private MetroFramework.Controls.MetroTextBox objective_group_tb;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button clear_objective_btn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker from_datetime;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker to_datetime;
+        private System.Windows.Forms.CheckBox his_noout_rb;
     }
 }
