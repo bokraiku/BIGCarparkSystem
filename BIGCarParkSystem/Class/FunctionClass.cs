@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace BIGCarParkSystem.Class
 {
@@ -32,6 +36,10 @@ namespace BIGCarParkSystem.Class
 
             Regex ex = new Regex(telPatterrn);
             return ex.IsMatch(tel) ? true : false;
+        }
+        public  Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
         }
 
 

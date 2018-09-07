@@ -23,6 +23,12 @@ namespace BIGCarParkSystem
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
+
+        // Read Config
+       
+       
+
+
         // Init Class
         FunctionClass fn = new FunctionClass();
         VisitorClass vc = new VisitorClass();
@@ -56,24 +62,45 @@ namespace BIGCarParkSystem
         BinaryReader br;
         public MainForm()
         {
+
             InitializeComponent();
 
+            if (!System.IO.File.Exists(VariableDB.ConfigFile))
+            {
+                MessageBox.Show(this, "กรุณาตรวจสอบ Config File (server.big)", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            VariableDB.ReadConfig();
 
             // trans panel
             metroStyleManager1.Style = MetroColorStyle.Blue;
 
             // check every 30 minutes
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = (1000*60)*30;
+            timer.Interval = VariableDB.TimeAlert;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
 
+            //this.notifyIcon1.BalloonTipText = "Whatever";
+            //this.notifyIcon1.BalloonTipTitle = "Title";
+            //this.notifyIcon1.Icon = new Icon("icon.ico");
+            //this.notifyIcon1.Visible = true;
+            //this.notifyIcon1.ShowBalloonTip(3);
 
+           
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            
+            DataTable visitorOut = vc.checkVititorNotOut();
+            if(visitorOut.Rows.Count > 0)
+            {
+                Invoke(new Action(() =>
+                {
+                    AlertMessage alert = new AlertMessage();
+                    alert.ShowDialog();
+                }));
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -428,14 +455,24 @@ namespace BIGCarParkSystem
 
             }
 
+            DataTable blDT = vc.checkBlacklist(NIDNum);
+            if (blDT.Rows.Count > 0)
+            {
+                MessageBox.Show(this, "บุคคลนี้ถูกแบล็คลิส", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             return 0;
         }
 
         private void capture_btn_Click(object sender, EventArgs e)
         {
             string name = "Image" + fn.getRanFile();
-            string file = Application.StartupPath + @"\" + name;
+            string file = Application.StartupPath + @"\camera\" + name;
 
+            if (!Directory.Exists(Application.StartupPath + @"\camera"))
+            {
+                System.IO.Directory.CreateDirectory(Application.StartupPath + @"\camera");
+            }
             display_cam.Capture(file);
             this.displayImage1 = name + ".jpg";
             camera1_display_pb.Image = Image.FromFile(file + ".jpg");
@@ -915,7 +952,8 @@ namespace BIGCarParkSystem
 
                 if (visitorDT.Rows[0]["image_1"].ToString() != "")
                 {
-                    out_image1_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString());
+                    Image img = fn.resizeImage(Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString()), new Size(450, 350));
+                    out_image1_pb.Image = img;
                 }
                 //if (visitorDT.Rows[0]["image_2"].ToString() != "")
                 //{

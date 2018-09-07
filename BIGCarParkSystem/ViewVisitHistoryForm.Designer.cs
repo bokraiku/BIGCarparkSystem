@@ -30,6 +30,10 @@
         {
             this.panelBG = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.blacklist_logo_pb = new System.Windows.Forms.PictureBox();
+            this.black_list = new System.Windows.Forms.Button();
+            this.visitor_amount_tb = new MetroFramework.Controls.MetroTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.delete_history_bt = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
             this.out_dateout_tb = new MetroFramework.Controls.MetroTextBox();
@@ -59,10 +63,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.visitor_amount_tb = new MetroFramework.Controls.MetroTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panelBG.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.blacklist_logo_pb)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).BeginInit();
@@ -82,6 +85,8 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.blacklist_logo_pb);
+            this.panelMain.Controls.Add(this.black_list);
             this.panelMain.Controls.Add(this.visitor_amount_tb);
             this.panelMain.Controls.Add(this.label3);
             this.panelMain.Controls.Add(this.delete_history_bt);
@@ -116,6 +121,77 @@
             this.panelMain.Size = new System.Drawing.Size(1160, 720);
             this.panelMain.TabIndex = 1;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
+            // blacklist_logo_pb
+            // 
+            this.blacklist_logo_pb.Image = global::BIGCarParkSystem.Properties.Resources.blacklist_logo;
+            this.blacklist_logo_pb.Location = new System.Drawing.Point(638, 434);
+            this.blacklist_logo_pb.Name = "blacklist_logo_pb";
+            this.blacklist_logo_pb.Size = new System.Drawing.Size(200, 200);
+            this.blacklist_logo_pb.TabIndex = 73;
+            this.blacklist_logo_pb.TabStop = false;
+            // 
+            // black_list
+            // 
+            this.black_list.BackColor = System.Drawing.Color.Black;
+            this.black_list.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.black_list.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.black_list.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.black_list.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.black_list.Image = global::BIGCarParkSystem.Properties.Resources.blacklist_45;
+            this.black_list.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.black_list.Location = new System.Drawing.Point(395, 624);
+            this.black_list.Name = "black_list";
+            this.black_list.Size = new System.Drawing.Size(121, 47);
+            this.black_list.TabIndex = 72;
+            this.black_list.Text = "แบล็คลิส";
+            this.black_list.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.black_list.UseVisualStyleBackColor = false;
+            this.black_list.Click += new System.EventHandler(this.black_list_Click);
+            // 
+            // visitor_amount_tb
+            // 
+            // 
+            // 
+            // 
+            this.visitor_amount_tb.CustomButton.Image = null;
+            this.visitor_amount_tb.CustomButton.Location = new System.Drawing.Point(251, 2);
+            this.visitor_amount_tb.CustomButton.Name = "";
+            this.visitor_amount_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.visitor_amount_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.visitor_amount_tb.CustomButton.TabIndex = 1;
+            this.visitor_amount_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.visitor_amount_tb.CustomButton.UseSelectable = true;
+            this.visitor_amount_tb.CustomButton.Visible = false;
+            this.visitor_amount_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.visitor_amount_tb.Lines = new string[0];
+            this.visitor_amount_tb.Location = new System.Drawing.Point(156, 572);
+            this.visitor_amount_tb.MaxLength = 32767;
+            this.visitor_amount_tb.Multiline = true;
+            this.visitor_amount_tb.Name = "visitor_amount_tb";
+            this.visitor_amount_tb.PasswordChar = '\0';
+            this.visitor_amount_tb.ReadOnly = true;
+            this.visitor_amount_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.visitor_amount_tb.SelectedText = "";
+            this.visitor_amount_tb.SelectionLength = 0;
+            this.visitor_amount_tb.SelectionStart = 0;
+            this.visitor_amount_tb.ShortcutsEnabled = true;
+            this.visitor_amount_tb.Size = new System.Drawing.Size(281, 32);
+            this.visitor_amount_tb.TabIndex = 71;
+            this.visitor_amount_tb.UseSelectable = true;
+            this.visitor_amount_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.visitor_amount_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 575);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 18);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "จำนวนผู้มาติดต่อ";
             // 
             // delete_history_bt
             // 
@@ -682,50 +758,6 @@
             this.label18.TabIndex = 41;
             this.label18.Text = "ชื่อ - สกุล";
             // 
-            // visitor_amount_tb
-            // 
-            // 
-            // 
-            // 
-            this.visitor_amount_tb.CustomButton.Image = null;
-            this.visitor_amount_tb.CustomButton.Location = new System.Drawing.Point(251, 2);
-            this.visitor_amount_tb.CustomButton.Name = "";
-            this.visitor_amount_tb.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.visitor_amount_tb.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.visitor_amount_tb.CustomButton.TabIndex = 1;
-            this.visitor_amount_tb.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.visitor_amount_tb.CustomButton.UseSelectable = true;
-            this.visitor_amount_tb.CustomButton.Visible = false;
-            this.visitor_amount_tb.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.visitor_amount_tb.Lines = new string[0];
-            this.visitor_amount_tb.Location = new System.Drawing.Point(156, 572);
-            this.visitor_amount_tb.MaxLength = 32767;
-            this.visitor_amount_tb.Multiline = true;
-            this.visitor_amount_tb.Name = "visitor_amount_tb";
-            this.visitor_amount_tb.PasswordChar = '\0';
-            this.visitor_amount_tb.ReadOnly = true;
-            this.visitor_amount_tb.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.visitor_amount_tb.SelectedText = "";
-            this.visitor_amount_tb.SelectionLength = 0;
-            this.visitor_amount_tb.SelectionStart = 0;
-            this.visitor_amount_tb.ShortcutsEnabled = true;
-            this.visitor_amount_tb.Size = new System.Drawing.Size(281, 32);
-            this.visitor_amount_tb.TabIndex = 71;
-            this.visitor_amount_tb.UseSelectable = true;
-            this.visitor_amount_tb.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.visitor_amount_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 575);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 18);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "จำนวนผู้มาติดต่อ";
-            // 
             // ViewVisitHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,6 +776,7 @@
             this.panelBG.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.blacklist_logo_pb)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.out_image1_pb)).EndInit();
@@ -788,5 +821,7 @@
         private System.Windows.Forms.Button delete_history_bt;
         private MetroFramework.Controls.MetroTextBox visitor_amount_tb;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button black_list;
+        private System.Windows.Forms.PictureBox blacklist_logo_pb;
     }
 }

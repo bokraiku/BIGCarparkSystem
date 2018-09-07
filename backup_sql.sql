@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `tbl_account` (
   KEY `account_status` (`account_status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table big_carpark.tbl_account: ~2 rows (approximately)
+-- Dumping data for table big_carpark.tbl_account: ~8 rows (approximately)
 /*!40000 ALTER TABLE `tbl_account` DISABLE KEYS */;
 INSERT INTO `tbl_account` (`id`, `username`, `password`, `role_id`, `account_status`, `create_date`) VALUES
 	(1, 'admin', 'a45958517604f5cd90d6ee51ad9cfdb6', 1, 1, '2018-08-21 22:42:18'),
@@ -42,6 +42,21 @@ INSERT INTO `tbl_account` (`id`, `username`, `password`, `role_id`, `account_sta
 	(7, 'ttt', 'accc9105df5383111407fd5b41255e23', 2, 1, '2018-09-03 03:16:35'),
 	(8, 'tttt', 'accc9105df5383111407fd5b41255e23', 1, 1, '2018-09-03 03:16:43');
 /*!40000 ALTER TABLE `tbl_account` ENABLE KEYS */;
+
+-- Dumping structure for table big_carpark.tbl_blacklist
+CREATE TABLE IF NOT EXISTS `tbl_blacklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_card` varchar(50) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `create_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table big_carpark.tbl_blacklist: ~1 rows (approximately)
+/*!40000 ALTER TABLE `tbl_blacklist` DISABLE KEYS */;
+INSERT INTO `tbl_blacklist` (`id`, `id_card`, `fullname`, `create_date`) VALUES
+	(1, '1100700655601', 'นาย ภานุพงศ์  แววไธสง', '2018-09-07 21:43:53');
+/*!40000 ALTER TABLE `tbl_blacklist` ENABLE KEYS */;
 
 -- Dumping structure for table big_carpark.tbl_cartype
 CREATE TABLE IF NOT EXISTS `tbl_cartype` (
@@ -80,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `tbl_company` (
   KEY `com_status` (`com_status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table big_carpark.tbl_company: ~21 rows (approximately)
+-- Dumping data for table big_carpark.tbl_company: ~24 rows (approximately)
 /*!40000 ALTER TABLE `tbl_company` DISABLE KEYS */;
 INSERT INTO `tbl_company` (`com_id`, `com_name`, `com_detail`, `create_date`, `com_status`) VALUES
 	(1, 'ซีพีแรม', NULL, '2018-08-25 18:30:02', 1),
@@ -116,9 +131,9 @@ CREATE TABLE IF NOT EXISTS `tbl_login_log` (
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=266 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table big_carpark.tbl_login_log: ~99 rows (approximately)
+-- Dumping data for table big_carpark.tbl_login_log: ~265 rows (approximately)
 /*!40000 ALTER TABLE `tbl_login_log` DISABLE KEYS */;
 INSERT INTO `tbl_login_log` (`id`, `userid`, `create_date`) VALUES
 	(1, 1, '2018-08-29 06:28:02'),
@@ -312,7 +327,80 @@ INSERT INTO `tbl_login_log` (`id`, `userid`, `create_date`) VALUES
 	(189, 1, '2018-09-04 03:58:46'),
 	(190, 1, '2018-09-04 04:02:32'),
 	(191, 1, '2018-09-04 04:04:30'),
-	(192, 1, '2018-09-04 04:05:29');
+	(192, 1, '2018-09-04 04:05:29'),
+	(193, 1, '2018-09-04 04:18:14'),
+	(194, 1, '2018-09-04 20:12:43'),
+	(195, 1, '2018-09-04 23:54:24'),
+	(196, 1, '2018-09-04 23:58:33'),
+	(197, 1, '2018-09-05 00:00:57'),
+	(198, 1, '2018-09-05 00:01:51'),
+	(199, 1, '2018-09-05 00:02:35'),
+	(200, 1, '2018-09-05 00:03:28'),
+	(201, 1, '2018-09-05 00:22:59'),
+	(202, 1, '2018-09-05 02:12:37'),
+	(203, 1, '2018-09-05 02:17:09'),
+	(204, 1, '2018-09-05 02:28:34'),
+	(205, 1, '2018-09-05 02:31:20'),
+	(206, 1, '2018-09-05 02:36:07'),
+	(207, 1, '2018-09-05 02:39:03'),
+	(208, 1, '2018-09-05 02:39:59'),
+	(209, 1, '2018-09-05 02:44:09'),
+	(210, 1, '2018-09-05 02:50:25'),
+	(211, 1, '2018-09-05 02:52:16'),
+	(212, 1, '2018-09-05 02:53:58'),
+	(213, 1, '2018-09-05 02:55:26'),
+	(214, 1, '2018-09-05 02:56:20'),
+	(215, 1, '2018-09-05 02:56:33'),
+	(216, 1, '2018-09-05 02:57:17'),
+	(217, 1, '2018-09-05 02:58:53'),
+	(218, 1, '2018-09-05 03:00:09'),
+	(219, 1, '2018-09-07 21:26:15'),
+	(220, 1, '2018-09-07 21:41:54'),
+	(221, 1, '2018-09-07 21:43:12'),
+	(222, 1, '2018-09-07 21:43:44'),
+	(223, 1, '2018-09-07 21:50:07'),
+	(224, 1, '2018-09-07 21:53:10'),
+	(225, 1, '2018-09-07 21:55:19'),
+	(226, 1, '2018-09-07 21:55:57'),
+	(227, 1, '2018-09-07 21:58:56'),
+	(228, 1, '2018-09-07 21:59:49'),
+	(229, 1, '2018-09-07 22:03:11'),
+	(230, 1, '2018-09-07 22:17:16'),
+	(231, 1, '2018-09-07 22:17:47'),
+	(232, 1, '2018-09-07 22:20:18'),
+	(233, 1, '2018-09-07 22:23:24'),
+	(234, 1, '2018-09-07 22:25:48'),
+	(235, 1, '2018-09-07 22:50:25'),
+	(236, 1, '2018-09-07 22:54:29'),
+	(237, 1, '2018-09-07 22:58:18'),
+	(238, 1, '2018-09-07 23:00:30'),
+	(239, 1, '2018-09-08 00:06:59'),
+	(240, 1, '2018-09-08 00:08:01'),
+	(241, 1, '2018-09-08 00:08:49'),
+	(242, 1, '2018-09-08 00:09:52'),
+	(243, 1, '2018-09-08 00:12:46'),
+	(244, 1, '2018-09-08 00:52:30'),
+	(245, 1, '2018-09-08 00:54:43'),
+	(246, 1, '2018-09-08 00:59:31'),
+	(247, 1, '2018-09-08 01:01:57'),
+	(248, 1, '2018-09-08 01:30:05'),
+	(249, 1, '2018-09-08 01:31:05'),
+	(250, 1, '2018-09-08 01:45:26'),
+	(251, 1, '2018-09-08 01:46:18'),
+	(252, 1, '2018-09-08 01:52:53'),
+	(253, 1, '2018-09-08 01:55:46'),
+	(254, 1, '2018-09-08 01:56:26'),
+	(255, 1, '2018-09-08 01:57:13'),
+	(256, 1, '2018-09-08 01:57:37'),
+	(257, 1, '2018-09-08 01:58:43'),
+	(258, 1, '2018-09-08 01:59:54'),
+	(259, 1, '2018-09-08 02:01:33'),
+	(260, 1, '2018-09-08 02:02:55'),
+	(261, 1, '2018-09-08 02:09:02'),
+	(262, 1, '2018-09-08 02:13:56'),
+	(263, 1, '2018-09-08 02:14:46'),
+	(264, 1, '2018-09-08 02:16:43'),
+	(265, 1, '2018-09-08 02:19:32');
 /*!40000 ALTER TABLE `tbl_login_log` ENABLE KEYS */;
 
 -- Dumping structure for table big_carpark.tbl_objective
@@ -326,9 +414,9 @@ CREATE TABLE IF NOT EXISTS `tbl_objective` (
   PRIMARY KEY (`obt_id`),
   KEY `obt_status` (`obt_status`),
   KEY `obt_name` (`obt_name`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table big_carpark.tbl_objective: ~10 rows (approximately)
+-- Dumping data for table big_carpark.tbl_objective: ~12 rows (approximately)
 /*!40000 ALTER TABLE `tbl_objective` DISABLE KEYS */;
 INSERT INTO `tbl_objective` (`obt_id`, `obt_name`, `obt_detail`, `create_date`, `obt_status`, `group`) VALUES
 	(1, 'ส่งวัติถุดิบ', '', '2018-08-26 01:42:38', 1, 1),
@@ -342,7 +430,7 @@ INSERT INTO `tbl_objective` (`obt_id`, `obt_name`, `obt_detail`, `create_date`, 
 	(9, 'ผู้รับเหมา', '', '2018-08-26 01:44:00', 1, 3),
 	(10, 'พบพนักงาน', '', '2018-08-26 01:44:10', 1, 3),
 	(12, 'ส่งวัติถุดิบครับ3', '', '2018-09-04 03:48:39', 1, 1),
-	(14, 'ok', '', '2018-09-04 04:03:01', 1, 2);
+	(14, 'ok', '', '2018-09-04 04:03:01', 1, 4);
 /*!40000 ALTER TABLE `tbl_objective` ENABLE KEYS */;
 
 -- Dumping structure for table big_carpark.tbl_role
@@ -354,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `tbl_role` (
   KEY `role_id` (`role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table big_carpark.tbl_role: ~0 rows (approximately)
+-- Dumping data for table big_carpark.tbl_role: ~2 rows (approximately)
 /*!40000 ALTER TABLE `tbl_role` DISABLE KEYS */;
 INSERT INTO `tbl_role` (`id`, `role_id`, `role_name`) VALUES
 	(1, 1, 'Admin'),
@@ -369,9 +457,9 @@ CREATE TABLE IF NOT EXISTS `tbl_staff_contact` (
   `contact_status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`contact_id`),
   KEY `contact_name` (`contact_name`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table big_carpark.tbl_staff_contact: ~6 rows (approximately)
+-- Dumping data for table big_carpark.tbl_staff_contact: ~12 rows (approximately)
 /*!40000 ALTER TABLE `tbl_staff_contact` DISABLE KEYS */;
 INSERT INTO `tbl_staff_contact` (`contact_id`, `contact_name`, `create_date`, `contact_status`) VALUES
 	(1, 'คุณเอ', '2018-08-26 18:46:22', 1),
@@ -383,7 +471,9 @@ INSERT INTO `tbl_staff_contact` (`contact_id`, `contact_name`, `create_date`, `c
 	(7, 'คุณเกล้า ไอที', '2018-08-26 20:47:29', 1),
 	(8, 'คุณ ธนกฤต IT', '2018-08-27 00:48:32', 1),
 	(9, 'คุณ A 9"', '2018-08-27 04:07:41', 1),
-	(10, 'คุณ แชมป์', '2018-08-29 22:05:08', 1);
+	(10, 'คุณ แชมป์', '2018-08-29 22:05:08', 1),
+	(11, 'ฝ่ายบุคคล', '2018-09-05 00:04:45', 1),
+	(12, 'กรรมการ', '2018-09-05 00:08:15', 1);
 /*!40000 ALTER TABLE `tbl_staff_contact` ENABLE KEYS */;
 
 -- Dumping structure for table big_carpark.tbl_visitor
@@ -414,14 +504,14 @@ CREATE TABLE IF NOT EXISTS `tbl_visitor` (
   KEY `obt_id` (`obt_id`),
   KEY `car_id` (`car_id`),
   KEY `id_card` (`id_card`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table big_carpark.tbl_visitor: ~69 rows (approximately)
+-- Dumping data for table big_carpark.tbl_visitor: ~82 rows (approximately)
 /*!40000 ALTER TABLE `tbl_visitor` DISABLE KEYS */;
 INSERT INTO `tbl_visitor` (`visit_id`, `visit_datetime_in`, `visit_datetime_out`, `staff_id`, `cartype_id`, `company_id`, `obt_id`, `visit_name`, `contact_id`, `car_id`, `id_card`, `tel`, `visitor_amount`, `comment`, `image_1`, `image_2`, `idcard_image`, `barcode_id`, `visit_status`) VALUES
-	(0000000013, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
-	(0000000014, '2018-08-29 22:34:55', NULL, 1, 5, 4, 3, 'นาย ภานุพงศ์  แววไธสง', 5, 'sa12121', '1100700655601', '087994211', NULL, '', 'Image20180829223452.jpg', NULL, '1100700655601.jpg', '201808292234557', 1),
-	(0000000016, '2018-09-03 00:33:00', NULL, 1, 4, 5, 3, 'นาย ภานุพงศ์  แววไธสง', 5, 'aaa-65454', '1100700655601', NULL, 1, '', 'Image20180903003241.jpg', NULL, '1100700655601.jpg', '201809030033005', 1),
+	(0000000013, '2018-08-29 22:05:48', '2018-09-07 21:54:45', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
+	(0000000014, '2018-08-29 22:34:55', '2018-09-07 21:54:45', 1, 5, 4, 3, 'นาย ภานุพงศ์  แววไธสง', 5, 'sa12121', '1100700655601', '087994211', NULL, '', 'Image20180829223452.jpg', NULL, '1100700655601.jpg', '201808292234557', 1),
+	(0000000016, '2018-09-03 00:33:00', '2018-09-07 21:54:45', 1, 4, 5, 3, 'นาย ภานุพงศ์  แววไธสง', 5, 'aaa-65454', '1100700655601', NULL, 1, '', 'Image20180903003241.jpg', NULL, '1100700655601.jpg', '201809030033005', 1),
 	(0000000017, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
 	(0000000018, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
 	(0000000019, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
@@ -487,7 +577,20 @@ INSERT INTO `tbl_visitor` (`visit_id`, `visit_datetime_in`, `visit_datetime_out`
 	(0000000079, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
 	(0000000080, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
 	(0000000081, '2018-08-29 22:05:48', '2018-08-29 22:08:41', 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
-	(0000000082, '2018-09-03 00:46:15', NULL, 1, 6, 6, 6, 'นาย ภานุพงศ์  แววไธสง', 4, 'ST-9787', '1100700655601', NULL, 1, '', 'Image20180903004603.jpg', NULL, '1100700655601.jpg', '201809030046155', 1);
+	(0000000082, '2018-09-03 00:46:15', '2018-09-07 21:54:45', 1, 6, 6, 6, 'นาย ภานุพงศ์  แววไธสง', 4, 'ST-9787', '1100700655601', NULL, 1, '', 'Image20180903004603.jpg', NULL, '1100700655601.jpg', '201809030046155', 1),
+	(0000000083, '2018-09-04 23:56:08', '2018-09-07 21:54:45', 1, 4, 19, 9, 'นาย ภานุพงศ์  แววไธสง', 10, 'กข 1111', '1100700655601', NULL, 1, '', 'Image20180904235557.jpg', NULL, '1100700655601.jpg', '201809042356080', 1),
+	(0000000084, '2018-09-05 00:04:46', '2018-09-07 21:54:45', 1, 4, 1, 3, 'นาย ภานุพงศ์  แววไธสง', 11, 'กข 1111', '1100700655601', NULL, 1, '', 'Image20180905000438.jpg', NULL, '1100700655601.jpg', '201809050004459', 1),
+	(0000000085, '2018-09-05 00:08:16', '2018-09-07 21:54:45', 1, 4, 1, 2, 'นาย ภานุพงศ์  แววไธสง', 12, '5554', '1100700655601', NULL, 1, '', 'Image20180905000438.jpg', NULL, '1100700655601.jpg', '201809050008157', 1),
+	(0000000086, '2018-09-08 21:54:45', '2018-09-08 21:54:45', 1, 6, 21, 10, 'TommyX', 7, 'aa-3215456', '1321654654564', NULL, 1, '', 'Image20180907215352.jpg', NULL, '', '201809072154453', 2),
+	(0000000087, '2018-08-29 22:05:48', NULL, 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
+	(0000000088, '2018-08-29 22:05:48', NULL, 1, 4, 29, 3, 'นาย ภานุพงศ์  แววไธสง', 10, 'กท1234', '1100700655601', '0901234567', NULL, '', 'Image20180829220542.jpg', NULL, '1100700655601.jpg', '201808292205487', 2),
+	(0000000089, '2018-09-07 21:54:45', '2018-09-07 21:54:45', 1, 6, 21, 10, 'TommyX', 7, 'aa-3215456', '1321654654564', NULL, 1, '', 'Image20180907215352.jpg', NULL, '', '201809072154453', 2),
+	(0000000090, '2018-09-07 21:54:45', '2018-09-07 21:54:45', 1, 6, 21, 10, 'TommyX', 7, 'aa-3215456', '1321654654564', NULL, 1, '', 'Image20180907215352.jpg', NULL, '', '201809072154453', 2),
+	(0000000091, '2018-09-07 21:54:45', '2018-09-07 21:54:45', 1, 6, 21, 10, 'TommyX', 7, 'aa-3215456', '1321654654564', NULL, 1, '', 'Image20180907215352.jpg', NULL, '', '201809072154453', 2),
+	(0000000092, '2018-09-07 21:54:45', '2018-09-07 21:54:45', 1, 6, 21, 10, 'TommyX', 7, 'aa-3215456', '1321654654564', NULL, 1, '', 'Image20180907215352.jpg', NULL, '', '201809072154453', 2),
+	(0000000093, '2018-09-07 21:54:45', '2018-09-07 21:54:45', 1, 6, 21, 10, 'TommyX', 7, 'aa-3215456', '1321654654564', NULL, 1, '', 'Image20180907215352.jpg', NULL, '', '201809072154453', 2),
+	(0000000094, '2018-09-08 01:45:54', '2018-09-08 01:47:12', 1, 6, 21, 10, 'นาย ภานุพงศ์  แววไธสง', 8, 'aa21212', '1100700655601', NULL, 1, '', 'Image20180908014531.jpg', NULL, '1100700655601.jpg', '201809080145530', 2),
+	(0000000095, '2018-09-08 02:03:24', NULL, 1, 2, 18, 10, 'นาย ภานุพงศ์  แววไธสง', 10, 'aa-1224524', '1100700655601', NULL, 1, 'ok', 'Image20180908020303.jpg', NULL, '1100700655601.jpg', '201809080203247', 1);
 /*!40000 ALTER TABLE `tbl_visitor` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -34,6 +34,7 @@ namespace BIGCarParkSystem
             {
                 delete_history_bt.Visible = true;
             }
+            blacklist_logo_pb.Visible = false;
         }
 
         private void ViewVisitHistoryForm_Load(object sender, EventArgs e)
@@ -81,7 +82,11 @@ namespace BIGCarParkSystem
 
                     if (visitorDT.Rows[0]["image_1"].ToString() != "")
                     {
-                        out_image1_pb.Image = Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString());
+                        if(System.IO.File.Exists(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString())){
+                            Image img = fn.resizeImage(Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString()), new Size(450, 350));
+                            out_image1_pb.Image = img;
+                        }
+                      
                     }
                     //if (visitorDT.Rows[0]["image_2"].ToString() != "")
                     //{
@@ -89,7 +94,16 @@ namespace BIGCarParkSystem
                     //}
                     if (visitorDT.Rows[0]["idcard_image"].ToString() != "")
                     {
-                        out_idcardpic_pb.Image = Image.FromFile(VariableDB.PathIdCardImage + visitorDT.Rows[0]["idcard_image"].ToString());
+                        if (System.IO.File.Exists(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString()))
+                        {
+                            out_idcardpic_pb.Image = Image.FromFile(VariableDB.PathIdCardImage + visitorDT.Rows[0]["idcard_image"].ToString());
+                        }
+                    }
+
+                    DataTable blDT = vc.checkBlacklist(visitorDT.Rows[0]["id_card"].ToString());
+                    if(blDT.Rows.Count > 0)
+                    {
+                        blacklist_logo_pb.Visible = true;
                     }
                 }
             }
@@ -136,6 +150,41 @@ namespace BIGCarParkSystem
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void black_list_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "ยืนยันการบันทึก", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                VisitorClass vc = new VisitorClass();
+                DataTable visitorDT = vc.getVisitorInfoById(VisitID);
+                if (visitorDT.Rows.Count > 0)
+                {
+                    string fullname = visitorDT.Rows[0]["visit_name"].ToString();
+                    string id_card = visitorDT.Rows[0]["id_card"].ToString();
+                    DataTable blDT = vc.checkBlacklist(id_card);
+                    if (blDT.Rows.Count < 1)
+                    {
+                        int rowCount = vc.InsertBlacklist(id_card, fullname);
+                        if (rowCount > 0)
+                        {
+                            MessageBox.Show(this, "บันทึกแบล็คลิสสำเร็จ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "บุคคลนี้เคยมีในรายชื่อแบล็คลิสแล้ว", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(this, "ไม่พบข้อมูลในระบบ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
         }
     }
 }

@@ -188,6 +188,80 @@ namespace BIGCarParkSystem.Class
             DB.CloseConnection();
             return rowCount;
         }
+        public DataTable checkBlacklist(string id_card)
+        {
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+                    dt.Clear();
+                    string sql = "select * from tbl_blacklist where id_card=@id_card";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                    cmd.Parameters.AddWithValue("@id_card", id_card);
+                    adr.SelectCommand = cmd;
+                    adr.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return dt;
+        }
+
+        public DataTable checkVititorNotOut()
+        {
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+                    dt.Clear();
+                    string sql = "select * from tbl_visitor where visit_datetime_out is null and date(visit_datetime_in)=date(now())";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                   
+                    adr.SelectCommand = cmd;
+                    adr.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return dt;
+        }
+        public int InsertBlacklist(string id_card, string fullname)
+        {
+            int rowCount = 0;
+            try
+            {
+                if (DB.OpenConnection() == true)
+                {
+
+
+                    string sql = "INSERT INTO `tbl_blacklist` (`id_card`, `fullname`, `create_date`) VALUES (@id_card, @fullname, now());";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
+                    cmd.Parameters.AddWithValue("@id_card", id_card);
+                    cmd.Parameters.AddWithValue("@fullname", fullname);
+
+                    rowCount = cmd.ExecuteNonQuery();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            DB.CloseConnection();
+            return rowCount;
+        }
         public int DeleteVisitor(string visitId)
         {
             int rowCount = 0;

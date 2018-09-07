@@ -17,18 +17,33 @@ namespace BIGCarParkSystem
    
     public partial class LoginForm : MetroFramework.Forms.MetroForm
     {
-        private int isTest = 1;
+        private int isTest = 0;
         FunctionClass fn = new FunctionClass();
-        MemberClass member = new MemberClass();
-       
+
         public LoginForm()
         {
             InitializeComponent();
+           
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            //MessageBox.Show(VariableDB.ConfigFile);
+          
+         
+            
+            if (!System.IO.File.Exists(VariableDB.ConfigFile))
+            {
+                MessageBox.Show(this, "กรุณาตรวจสอบ Config File (server.big)", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            VariableDB.ReadConfig();
+            //MessageBox.Show(VariableDB.Database);
+
+           
             MysqlDB DB = new MysqlDB();
+           
+            MemberClass member = new MemberClass();
             this.Text = "Login";
 
             //connect DB
@@ -64,7 +79,7 @@ namespace BIGCarParkSystem
                 MetroMessageBox.Show(this, "กรูณากรอกข้อมูลให้ครบ!");
                 return;
             }
-
+            MemberClass member = new MemberClass();
             DataTable dt = member.getUserLogin(Username, Password);
 
             if (dt.Rows.Count < 1)

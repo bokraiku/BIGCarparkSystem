@@ -1,0 +1,5 @@
+﻿alertTime=60000
+db_ip=localhost
+db_user=root
+db_pass=db#local@127
+db_name=big_carpark
