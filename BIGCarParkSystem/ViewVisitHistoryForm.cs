@@ -84,7 +84,10 @@ namespace BIGCarParkSystem
                     {
                         if(System.IO.File.Exists(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString())){
                             Image img = fn.resizeImage(Image.FromFile(VariableDB.PathImage + visitorDT.Rows[0]["image_1"].ToString()), new Size(450, 350));
+                            Image imgClone = (Image)img.Clone();
                             out_image1_pb.Image = img;
+
+
                         }
                       
                     }
@@ -185,6 +188,12 @@ namespace BIGCarParkSystem
                     return;
                 }
             }
+        }
+
+        private void ViewVisitHistoryForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            out_idcardpic_pb = null;
+            
         }
     }
 }

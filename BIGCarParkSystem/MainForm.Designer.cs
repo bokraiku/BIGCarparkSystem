@@ -111,6 +111,11 @@
             this.his_head_panel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.his_noout_rb = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.to_datetime = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.from_datetime = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.his_search_box = new MetroFramework.Controls.MetroTextBox();
             this.userTab = new MetroFramework.Controls.MetroTabPage();
@@ -143,11 +148,6 @@
             this.delete_objective = new System.Windows.Forms.Button();
             this.objective_datagrid = new System.Windows.Forms.DataGridView();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.from_datetime = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.to_datetime = new System.Windows.Forms.DateTimePicker();
-            this.his_noout_rb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_display_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camera1_pb)).BeginInit();
             this.metroPanel1.SuspendLayout();
@@ -262,7 +262,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::BIGCarParkSystem.Properties.Resources.Logo_Interguard;
+            this.pictureBox1.Image = global::BIGCarParkSystem.Properties.Resources.logo_program_01;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -283,10 +283,10 @@
             this.panel2.Controls.Add(this.objective_select_btn);
             this.panel2.Controls.Add(this.cartype_select_btn);
             this.panel2.Controls.Add(this.cartype_tb);
+            this.panel2.Controls.Add(this.capture_btn);
             this.panel2.Controls.Add(this.scancard_btn);
             this.panel2.Controls.Add(this.company_tb);
             this.panel2.Controls.Add(this.select_company_btn);
-            this.panel2.Controls.Add(this.capture_btn);
             this.panel2.Controls.Add(this.idcard_pb);
             this.panel2.Controls.Add(this.contact_tb);
             this.panel2.Controls.Add(this.objective_tb);
@@ -344,7 +344,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Image = global::BIGCarParkSystem.Properties.Resources.icons8_trash_35;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(452, 613);
+            this.button1.Location = new System.Drawing.Point(434, 604);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 58);
@@ -413,7 +413,7 @@
             this.save_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.save_btn.Image = global::BIGCarParkSystem.Properties.Resources.icons8_save_50;
             this.save_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.save_btn.Location = new System.Drawing.Point(263, 611);
+            this.save_btn.Location = new System.Drawing.Point(13, 604);
             this.save_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.save_btn.Name = "save_btn";
             this.save_btn.Size = new System.Drawing.Size(113, 58);
@@ -535,7 +535,7 @@
             this.scancard_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.scancard_btn.Image = global::BIGCarParkSystem.Properties.Resources.user_icon;
             this.scancard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.scancard_btn.Location = new System.Drawing.Point(2, 611);
+            this.scancard_btn.Location = new System.Drawing.Point(13, 14);
             this.scancard_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.scancard_btn.Name = "scancard_btn";
             this.scancard_btn.Size = new System.Drawing.Size(135, 58);
@@ -605,7 +605,7 @@
             this.capture_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.capture_btn.Image = global::BIGCarParkSystem.Properties.Resources.Camera;
             this.capture_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.capture_btn.Location = new System.Drawing.Point(141, 611);
+            this.capture_btn.Location = new System.Drawing.Point(170, 14);
             this.capture_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.capture_btn.Name = "capture_btn";
             this.capture_btn.Size = new System.Drawing.Size(118, 58);
@@ -935,7 +935,7 @@
             this.main_tabcontrol.Location = new System.Drawing.Point(22, 30);
             this.main_tabcontrol.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.main_tabcontrol.Name = "main_tabcontrol";
-            this.main_tabcontrol.SelectedIndex = 2;
+            this.main_tabcontrol.SelectedIndex = 0;
             this.main_tabcontrol.Size = new System.Drawing.Size(1556, 850);
             this.main_tabcontrol.TabIndex = 2;
             this.main_tabcontrol.UseSelectable = true;
@@ -1725,6 +1725,52 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ค้นหาประวัติเข้าออก";
             // 
+            // his_noout_rb
+            // 
+            this.his_noout_rb.AutoSize = true;
+            this.his_noout_rb.Location = new System.Drawing.Point(16, 151);
+            this.his_noout_rb.Name = "his_noout_rb";
+            this.his_noout_rb.Size = new System.Drawing.Size(132, 40);
+            this.his_noout_rb.TabIndex = 14;
+            this.his_noout_rb.Text = "ไม่มีเวลาออก";
+            this.his_noout_rb.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(213, 99);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 36);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "ถึง";
+            // 
+            // to_datetime
+            // 
+            this.to_datetime.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.to_datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.to_datetime.Location = new System.Drawing.Point(254, 98);
+            this.to_datetime.Name = "to_datetime";
+            this.to_datetime.Size = new System.Drawing.Size(109, 36);
+            this.to_datetime.TabIndex = 11;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 36);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "จาก";
+            // 
+            // from_datetime
+            // 
+            this.from_datetime.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.from_datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.from_datetime.Location = new System.Drawing.Point(60, 98);
+            this.from_datetime.Name = "from_datetime";
+            this.from_datetime.Size = new System.Drawing.Size(109, 36);
+            this.from_datetime.TabIndex = 9;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Highlight;
@@ -2282,52 +2328,6 @@
             // metroStyleManager1
             // 
             this.metroStyleManager1.Owner = this;
-            // 
-            // from_datetime
-            // 
-            this.from_datetime.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.from_datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_datetime.Location = new System.Drawing.Point(60, 98);
-            this.from_datetime.Name = "from_datetime";
-            this.from_datetime.Size = new System.Drawing.Size(109, 36);
-            this.from_datetime.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 36);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "จาก";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(213, 99);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 36);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "ถึง";
-            // 
-            // to_datetime
-            // 
-            this.to_datetime.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.to_datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_datetime.Location = new System.Drawing.Point(254, 98);
-            this.to_datetime.Name = "to_datetime";
-            this.to_datetime.Size = new System.Drawing.Size(109, 36);
-            this.to_datetime.TabIndex = 11;
-            // 
-            // his_noout_rb
-            // 
-            this.his_noout_rb.AutoSize = true;
-            this.his_noout_rb.Location = new System.Drawing.Point(16, 151);
-            this.his_noout_rb.Name = "his_noout_rb";
-            this.his_noout_rb.Size = new System.Drawing.Size(132, 40);
-            this.his_noout_rb.TabIndex = 14;
-            this.his_noout_rb.Text = "ไม่มีเวลาออก";
-            this.his_noout_rb.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

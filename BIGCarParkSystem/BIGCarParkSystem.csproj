@@ -280,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\background.jpg" />
+    <None Include="Resources\logo program-01.png" />
     <None Include="Resources\blacklist_logo.png" />
     <None Include="Resources\blacklist_45.png" />
     <None Include="Resources\blacklist.png" />

@@ -73,7 +73,7 @@ namespace BIGCarParkSystem.Class
 
         public string getRanFile()
         {
-            return DateTime.Now.ToString("yyyyMMddHHmmss"); // case sensitive
+            return DateTime.Now.ToString("yyyyMMddHHmm"); // case sensitive
         }
 
         public string ConvertDate(string date)

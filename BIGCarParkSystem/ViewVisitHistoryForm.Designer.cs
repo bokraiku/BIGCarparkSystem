@@ -772,6 +772,7 @@
             this.Resizable = false;
             this.Text = "ประวัติการใช้งาน";
             this.TransparencyKey = System.Drawing.Color.Empty;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewVisitHistoryForm_FormClosing);
             this.Load += new System.EventHandler(this.ViewVisitHistoryForm_Load);
             this.panelBG.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);

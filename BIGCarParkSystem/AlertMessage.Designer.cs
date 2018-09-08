@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.showuser_panel = new System.Windows.Forms.Panel();
-            this.showList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.showList = new System.Windows.Forms.ListBox();
             this.showuser_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,17 +44,6 @@
             this.showuser_panel.Size = new System.Drawing.Size(760, 395);
             this.showuser_panel.TabIndex = 0;
             // 
-            // showList
-            // 
-            this.showList.Font = new System.Drawing.Font("Angsana New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showList.FormattingEnabled = true;
-            this.showList.ItemHeight = 29;
-            this.showList.Location = new System.Drawing.Point(3, 61);
-            this.showList.Name = "showList";
-            this.showList.Size = new System.Drawing.Size(754, 323);
-            this.showList.Sorted = true;
-            this.showList.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -64,6 +53,17 @@
             this.label1.Size = new System.Drawing.Size(224, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "ตรวจสอบรายชื่อยังไม่สแกนออก";
+            // 
+            // showList
+            // 
+            this.showList.Font = new System.Drawing.Font("Angsana New", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showList.FormattingEnabled = true;
+            this.showList.ItemHeight = 33;
+            this.showList.Location = new System.Drawing.Point(3, 61);
+            this.showList.Name = "showList";
+            this.showList.Size = new System.Drawing.Size(754, 301);
+            this.showList.Sorted = true;
+            this.showList.TabIndex = 0;
             // 
             // AlertMessage
             // 

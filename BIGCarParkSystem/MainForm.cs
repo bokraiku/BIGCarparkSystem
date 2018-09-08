@@ -87,7 +87,8 @@ namespace BIGCarParkSystem
             //this.notifyIcon1.Visible = true;
             //this.notifyIcon1.ShowBalloonTip(3);
 
-           
+
+
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -345,7 +346,7 @@ namespace BIGCarParkSystem
 
         protected int ReadCard()
         {
-
+            idcard_image = null;
             String strTerminal = this.CardReader;
 
             IntPtr obj = selectReader(strTerminal);
@@ -434,20 +435,38 @@ namespace BIGCarParkSystem
                 }
                 else
                 {
-                    //m_picPhoto
-                    Image img = Image.FromStream(new MemoryStream(byteImage));
-                    Bitmap MyImage = new Bitmap(img, idcard_pb.Width - 2, idcard_pb.Height - 2);
-                    idcard_pb.Image = (Image)MyImage;
-
-                    string name = NIDNum + ".jpg";
-                    string file = Application.StartupPath + @"\imagesidcard" + @"\" + name;
-                    if (!Directory.Exists(Application.StartupPath + @"\imagesidcard"))
+                    try
                     {
-                        System.IO.Directory.CreateDirectory(Application.StartupPath + @"\imagesidcard");
-                    }
+                        //m_picPhoto
+                        Image img = Image.FromStream(new MemoryStream(byteImage));
+                        Bitmap MyImage = new Bitmap(img, idcard_pb.Width - 2, idcard_pb.Height - 2);
+                        
+                        idcard_pb.Image = (Image)MyImage;
 
-                    MyImage.Save(file, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    idcard_image = name;
+                        string name = NIDNum + ".jpg";
+                        string file = Application.StartupPath + @"\imagesidcard" + @"\" + name;
+                        if (System.IO.File.Exists(file))
+                        {
+                            System.IO.File.Delete(file);
+                        }
+                        if (!Directory.Exists(Application.StartupPath + @"\imagesidcard"))
+                        {
+                            System.IO.Directory.CreateDirectory(Application.StartupPath + @"\imagesidcard");
+                        }
+
+                        MyImage.Save(file, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        
+                        
+                        idcard_image = name;
+                        img.Dispose();
+                    
+                    }
+                    catch (Exception e)
+                    {
+                        //Console.log(e.Message);
+                        MessageBox.Show(e.Message);
+                    }
+                   
                 }
 
                 RDNID.disconnectCardRD(obj);
@@ -711,13 +730,13 @@ namespace BIGCarParkSystem
                 //    return;
                 //}
 
-                if (carId.Equals(String.Empty))
-                {
-                    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
-                    MessageBox.Show(this, "กรุณากรอกทะเบียนรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    carid_tb.Focus();
-                    return;
-                }
+                //if (carId.Equals(String.Empty))
+                //{
+                //    //MetroMessageBox.Show(this, "กรุณาระบุชื่อ-สกุล");
+                //    MessageBox.Show(this, "กรุณากรอกทะเบียนรถ", "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    carid_tb.Focus();
+                //    return;
+                //}
 
                 if (Company.Equals(String.Empty))
                 {
@@ -818,6 +837,7 @@ namespace BIGCarParkSystem
 
                 String NewBar = fn.getRanFile();
                 String BarcodeFull = NewBar + Barcode.CheckSumBarcode(NewBar).ToString();
+   
                 Barcode.GenBarcodeImg(BarcodeFull);
 
                 VisitorClass vc = new VisitorClass();

@@ -68,7 +68,7 @@ namespace BIGCarParkSystem.Class
                             " inner join tbl_objective obt on vs.obt_id = obt.obt_id" +
                             " inner join tbl_staff_contact sc on vs.contact_id = sc.contact_id" +
                             " inner join tbl_account acc on vs.staff_id = acc.id " +
-                            " order by vs.visit_datetime_in desc";
+                            " order by vs.visit_id desc ,vs.visit_datetime_in desc";
                     MySqlCommand cmd = new MySqlCommand(sql, DB.connection);
             
                     adr.SelectCommand = cmd;

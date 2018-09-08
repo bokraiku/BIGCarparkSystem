@@ -63,7 +63,7 @@ namespace BIGCarParkSystem.Class
 
             };
             Image img = barcode.Encode(BarcodeLib.TYPE.EAN13, Barcode);
-            String path = Application.StartupPath + "/tempBarcode";
+            String path = VariableDB.PathBarcodeImage;
             if (!Directory.Exists(path))
             {
                 DirectoryInfo di = Directory.CreateDirectory(path);

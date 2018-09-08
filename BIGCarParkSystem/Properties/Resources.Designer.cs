@@ -273,6 +273,16 @@ namespace BIGCarParkSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_program_01 {
+            get {
+                object obj = ResourceManager.GetObject("logo program-01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap steel_background_high_definition_wallpaper_14570 {
             get {
                 object obj = ResourceManager.GetObject("steel-background-high-definition-wallpaper-14570", resourceCulture);
