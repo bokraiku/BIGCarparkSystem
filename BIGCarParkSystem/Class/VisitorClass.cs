@@ -87,7 +87,7 @@ namespace BIGCarParkSystem.Class
         {
             try
             {
-                if (DB.OpenConnection() == true)
+                //if (DB.OpenConnection() == true)
                 {
 
                     dt.Clear();

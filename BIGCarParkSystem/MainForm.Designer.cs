@@ -45,10 +45,10 @@
             this.objective_select_btn = new System.Windows.Forms.Button();
             this.cartype_select_btn = new System.Windows.Forms.Button();
             this.cartype_tb = new MetroFramework.Controls.MetroTextBox();
+            this.capture_btn = new System.Windows.Forms.Button();
             this.scancard_btn = new System.Windows.Forms.Button();
             this.company_tb = new MetroFramework.Controls.MetroTextBox();
             this.select_company_btn = new System.Windows.Forms.Button();
-            this.capture_btn = new System.Windows.Forms.Button();
             this.idcard_pb = new System.Windows.Forms.PictureBox();
             this.contact_tb = new MetroFramework.Controls.MetroTextBox();
             this.objective_tb = new MetroFramework.Controls.MetroTextBox();
@@ -526,6 +526,25 @@
             this.cartype_tb.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.cartype_tb.Click += new System.EventHandler(this.cartype_tb_Click);
             // 
+            // capture_btn
+            // 
+            this.capture_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.capture_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.capture_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.capture_btn.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capture_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.capture_btn.Image = global::BIGCarParkSystem.Properties.Resources.Camera;
+            this.capture_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.capture_btn.Location = new System.Drawing.Point(170, 14);
+            this.capture_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.capture_btn.Name = "capture_btn";
+            this.capture_btn.Size = new System.Drawing.Size(118, 58);
+            this.capture_btn.TabIndex = 25;
+            this.capture_btn.Text = "ถ่ายรูป";
+            this.capture_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.capture_btn.UseVisualStyleBackColor = false;
+            this.capture_btn.Click += new System.EventHandler(this.capture_btn_Click);
+            // 
             // scancard_btn
             // 
             this.scancard_btn.BackColor = System.Drawing.SystemColors.Highlight;
@@ -595,25 +614,6 @@
             this.select_company_btn.Text = "เลือก (F5)";
             this.select_company_btn.UseVisualStyleBackColor = false;
             this.select_company_btn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // capture_btn
-            // 
-            this.capture_btn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.capture_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.capture_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.capture_btn.Font = new System.Drawing.Font("Angsana New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.capture_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.capture_btn.Image = global::BIGCarParkSystem.Properties.Resources.Camera;
-            this.capture_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.capture_btn.Location = new System.Drawing.Point(170, 14);
-            this.capture_btn.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.capture_btn.Name = "capture_btn";
-            this.capture_btn.Size = new System.Drawing.Size(118, 58);
-            this.capture_btn.TabIndex = 25;
-            this.capture_btn.Text = "ถ่ายรูป";
-            this.capture_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.capture_btn.UseVisualStyleBackColor = false;
-            this.capture_btn.Click += new System.EventHandler(this.capture_btn_Click);
             // 
             // idcard_pb
             // 

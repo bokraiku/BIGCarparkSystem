@@ -23,6 +23,8 @@
               <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username" type="xs:string" minOccurs="0" />
               <xs:element name="visit_name" msprop:Generator_ColumnVarNameInTable="columnvisit_name" msprop:Generator_ColumnPropNameInRow="visit_name" msprop:Generator_ColumnPropNameInTable="visit_nameColumn" msprop:Generator_UserColumnName="visit_name" type="xs:string" minOccurs="0" />
               <xs:element name="contact_name" msprop:Generator_ColumnVarNameInTable="columncontact_name" msprop:Generator_ColumnPropNameInRow="contact_name" msprop:Generator_ColumnPropNameInTable="contact_nameColumn" msprop:Generator_UserColumnName="contact_name" type="xs:string" minOccurs="0" />
+              <xs:element name="obt_name" msprop:Generator_ColumnVarNameInTable="columnobt_name" msprop:Generator_ColumnPropNameInRow="obt_name" msprop:Generator_ColumnPropNameInTable="obt_nameColumn" msprop:Generator_UserColumnName="obt_name" type="xs:string" minOccurs="0" />
+              <xs:element name="visitor_amount" msprop:Generator_ColumnVarNameInTable="columnvisitor_amount" msprop:Generator_ColumnPropNameInRow="visitor_amount" msprop:Generator_ColumnPropNameInTable="visitor_amountColumn" msprop:Generator_UserColumnName="visitor_amount" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
