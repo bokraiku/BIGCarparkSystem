@@ -118,3 +118,4 @@ C:\Users\BigPC\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\Crys
 C:\Users\BigPC\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\BigPC\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\BigPC\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\BigPC\Documents\GitHub\BIGCarparkSystem\BIGCarParkSystem\obj\Debug\BIGCarParkSystem.csprojAssemblyReference.cache

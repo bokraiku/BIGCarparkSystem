@@ -299,7 +299,7 @@ namespace BIGCarParkSystem.report_dataset {
             
             private global::System.Data.DataColumn columnvisitor_amount;
             
-            private global::System.Data.DataColumn columnvisit_company;
+            private global::System.Data.DataColumn columncom_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -416,9 +416,9 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn visit_companyColumn {
+            public global::System.Data.DataColumn com_nameColumn {
                 get {
-                    return this.columnvisit_company;
+                    return this.columncom_name;
                 }
             }
             
@@ -459,7 +459,7 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VisitorDataSetRow AddVisitorDataSetRow(string visit_id, string visit_datetime_in, string barcode_id, string id_card, string car_id, string username, string visit_name, string contact_name, string obt_name, string visitor_amount, string visit_company) {
+            public VisitorDataSetRow AddVisitorDataSetRow(string visit_id, string visit_datetime_in, string barcode_id, string id_card, string car_id, string username, string visit_name, string contact_name, string obt_name, string visitor_amount, string com_name) {
                 VisitorDataSetRow rowVisitorDataSetRow = ((VisitorDataSetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         visit_id,
@@ -472,7 +472,7 @@ namespace BIGCarParkSystem.report_dataset {
                         contact_name,
                         obt_name,
                         visitor_amount,
-                        visit_company};
+                        com_name};
                 rowVisitorDataSetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVisitorDataSetRow);
                 return rowVisitorDataSetRow;
@@ -505,7 +505,7 @@ namespace BIGCarParkSystem.report_dataset {
                 this.columncontact_name = base.Columns["contact_name"];
                 this.columnobt_name = base.Columns["obt_name"];
                 this.columnvisitor_amount = base.Columns["visitor_amount"];
-                this.columnvisit_company = base.Columns["visit_company"];
+                this.columncom_name = base.Columns["com_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -531,8 +531,8 @@ namespace BIGCarParkSystem.report_dataset {
                 base.Columns.Add(this.columnobt_name);
                 this.columnvisitor_amount = new global::System.Data.DataColumn("visitor_amount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvisitor_amount);
-                this.columnvisit_company = new global::System.Data.DataColumn("visit_company", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvisit_company);
+                this.columncom_name = new global::System.Data.DataColumn("com_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncom_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -835,17 +835,17 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string visit_company {
+            public string com_name {
                 get {
                     try {
-                        return ((string)(this[this.tableVisitorDataSet.visit_companyColumn]));
+                        return ((string)(this[this.tableVisitorDataSet.com_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'visit_company\' in table \'VisitorDataSet\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'com_name\' in table \'VisitorDataSet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVisitorDataSet.visit_companyColumn] = value;
+                    this[this.tableVisitorDataSet.com_nameColumn] = value;
                 }
             }
             
@@ -971,14 +971,14 @@ namespace BIGCarParkSystem.report_dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Isvisit_companyNull() {
-                return this.IsNull(this.tableVisitorDataSet.visit_companyColumn);
+            public bool Iscom_nameNull() {
+                return this.IsNull(this.tableVisitorDataSet.com_nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Setvisit_companyNull() {
-                this[this.tableVisitorDataSet.visit_companyColumn] = global::System.Convert.DBNull;
+            public void Setcom_nameNull() {
+                this[this.tableVisitorDataSet.com_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
